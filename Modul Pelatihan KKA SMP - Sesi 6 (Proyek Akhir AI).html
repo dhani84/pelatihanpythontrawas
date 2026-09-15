@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///Users/mac/Downloads/gemini-code-1789196779661.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pelatihan KKA SMP - Sesi 6 (Proyek Akhir AI)</title>
+    
+    <link href="./Modul Pelatihan KKA SMP - Sesi 6 (Proyek Akhir AI)_files/css2" rel="stylesheet">
+    <link href="./Modul Pelatihan KKA SMP - Sesi 6 (Proyek Akhir AI)_files/prism-tomorrow.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-utama: #0f172a; --bg-kartu: #1e293b; --teks-utama: #f8fafc; --teks-sekunder: #94a3b8;
+            --aksen-hijau: #34d399; --aksen-kuning: #fbbf24; --aksen-biru: #38bdf8; --aksen-merah: #f87171;
+            --aksen-ungu: #c084fc; --garis-batas: #334155;
+        }
+
+        body { margin: 0; padding: 0; overflow: hidden; background-color: var(--bg-utama); color: var(--teks-utama); font-family: 'Montserrat', sans-serif; background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 30px 30px; }
+        #wadah-presentasi { position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .salindia { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: scale(0.98); padding: 60px 100px; box-sizing: border-box; overflow-y: auto; }
+        .salindia.aktif { opacity: 1; visibility: visible; transform: scale(1); }
+        .label-sesi { position: absolute; top: 40px; right: 80px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--aksen-biru); color: var(--aksen-biru); padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        h1 { font-size: 3.2rem; font-weight: 700; color: var(--aksen-hijau); margin-bottom: 10px; line-height: 1.2;}
+        h2 { font-size: 2.2rem; font-weight: 600; color: var(--aksen-kuning); margin-bottom: 25px; border-bottom: 1px solid var(--garis-batas); padding-bottom: 10px; width: 100%;}
+        h3 { font-size: 1.5rem; font-weight: 600; color: var(--aksen-biru); margin-top: 0; margin-bottom: 15px;}
+        p, li { font-size: 1.3rem; line-height: 1.6; color: var(--teks-utama); }
+        ul, ol { margin-left: 20px; margin-bottom: 20px;}
+        li { margin-bottom: 10px; }
+
+        .rata-tengah { text-align: center; width: 100%; align-items: center;}
+        .teks-redup { color: var(--teks-sekunder); font-size: 1.1rem; }
+        .teks-tebal { font-weight: 600; }
+        .warna-hijau { color: var(--aksen-hijau); } .warna-biru { color: var(--aksen-biru); } .warna-kuning { color: var(--aksen-kuning); } .warna-ungu { color: var(--aksen-ungu); } .warna-merah { color: var(--aksen-merah); }
+
+        .tata-letak-ganda { display: flex; width: 100%; gap: 40px; align-items: stretch; justify-content: space-between; }
+        .tata-letak-tiga { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; width: 100%; }
+        .kolom { flex: 1; display: flex; flex-direction: column;}
+
+        .kartu { background: var(--bg-kartu); border-radius: 8px; padding: 25px; border: 1px solid var(--garis-batas); width: 100%; box-sizing: border-box; box-shadow: 0 10px 25px rgba(0,0,0,0.3); height: 100%; }
+
+        .kepala-jendela { background: #0f172a; padding: 10px 15px; border-radius: 8px 8px 0 0; display: flex; gap: 8px; border-bottom: 1px solid var(--garis-batas); margin: -25px -25px 15px -25px; align-items: center; }
+        .titik { width: 10px; height: 10px; border-radius: 50%; }
+        .titik-merah { background: #ef4444; } .titik-kuning { background: #f59e0b; } .titik-hijau { background: #10b981; }
+        .teks-berkas { color: var(--teks-sekunder); font-family: 'Fira Code', monospace; font-size: 0.9rem; margin-left: 10px;}
+
+        pre[class*="language-"] { font-family: 'Fira Code', monospace !important; font-size: 0.95rem !important; border-radius: 0 0 8px 8px !important; margin: 0 !important; background: transparent !important; padding: 0 !important; overflow-x: auto; max-height: 400px;}
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 1.2rem;}
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--garis-batas); }
+        th { background: rgba(56, 189, 248, 0.1); color: var(--aksen-biru); font-weight: 600;}
+        tr:hover { background: #2a3a50; }
+
+        .kotak-info { background: rgba(56, 189, 248, 0.1); border-left: 5px solid var(--aksen-biru); padding: 15px 20px; border-radius: 0 4px 4px 0; margin-top: 15px; margin-bottom: 15px; }
+        .kotak-info.peringatan { background: rgba(251, 191, 36, 0.1); border-color: var(--aksen-kuning); }
+        .kotak-info.pedagogi { background: rgba(192, 132, 252, 0.1); border-color: var(--aksen-ungu); }
+
+        #kontrol { position: fixed; bottom: 30px; right: 40px; display: flex; gap: 10px; z-index: 1000;}
+        .tombol-nav { background: var(--bg-kartu); color: var(--teks-utama); border: 1px solid var(--garis-batas); width: 45px; height: 45px; border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
+        .tombol-nav:hover { background: var(--garis-batas); }
+        #bilah-kemajuan { position: fixed; bottom: 0; left: 0; height: 4px; background: var(--aksen-biru); width: 0%; transition: width 0.3s; z-index: 1000;}
+        #penghitung-salindia { position: fixed; bottom: 30px; left: 40px; font-family: 'Fira Code', monospace; color: var(--teks-sekunder); font-size: 1.1rem;}
+    </style>
+</head>
+<body>
+
+    <div id="bilah-kemajuan" style="width: 90%;"></div>
+    <div id="penghitung-salindia">18 / 21 (Sesi 6)</div>
+    <div id="kontrol">
+        <button class="tombol-nav" onclick="salindiaSebelumnya()">❮</button>
+        <button class="tombol-nav" onclick="salindiaSelanjutnya()">❯</button>
+    </div>
+
+    <div id="wadah-presentasi">
+
+        <!-- ================= SALINDIA 1 ================= -->
+        <div class="salindia rata-tengah">
+            <h1 style="margin-top: 80px;" class="warna-hijau">Sesi 6: Proyek Puncak KKA</h1>
+            <h3 style="color: var(--teks-utama); font-weight: 400; font-size: 1.8rem; margin-top: 20px;">Sintesis Kode Kompleks: Membangun Purwarupa Sistem Pakar (AI)</h3>
+            <p class="teks-redup" style="margin-top: 40px;">Pelatihan Guru Koding dan Kecerdasan Artifisial (KKA) Fase D</p>
+        </div>
+
+        <!-- ================= SALINDIA 2 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Objektif Praktikum</div>
+            <h2>Fokus Proyek Akhir</h2>
+            <div class="kartu">
+                <p>Pembelajaran bahasa Python harus bermuara pada implementasi Kecerdasan Artifisial (KKA) sesuai kurikulum. Pada proyek puncak ini, kita akan membimbing siswa merakit sebuah <strong>Sistem Pakar Berbasis Aturan (Rule-Based Expert System)</strong>. Aspek yang divalidasi meliputi:</p>
+                <ul>
+                    <li><span class="warna-kuning teks-tebal">Kecerdasan Artifisial Dasar:</span> Merangkai fungsi (<code>def</code>) untuk bertindak sebagai Mesin Inferensi.</li>
+                    <li><span class="warna-biru teks-tebal">Multivariabel Logika:</span> Mengoperasikan operator logika (<code>and</code>, <code>or</code>) pada struktur percabangan kompleks.</li>
+                    <li><span class="warna-hijau teks-tebal">Siklus Otonom:</span> Menerapkan perulangan <code>while</code> dengan mekanisme pencegahan penumpukan memori.</li>
+                    <li><span class="warna-ungu teks-tebal">Integrasi Profil Lulusan:</span> Mengembangkan algoritma untuk memetakan capaian "8 Dimensi Profil Lulusan".</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 3 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Konsep Dasar AI</div>
+            <h2>Mendefinisikan Sistem Pakar (Expert System)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Sistem Pakar adalah cabang dari Kecerdasan Artifisial yang meniru kemampuan pengambilan keputusan seorang ahli (manusia). Arsitekturnya terdiri atas dua komponen yang akan kita bangun melalui kode Python:</p>
+                    <ol>
+                        <li><strong>Basis Pengetahuan (Knowledge Base):</strong> Berisi fakta dan variabel yang diinput oleh pengguna.</li>
+                        <li><strong>Mesin Inferensi (Inference Engine):</strong> Modul Fungsi (<code>def</code>) yang berisi aturan logika If-Else kompleks untuk menganalisis basis pengetahuan dan menghasilkan konklusi akhir.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 4 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Dekonstruksi Produk</div>
+            <h2>Aplikasi: AI Konselor Deteksi Minat Siswa</h2>
+            <div class="kartu">
+                <p>Skenario Produk: Kita akan menciptakan program yang mampu memberikan rekomendasi ekstrakurikuler atau peminatan secara spesifik. Program akan memberikan tiga pertanyaan diagnostik yang hanya dijawab dengan "Ya" atau "Tidak".</p>
+                <div class="tata-letak-tiga" style="margin-top: 20px;">
+                    <div class="rata-tengah">
+                        <span style="font-size: 3rem;">📥</span>
+                        <p class="warna-biru teks-tebal">Input (Sensor)</p>
+                        <p class="teks-redup">Menangkap 3 Variabel Jawaban (Ya/Tidak)</p>
+                    </div>
+                    <div class="rata-tengah">
+                        <span style="font-size: 3rem;">⚙️</span>
+                        <p class="warna-kuning teks-tebal">Modul Fungsi (AI)</p>
+                        <p class="teks-redup">Menganalisis kombinasi jawaban dengan operator 'and'.</p>
+                    </div>
+                    <div class="rata-tengah">
+                        <span style="font-size: 3rem;">💡</span>
+                        <p class="warna-hijau teks-tebal">Output (Resolusi)</p>
+                        <p class="teks-redup">Mengembalikan (return) rekomendasi presisi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 5 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Tahap Pembuatan (1)</div>
+            <h2>Tahap 1: Membangun Mesin Inferensi (Fungsi)</h2>
+            <p>Langkah awal adalah membangun logika kognitif program (Fungsi). Fungsi ini diletakkan di baris paling atas agar siap dipanggil oleh program utama kapan saja.</p>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">sistem_pakar.py (Bagian 1)</span>
+                </div>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># --- BLOK MESIN INFERENSI KECERDASAN ARTIFISIAL ---</span>
+
+<span class="token keyword">def</span> <span class="token function">mesin_inferensi_minat</span><span class="token punctuation">(</span>logika<span class="token punctuation">,</span> fisik<span class="token punctuation">,</span> seni<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Evaluasi kombinasi multivariabel menggunakan operator 'and'</span>
+    <span class="token keyword">if</span> logika <span class="token operator">==</span> <span class="token string">"Ya"</span> <span class="token keyword">and</span> fisik <span class="token operator">==</span> <span class="token string">"Tidak"</span> <span class="token keyword">and</span> seni <span class="token operator">==</span> <span class="token string">"Tidak"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Mutlak: Klub Pemrograman &amp; Robotika."</span>
+    <span class="token keyword">elif</span> logika <span class="token operator">==</span> <span class="token string">"Tidak"</span> <span class="token keyword">and</span> fisik <span class="token operator">==</span> <span class="token string">"Ya"</span> <span class="token keyword">and</span> seni <span class="token operator">==</span> <span class="token string">"Tidak"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Mutlak: Akademi Olahraga (Atletik/Basket)."</span>
+    <span class="token keyword">elif</span> logika <span class="token operator">==</span> <span class="token string">"Tidak"</span> <span class="token keyword">and</span> fisik <span class="token operator">==</span> <span class="token string">"Tidak"</span> <span class="token keyword">and</span> seni <span class="token operator">==</span> <span class="token string">"Ya"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Mutlak: Sanggar Kesenian &amp; Teater."</span></code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 6 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Tahap Pembuatan (2)</div>
+            <h2>Tahap 2: Menyusun Persyaratan Hibrida</h2>
+            <p>Keunggulan sistem AI terletak pada kemampuannya menganalisis persilangan minat. Kita memperluas klausa <code>elif</code> pada mesin inferensi.</p>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">sistem_pakar.py (Bagian 2 Lanjutan)</span>
+                </div>
+<pre class="language-python" tabindex="0"><code class="language-python">    <span class="token comment"># Analisis Hibrida (Kombinasi 2 Minat)</span>
+    <span class="token keyword">elif</span> logika <span class="token operator">==</span> <span class="token string">"Ya"</span> <span class="token keyword">and</span> fisik <span class="token operator">==</span> <span class="token string">"Ya"</span> <span class="token keyword">and</span> seni <span class="token operator">==</span> <span class="token string">"Tidak"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Hibrida: Klub Esport atau Desain Rekayasa Mekanik."</span>
+    <span class="token keyword">elif</span> logika <span class="token operator">==</span> <span class="token string">"Ya"</span> <span class="token keyword">and</span> fisik <span class="token operator">==</span> <span class="token string">"Tidak"</span> <span class="token keyword">and</span> seni <span class="token operator">==</span> <span class="token string">"Ya"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Hibrida: Animasi Digital &amp; Desain Grafis."</span>
+    
+    <span class="token comment"># Titik akhir pencegahan galat logika (Fallback)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Resolusi Terbuka: Membutuhkan asesmen lanjutan oleh Guru BK."</span></code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 7 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Tahap Pembuatan (3)</div>
+            <h2>Tahap 3: Menghidupkan Otomatisasi Antarmuka</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Setelah fungsi Kecerdasan Artifisial siap, kita merancang antar muka (*interface*) di layar konsol yang mengikat pengguna dalam satu perulangan operasional (Loop).</p>
+                    <div class="kotak-info peringatan">
+                        <p>Pastikan kode program utama ini <strong>sejajar merapat ke kiri (tanpa indentasi)</strong> agar tidak dianggap sebagai bagian dari fungsi <code>def</code> di atasnya.</p>
+                    </div>
+                </div>
+                <div class="kolom kartu">
+                    <div class="kepala-jendela">
+                        <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                        <span class="teks-berkas">sistem_pakar.py (Bagian 3)</span>
+                    </div>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># --- BLOK PROGRAM UTAMA (ANTARMUKA) ---</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"=== AI KONSELOR DETEKSI MINAT SISWA ==="</span><span class="token punctuation">)</span>
+
+status_sistem <span class="token operator">=</span> <span class="token boolean">True</span>
+
+<span class="token keyword">while</span> status_sistem <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n[Mulai Sesi Wawancara]"</span><span class="token punctuation">)</span>
+    nama_siswa <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Identitas Siswa: "</span><span class="token punctuation">)</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 8 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Tahap Pembuatan (4)</div>
+            <h2>Tahap 4: Pengumpulan Basis Pengetahuan</h2>
+            <p>Sistem mengajukan pertanyaan yang jawabannya langsung disimpan ke dalam tiga variabel berbeda untuk kemudian diteruskan ke mesin inferensi.</p>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">sistem_pakar.py (Bagian 4)</span>
+                </div>
+<pre class="language-python" tabindex="0"><code class="language-python">    <span class="token comment"># Meminta respons biner (Ya/Tidak) di DALAM blok while</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Jawab pertanyaan berikut dengan 'Ya' atau 'Tidak':"</span><span class="token punctuation">)</span>
+    tanya_1 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"1. Apakah Anda menyukai pemecahan masalah matematika/puzzle? : "</span><span class="token punctuation">)</span>
+    tanya_2 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"2. Apakah Anda menyukai aktivitas jasmani yang intens?         : "</span><span class="token punctuation">)</span>
+    tanya_3 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"3. Apakah Anda memiliki ketertarikan pada musik atau visual?   : "</span><span class="token punctuation">)</span>
+    
+    <span class="token comment"># Transmisi data menuju Fungsi AI</span>
+    hasil_resolusi <span class="token operator">=</span> mesin_inferensi_minat<span class="token punctuation">(</span>tanya_1<span class="token punctuation">,</span> tanya_2<span class="token punctuation">,</span> tanya_3<span class="token punctuation">)</span></code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 9 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Tahap Pembuatan (5)</div>
+            <h2>Tahap 5: Laporan Akhir &amp; Titik Penghentian</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Menampilkan hasil olahan mesin menggunakan metode pemformatan *F-String*, dilanjutkan dengan memberikan otoritas kepada pengguna untuk menonaktifkan program (Exit Condition).</p>
+                </div>
+                <div class="kolom kartu">
+<pre class="language-python" tabindex="0"><code class="language-python">    <span class="token comment"># Proyeksi Laporan Hasil Analisis (Masih di dalam while)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n--- LAPORAN DIAGNOSTIK KKA ---"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Nama Asesi     : </span><span class="token interpolation"><span class="token punctuation">{</span>nama_siswa<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Hasil Analisis : </span><span class="token interpolation"><span class="token punctuation">{</span>hasil_resolusi<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    
+    <span class="token comment"># Penghentian Perulangan Logis</span>
+    opsi_lanjut <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"\nProses siswa selanjutnya? (Ya/Tidak): "</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> opsi_lanjut <span class="token operator">!=</span> <span class="token string">"Ya"</span><span class="token punctuation">:</span>
+        status_sistem <span class="token operator">=</span> <span class="token boolean">False</span>
+
+<span class="token comment"># Baris ini di LUAR while (sejajar kiri mutlak)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKoneksi terminal AI ditutup. Terima kasih."</span><span class="token punctuation">)</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 10 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Kode Keseluruhan</div>
+            <h2>Skrip Kode Utuh (Sistem Pakar AI)</h2>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">sistem_pakar_final.py</span>
+                </div>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">def</span> <span class="token function">mesin_inferensi_minat</span><span class="token punctuation">(</span>logika<span class="token punctuation">,</span> fisik<span class="token punctuation">,</span> seni<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> logika <span class="token operator">==</span> <span class="token string">"Ya"</span> <span class="token keyword">and</span> fisik <span class="token operator">==</span> <span class="token string">"Tidak"</span> <span class="token keyword">and</span> seni <span class="token operator">==</span> <span class="token string">"Tidak"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Mutlak: Klub Pemrograman &amp; Robotika."</span>
+    <span class="token keyword">elif</span> logika <span class="token operator">==</span> <span class="token string">"Tidak"</span> <span class="token keyword">and</span> fisik <span class="token operator">==</span> <span class="token string">"Ya"</span> <span class="token keyword">and</span> seni <span class="token operator">==</span> <span class="token string">"Tidak"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Mutlak: Akademi Olahraga (Atletik/Basket)."</span>
+    <span class="token keyword">elif</span> logika <span class="token operator">==</span> <span class="token string">"Tidak"</span> <span class="token keyword">and</span> fisik <span class="token operator">==</span> <span class="token string">"Tidak"</span> <span class="token keyword">and</span> seni <span class="token operator">==</span> <span class="token string">"Ya"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Mutlak: Sanggar Kesenian &amp; Teater."</span>
+    <span class="token keyword">elif</span> logika <span class="token operator">==</span> <span class="token string">"Ya"</span> <span class="token keyword">and</span> fisik <span class="token operator">==</span> <span class="token string">"Ya"</span> <span class="token keyword">and</span> seni <span class="token operator">==</span> <span class="token string">"Tidak"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Hibrida: Klub Esport atau Desain Rekayasa Mekanik."</span>
+    <span class="token keyword">elif</span> logika <span class="token operator">==</span> <span class="token string">"Ya"</span> <span class="token keyword">and</span> fisik <span class="token operator">==</span> <span class="token string">"Tidak"</span> <span class="token keyword">and</span> seni <span class="token operator">==</span> <span class="token string">"Ya"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Hibrida: Animasi Digital &amp; Desain Grafis."</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Resolusi Terbuka: Membutuhkan asesmen lanjutan oleh Guru BK."</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"=== AI KONSELOR DETEKSI MINAT SISWA ==="</span><span class="token punctuation">)</span>
+status_sistem <span class="token operator">=</span> <span class="token boolean">True</span>
+
+<span class="token keyword">while</span> status_sistem <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n[Mulai Sesi Wawancara]"</span><span class="token punctuation">)</span>
+    nama_siswa <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Identitas Siswa: "</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Jawab pertanyaan berikut dengan 'Ya' atau 'Tidak':"</span><span class="token punctuation">)</span>
+    tanya_1 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"1. Apakah Anda menyukai pemecahan masalah matematika/puzzle? : "</span><span class="token punctuation">)</span>
+    tanya_2 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"2. Apakah Anda menyukai aktivitas jasmani yang intens?         : "</span><span class="token punctuation">)</span>
+    tanya_3 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"3. Apakah Anda memiliki ketertarikan pada musik atau visual?   : "</span><span class="token punctuation">)</span>
+
+    hasil_resolusi <span class="token operator">=</span> mesin_inferensi_minat<span class="token punctuation">(</span>tanya_1<span class="token punctuation">,</span> tanya_2<span class="token punctuation">,</span> tanya_3<span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n--- LAPORAN DIAGNOSTIK KKA ---"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Nama Asesi     : </span><span class="token interpolation"><span class="token punctuation">{</span>nama_siswa<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Hasil Analisis : </span><span class="token interpolation"><span class="token punctuation">{</span>hasil_resolusi<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    opsi_lanjut <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"\nProses siswa selanjutnya? (Ya/Tidak): "</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> opsi_lanjut <span class="token operator">!=</span> <span class="token string">"Ya"</span><span class="token punctuation">:</span>
+        status_sistem <span class="token operator">=</span> <span class="token boolean">False</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKoneksi terminal AI ditutup. Terima kasih."</span><span class="token punctuation">)</span></code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 11 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Visualisasi Output</div>
+            <h2>Demonstrasi Konsol Interaktif</h2>
+            <div class="kartu" style="background: #000; border: 1px solid #333;">
+                <p style="font-family: &#39;Fira Code&#39;, monospace; color: #a3e635; margin:0;">
+                    === AI KONSELOR DETEKSI MINAT SISWA ===<br><br>
+                    [Mulai Sesi Wawancara]<br>
+                    Identitas Siswa: <span style="color:#fff;">Rangga</span><br>
+                    Jawab pertanyaan berikut dengan 'Ya' atau 'Tidak':<br>
+                    1. Apakah Anda menyukai pemecahan masalah matematika/puzzle? : <span style="color:#fff;">Ya</span><br>
+                    2. Apakah Anda menyukai aktivitas jasmani yang intens?         : <span style="color:#fff;">Ya</span><br>
+                    3. Apakah Anda memiliki ketertarikan pada musik atau visual?   : <span style="color:#fff;">Tidak</span><br><br>
+                    --- LAPORAN DIAGNOSTIK KKA ---<br>
+                    Nama Asesi     : Rangga<br>
+                    Hasil Analisis : Rekomendasi Hibrida: Klub Esport atau Desain Rekayasa Mekanik.<br><br>
+                    Proses siswa selanjutnya? (Ya/Tidak): <span style="color:#fff;">Tidak</span><br><br>
+                    Koneksi terminal AI ditutup. Terima kasih.
+                </p>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 12 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Eksplorasi (Tweak)</div>
+            <h2>Modifikasi Skema KKA: Integrasi Dimensi Lulusan</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <div class="kotak-info pedagogi">
+                        <h3 class="warna-ungu">Instruksi Fasilitator (Tugas Peserta):</h3>
+                        <p>Setelah program dasar berfungsi, perintahkan Bapak/Ibu guru (peserta) untuk mengubah parameter diagnostik. Arahkan mereka untuk mengganti 3 pertanyaan tersebut menjadi instrumen untuk mengukur <strong>8 Dimensi Profil Lulusan</strong>.</p>
+                        <p>Contoh Modifikasi:<br>1. <em>Apakah Anda mampu mengambil keputusan sendiri? (Kemandirian)</em><br>2. <em>Apakah Anda mampu bekerja dalam kelompok? (Bergotong Royong)</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 13 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Ketahanan Sistem</div>
+            <h2>Pengembangan Toleransi Galat Berbasis String</h2>
+            <p>Program saat ini rentan mengalami kegagalan logika apabila pengguna mengetik "ya" (huruf kecil) atau " YA " (dengan spasi). Kita perlu menerapkan metode normalisasi string (<em>String Normalization</em>) di area input.</p>
+            
+            <div class="kartu" style="margin-top: 20px;">
+                <h3 class="warna-hijau">Metode Pembersihan Teks (Robustness)</h3>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Metode .strip() akan membuang spasi tidak sengaja di awal/akhir</span>
+<span class="token comment"># Metode .capitalize() memastikan huruf pertama selalu kapital</span>
+tanya_1 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Ketik Ya/Tidak: "</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>capitalize<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Jika pengguna mengetik "  ya   " </span>
+<span class="token comment"># Python akan membersihkannya dan menyimpannya sebagai "Ya"</span>
+<span class="token comment"># Sehingga logika if tanya_1 == "Ya" akan tetap berfungsi sempurna.</span></code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 14 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Penanganan Eksepsi</div>
+            <h2>Penanganan Galat Dinamis (Try - Except)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Dalam skenario di mana sistem menuntut konversi tipe data angka (misal menghitung nilai rapor), input berupa huruf akan seketika menghancurkan program (<code>ValueError</code>).</p>
+                    <p>Sebagai wawasan tambahan bagi pendidik, blok <code>try...except</code> adalah perisai pelindung yang meredam penghentian paksa sistem.</p>
+                </div>
+                <div class="kolom kartu">
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
+    <span class="token comment"># Program MENGUJI kelayakan baris ini</span>
+    nilai_matematika <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Masukkan Angka: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Data valid: </span><span class="token interpolation"><span class="token punctuation">{</span>nilai_matematika<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">except</span> ValueError<span class="token punctuation">:</span>
+    <span class="token comment"># Apabila gagal, sistem TIDAK crash, melainkan:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Galat Input: Sistem menolak karakter abjad."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Mohon ulangi menggunakan nomor presisi."</span><span class="token punctuation">)</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 15 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Relevansi Akademik</div>
+            <h2>Pilar Filosofi Pembelajaran KKA Terapan</h2>
+            <div class="kartu">
+                <p>Mengapa proyek Sistem Pakar ini merupakan puncak ideal pembelajaran KKA di SMP?</p>
+                <ul>
+                    <li><span class="warna-hijau teks-tebal">Demistifikasi Kecerdasan Artifisial:</span> Membuktikan kepada siswa bahwa "AI" pada level dasar bukanlah keajaiban yang tidak dapat dijelaskan, melainkan himpunan sistematis dari aturan <code>If-Else</code>.</li>
+                    <li><span class="warna-biru teks-tebal">Logika Relasional:</span> Melatih konstruksi berpikir kognitif tingkat tinggi (HOTS) melalui penempatan operator logika bersarang secara bertingkat.</li>
+                    <li><span class="warna-kuning teks-tebal">Kegunaan Konkret:</span> Merakit solusi komputasional yang relevan secara langsung dengan dinamika pemetaan bakat peserta didik di sekolah.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 16 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Evaluasi Praktikum</div>
+            <h2>Rubrik Penilaian Capaian Kode (Matriks Fasilitator)</h2>
+            <p>Standar parameter kelulusan teknis yang harus dievaluasi pada proyek akhir peserta:</p>
+            <table>
+                <thead>
+                    <tr><th>Komponen Evaluasi Konstruksi</th><th>Indikator Keberhasilan Mutlak</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>1. Ketahanan Logika (Robustness)</strong></td><td>Program tidak terhenti paksa (crash) saat disimulasikan berulang kali.</td></tr>
+                    <tr><td><strong>2. Kompleksitas Kondisional</strong></td><td>Penerapan klausa <code>if-elif-else</code> dipadukan secara valid dengan operator <code>and</code> atau <code>or</code>.</td></tr>
+                    <tr><td><strong>3. Pemisahan Modularitas</strong></td><td>Mekanisme inferensi terpisah sempurna dalam blok <code>def</code> dan memfungsikan pengembalian <code>return</code>, bukan <code>print</code> internal.</td></tr>
+                    <tr><td><strong>4. Pengendalian Memori</strong></td><td>Terdapat mekanisme pembaruan variabel pengontrol yang mengizinkan siklus <code>while</code> diakhiri secara normal.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= SALINDIA 17 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Referensi Absolut</div>
+            <h2>Lembar Rangkuman Sintaks Dasar (Sesi 1 &amp; 2)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Proyeksi Layar</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sistem Valid"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Penerimaan Data (Bawaan String)</span>
+input_teks <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Identitas: "</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Konversi Numerik (Casting Int/Float)</span>
+input_angka <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Umur: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Interpolasi Kalimat Dinamis (F-String)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Data terekam: </span><span class="token interpolation"><span class="token punctuation">{</span>input_teks<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 18 ================= -->
+        <div class="salindia aktif">
+            <div class="label-sesi">Referensi Absolut</div>
+            <h2>Lembar Rangkuman Sintaks Kendali (Sesi 3 &amp; 4)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+                    <h3 class="warna-kuning">Percabangan Evaluasi</h3>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">if</span> skor <span class="token operator">&gt;=</span> <span class="token number">80</span> <span class="token keyword">and</span> status <span class="token operator">==</span> <span class="token string">"Aktif"</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sangat Baik"</span><span class="token punctuation">)</span>
+<span class="token keyword">elif</span> skor <span class="token operator">&gt;=</span> <span class="token number">60</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Cukup Baik"</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Di Bawah Standar"</span><span class="token punctuation">)</span></code></pre>
+                </div>
+                <div class="kolom kartu">
+                    <h3 class="warna-biru">Iterasi Perulangan</h3>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Rentang Terukur (For)</span>
+<span class="token keyword">for</span> urutan <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Putaran:"</span><span class="token punctuation">,</span> urutan<span class="token punctuation">)</span>
+
+<span class="token comment"># Siklus Syarat (While)</span>
+<span class="token keyword">while</span> mesin <span class="token operator">==</span> <span class="token string">"Menyala"</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Mengeksekusi siklus"</span><span class="token punctuation">)</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 19 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Kesimpulan Pelatihan</div>
+            <h2>Tinjauan Paradigma Instruksional Keseluruhan</h2>
+            <div class="kartu">
+                <p>Melalui implementasi Python tingkat menengah ini, Bapak/Ibu telah memetakan alur pedagogis KKA secara utuh:</p>
+                <ul>
+                    <li><span class="warna-hijau teks-tebal">Penormalan Lingkungan:</span> Mereduksi kecemasan layar teks melalui pendekatan komparasi modifikasi (*Tweak*).</li>
+                    <li><span class="warna-biru teks-tebal">Interaktivitas Dialog:</span> Merancang komunikasi dua arah berbasis variabel yang dikonversi (di-*casting*) secara spesifik.</li>
+                    <li><span class="warna-kuning teks-tebal">Otonomi Logika:</span> Menanamkan nalar selektif mesin melalui struktur pengkondisian dan siklus perulangan terukur.</li>
+                    <li><span class="warna-ungu teks-tebal">Arsitektur Industri:</span> Menyusun program kompleks namun tertata menggunakan prinsip fungsi mandiri (*def*).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 20 ================= -->
+        <div class="salindia rata-tengah">
+            <div style="font-size: 5rem; margin-bottom: 20px;">🎓🚀</div>
+            <h1 class="warna-hijau" style="font-size: 3.5rem;">Selamat dan Apresiasi Penuh!</h1>
+            <h3 style="color: var(--teks-utama);">Bapak/Ibu Pendidik telah menuntaskan Seluruh Rangkaian Modul Kepelatihan Koding &amp; Kecerdasan Artifisial (KKA) Fase D dengan Gemilang.</h3>
+            
+            <div class="kartu" style="margin: 30px auto; max-width: 900px; font-style: italic; text-align: left; background: rgba(30, 41, 59, 0.8); border: 1px solid var(--aksen-kuning);">
+                <p>"Tujuan integrasi bahasa pemrograman di tingkat SMP bukanlah untuk mendikte setiap peserta didik agar menjadi perekayasa perangkat lunak. Sasaran utama kita adalah mengeliminasi hambatan teknologi teknis sedini mungkin, serta menanamkan nalar komputasional logis, sehingga di masa depan mereka mampu mengendalikan sistem informasi secara sadar dan bijaksana."</p>
+            </div>
+            <p class="teks-redup">Selamat berinovasi dan mencetak generasi emas komputasional Indonesia.</p>
+        </div>
+
+    </div>
+
+    <!-- Script Pengaturan Salindia & Pewarnaan Sintaks -->
+    <script src="./Modul Pelatihan KKA SMP - Sesi 6 (Proyek Akhir AI)_files/prism.min.js"></script>
+    <script src="./Modul Pelatihan KKA SMP - Sesi 6 (Proyek Akhir AI)_files/prism-python.min.js"></script>
+    
+    <script>
+        let salindiaAktif = 0;
+        const daftarSalindia = document.querySelectorAll('.salindia');
+        const bilahKemajuan = document.getElementById('bilah-kemajuan');
+        const penghitung = document.getElementById('penghitung-salindia');
+
+        function perbaruiSalindia() {
+            daftarSalindia.forEach(slide => slide.classList.remove('aktif'));
+            daftarSalindia[salindiaAktif].classList.add('aktif');
+            
+            const kemajuan = ((salindiaAktif + 1) / daftarSalindia.length) * 100;
+            bilahKemajuan.style.width = `${kemajuan}%`;
+            penghitung.innerText = `${salindiaAktif + 1} / 21 (Sesi 6)`;
+        }
+
+        function salindiaSelanjutnya() {
+            if (salindiaAktif < daftarSalindia.length - 1) {
+                salindiaAktif++; perbaruiSalindia();
+            }
+        }
+
+        function salindiaSebelumnya() {
+            if (salindiaAktif > 0) {
+                salindiaAktif--; perbaruiSalindia();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                salindiaSelanjutnya();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                salindiaSebelumnya();
+            }
+        });
+
+        perbaruiSalindia();
+    </script>
+
+</body></html>

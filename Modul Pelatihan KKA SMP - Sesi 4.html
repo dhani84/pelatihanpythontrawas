@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///Users/mac/Downloads/gemini-code-1789192784555.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pelatihan KKA SMP - Sesi 4</title>
+    
+    <link href="./Modul Pelatihan KKA SMP - Sesi 4_files/css2" rel="stylesheet">
+    <link href="./Modul Pelatihan KKA SMP - Sesi 4_files/prism-tomorrow.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-utama: #0f172a; --bg-kartu: #1e293b; --teks-utama: #f8fafc; --teks-sekunder: #94a3b8;
+            --aksen-hijau: #34d399; --aksen-kuning: #fbbf24; --aksen-biru: #38bdf8; --aksen-merah: #f87171;
+            --aksen-ungu: #c084fc; --garis-batas: #334155;
+        }
+
+        body { margin: 0; padding: 0; overflow: hidden; background-color: var(--bg-utama); color: var(--teks-utama); font-family: 'Montserrat', sans-serif; background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 30px 30px; }
+        #wadah-presentasi { position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .salindia { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: scale(0.98); padding: 60px 100px; box-sizing: border-box; overflow-y: auto; }
+        .salindia.aktif { opacity: 1; visibility: visible; transform: scale(1); }
+        .label-sesi { position: absolute; top: 40px; right: 80px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--aksen-biru); color: var(--aksen-biru); padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        h1 { font-size: 3.2rem; font-weight: 700; color: var(--aksen-hijau); margin-bottom: 10px; line-height: 1.2;}
+        h2 { font-size: 2.2rem; font-weight: 600; color: var(--aksen-kuning); margin-bottom: 25px; border-bottom: 1px solid var(--garis-batas); padding-bottom: 10px; width: 100%;}
+        h3 { font-size: 1.5rem; font-weight: 600; color: var(--aksen-biru); margin-top: 0; margin-bottom: 15px;}
+        p, li { font-size: 1.3rem; line-height: 1.6; color: var(--teks-utama); }
+        ul, ol { margin-left: 20px; margin-bottom: 20px;}
+        li { margin-bottom: 10px; }
+
+        .rata-tengah { text-align: center; width: 100%; align-items: center;}
+        .teks-redup { color: var(--teks-sekunder); font-size: 1.1rem; }
+        .teks-tebal { font-weight: 600; }
+        .warna-hijau { color: var(--aksen-hijau); } .warna-biru { color: var(--aksen-biru); } .warna-kuning { color: var(--aksen-kuning); } .warna-ungu { color: var(--aksen-ungu); } .warna-merah { color: var(--aksen-merah); }
+
+        .tata-letak-ganda { display: flex; width: 100%; gap: 40px; align-items: stretch; justify-content: space-between; }
+        .tata-letak-tiga { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; width: 100%; }
+        .kolom { flex: 1; display: flex; flex-direction: column;}
+
+        .kartu { background: var(--bg-kartu); border-radius: 8px; padding: 25px; border: 1px solid var(--garis-batas); width: 100%; box-sizing: border-box; box-shadow: 0 10px 25px rgba(0,0,0,0.3); height: 100%; }
+
+        .kepala-jendela { background: #0f172a; padding: 10px 15px; border-radius: 8px 8px 0 0; display: flex; gap: 8px; border-bottom: 1px solid var(--garis-batas); margin: -25px -25px 15px -25px; align-items: center; }
+        .titik { width: 10px; height: 10px; border-radius: 50%; }
+        .titik-merah { background: #ef4444; } .titik-kuning { background: #f59e0b; } .titik-hijau { background: #10b981; }
+        .teks-berkas { color: var(--teks-sekunder); font-family: 'Fira Code', monospace; font-size: 0.9rem; margin-left: 10px;}
+
+        pre[class*="language-"] { font-family: 'Fira Code', monospace !important; font-size: 1.1rem !important; border-radius: 0 0 8px 8px !important; margin: 0 !important; background: transparent !important; padding: 0 !important; overflow-x: auto;}
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 1.2rem;}
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--garis-batas); }
+        th { background: rgba(56, 189, 248, 0.1); color: var(--aksen-biru); font-weight: 600;}
+        tr:hover { background: #2a3a50; }
+
+        .kotak-info { background: rgba(56, 189, 248, 0.1); border-left: 5px solid var(--aksen-biru); padding: 15px 20px; border-radius: 0 4px 4px 0; margin-top: 15px; margin-bottom: 15px; }
+        .kotak-info.peringatan { background: rgba(251, 191, 36, 0.1); border-color: var(--aksen-kuning); }
+        .kotak-info.pedagogi { background: rgba(192, 132, 252, 0.1); border-color: var(--aksen-ungu); }
+
+        #kontrol { position: fixed; bottom: 30px; right: 40px; display: flex; gap: 10px; z-index: 1000;}
+        .tombol-nav { background: var(--bg-kartu); color: var(--teks-utama); border: 1px solid var(--garis-batas); width: 45px; height: 45px; border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
+        .tombol-nav:hover { background: var(--garis-batas); }
+        #bilah-kemajuan { position: fixed; bottom: 0; left: 0; height: 4px; background: var(--aksen-biru); width: 0%; transition: width 0.3s; z-index: 1000;}
+        #penghitung-salindia { position: fixed; bottom: 30px; left: 40px; font-family: 'Fira Code', monospace; color: var(--teks-sekunder); font-size: 1.1rem;}
+    </style>
+</head>
+<body>
+
+    <div id="bilah-kemajuan" style="width: 100%;"></div>
+    <div id="penghitung-salindia">20 / 20 (Sesi 4)</div>
+    <div id="kontrol">
+        <button class="tombol-nav" onclick="salindiaSebelumnya()">❮</button>
+        <button class="tombol-nav" onclick="salindiaSelanjutnya()">❯</button>
+    </div>
+
+    <div id="wadah-presentasi">
+
+        <!-- ================= SALINDIA 1 ================= -->
+        <div class="salindia rata-tengah">
+            <h1 style="margin-top: 80px;" class="warna-biru">Sesi 4: Struktur Perulangan (Looping)</h1>
+            <h3 style="color: var(--teks-utama); font-weight: 400; font-size: 1.8rem; margin-top: 20px;">Mengotomatiskan Tugas Berulang Menggunakan <code>for</code> dan <code>while</code></h3>
+            <p class="teks-redup" style="margin-top: 40px;">Pelatihan Komprehensif Guru KKA SMP (Fase D)</p>
+        </div>
+
+        <!-- ================= SALINDIA 2 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Tujuan Pembelajaran</div>
+            <h2>Tujuan Instruksional Sesi 4</h2>
+            <div class="kartu">
+                <p>Setelah menyelesaikan sesi ini, Bapak/Ibu fasilitator diharapkan mampu mengajarkan:</p>
+                <ol>
+                    <li>Prinsip efisiensi kode dengan menghindari penulisan ulang (Prinsip <em>D.R.Y</em>).</li>
+                    <li>Penggunaan fungsi <code>for</code> dan <code>range()</code> untuk perulangan dengan jumlah yang sudah diketahui.</li>
+                    <li>Penggunaan fungsi <code>while</code> untuk perulangan bersyarat.</li>
+                    <li>Cara memitigasi bahaya perulangan abadi (<em>Infinite Loop</em>).</li>
+                    <li>Penerapan kata kunci pengontrol alur seperti <code>break</code> dan <code>continue</code>.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 3 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Konsep Dasar</div>
+            <h2>Prinsip D.R.Y (Don't Repeat Yourself)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Salah satu kaidah utama dalam rekayasa perangkat lunak adalah efisiensi. Jika sebuah program membutuhkan penulisan baris kode yang persis sama sebanyak tiga kali atau lebih, maka terdapat masalah pada struktur algoritma tersebut.</p>
+                    <div class="kotak-info">
+                        <p><strong>Perulangan (Looping)</strong> adalah instruksi yang meminta komputer menjalankan sebuah blok kode berkali-kali secara otomatis, hingga batas waktu atau syarat tertentu tercapai.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 4 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Jenis Perulangan</div>
+            <h2>Dua Kategori Perulangan di Python</h2>
+            <p>Sistem Python menyediakan dua perintah perulangan utama yang digunakan untuk skenario berbeda:</p>
+            
+            <div class="tata-letak-ganda" style="margin-top: 20px;">
+                <div class="kolom kartu rata-tengah">
+                    <h3 class="warna-hijau" style="font-size: 2rem;">Perulangan FOR</h3>
+                    <p class="teks-redup">Digunakan ketika kita <strong>sudah mengetahui dengan pasti</strong> berapa kali proses harus diulang.</p>
+                    <p><em>Contoh: Mencetak nomor absen 1 sampai 30.</em></p>
+                </div>
+                <div class="kolom kartu rata-tengah">
+                    <h3 class="warna-kuning" style="font-size: 2rem;">Perulangan WHILE</h3>
+                    <p class="teks-redup">Digunakan ketika kita <strong>tidak tahu berapa putaran</strong> yang dibutuhkan, tetapi proses hanya berhenti saat syarat dipenuhi.</p>
+                    <p><em>Contoh: Meminta password sampai diketik benar.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 5 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Perulangan FOR</div>
+            <h2>Perulangan Terukur: Fungsi <code>for</code></h2>
+            <p>Untuk menjalankan perulangan dengan jumlah hitungan tertentu, perintah <code>for</code> umumnya disandingkan dengan fungsi bantuan bernama <code>range()</code>.</p>
+            
+            <div class="kartu" style="margin-top: 15px;">
+<pre><code class="language-python"># Format dasar: untuk setiap angka di dalam rentang
+for angka in range(1, 4):
+    print("Siswa hadir nomor:", angka)
+
+# Hasil cetakan di layar:
+# Siswa hadir nomor: 1
+# Siswa hadir nomor: 2
+# Siswa hadir nomor: 3</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 6 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Fungsi Range</div>
+            <h2>Memahami Batas Fungsi <code>range()</code></h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <div class="kotak-info peringatan">
+                        <h3 class="warna-kuning">Aturan Penting range():</h3>
+                        <p>Fungsi <code>range(awal, akhir)</code> akan memulai hitungan dari angka "awal", namun <strong>selalu berhenti satu angka sebelum</strong> angka "akhir".</p>
+                    </div>
+                    <ul>
+                        <li><code>range(1, 10)</code> akan menghitung angka 1 sampai 9.</li>
+                        <li><code>range(5)</code> akan menghitung 5 kali (dimulai dari 0, 1, 2, 3, 4).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 7 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Praktik Mudah</div>
+            <h2>Praktik Level Mudah: Mencetak Kartu Antrean</h2>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">antrean.py</span>
+                </div>
+<pre><code class="language-python">jumlah_peserta = int(input("Berapa peserta yang hadir? "))
+
+print("\nMemulai pencetakan nomor antrean...")
+
+# Tambahkan +1 agar hitungan berhenti tepat di angka jumlah_peserta
+for urutan in range(1, jumlah_peserta + 1):
+    print(f"Mencetak Tiket: {urutan}")
+
+print("Pencetakan selesai.")</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 8 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Praktik Menengah</div>
+            <h2>Praktik Level Menengah: Generator Tabel Perkalian</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+                    <div class="kepala-jendela">
+                        <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                        <span class="teks-berkas">perkalian.py</span>
+                    </div>
+<pre><code class="language-python">angka_dasar = int(input("Masukkan angka perkalian: "))
+
+print(f"--- Tabel Perkalian {angka_dasar} ---")
+
+for i in range(1, 11):
+    hasil = angka_dasar * i
+    print(f"{angka_dasar} x {i} = {hasil}")</code></pre>
+                </div>
+                <div class="kolom">
+                    <div class="kotak-info pedagogi">
+                        <p><strong>Arah Bimbingan:</strong> Latihan ini menunjukkan keunggulan perulangan. Daripada menulis rumus manual sebanyak sepuluh baris, kita dapat menggunakan variabel <code>i</code> yang bertambah nilainya secara otomatis (1 hingga 10) di setiap putaran.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 9 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Perulangan WHILE</div>
+            <h2>Perulangan Bersyarat: Fungsi <code>while</code></h2>
+            <p>Perintah <code>while</code> bekerja persis seperti perintah <code>if</code>, tetapi dengan kemampuan mengulang. Baris kode akan terus diulang <strong>selama kondisinya tetap bernilai True</strong>.</p>
+            
+            <div class="kartu" style="margin-top: 15px;">
+<pre><code class="language-python">bensin = 3
+
+while bensin &gt; 0:
+    print("Mesin menyala.")
+    # Penting: Bensin harus dikurangi agar perulangan bisa berhenti
+    bensin = bensin - 1 
+
+print("Mesin mati kehabisan bensin.")</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 10 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Aturan WHILE</div>
+            <h2>Syarat Berhenti (Exit Condition)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Perulangan <code>while</code> sangat rawan menimbulkan masalah jika kita melupakan mekanisme untuk mengubah kondisi.</p>
+                    <p>Siswa harus diajarkan untuk selalu menyertakan baris <strong>pembaruan variabel</strong> di dalam blok <code>while</code> (seperti <code>nilai = nilai - 1</code> atau <code>jawaban = input(...)</code>).</p>
+                    <p>Jika nilai tidak pernah diubah, kondisi akan selamanya bernilai True.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 11 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Analisis Galat</div>
+            <h2>Bahaya Perulangan Abadi (Infinite Loop)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu" style="border: 2px solid var(--aksen-merah);">
+                    <h3 class="warna-merah">Contoh Kasus Kesalahan:</h3>
+<pre><code class="language-python"># Kode ini akan membuat komputer macet (hang)
+angka = 5
+while angka &gt; 0:
+    print("Mencetak tulisan abadi...")
+    # Siswa lupa menaruh kode pengurangan angka</code></pre>
+                </div>
+                <div class="kolom">
+                    <div class="kotak-info pedagogi">
+                        <h3 class="warna-ungu">Solusi Mengajar:</h3>
+                        <p>Jika hal ini terjadi di kelas, jangan biarkan siswa panik. Ajarkan mereka untuk memencet tombol kombinasi <strong>CTRL + C</strong> (*Keyboard Interrupt*) secara bersamaan pada papan tik (*keyboard*) untuk menghentikan program yang macet secara paksa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 12 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Praktik Mudah</div>
+            <h2>Praktik Level Mudah: Penghitung Waktu Mundur</h2>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">waktu_mundur.py</span>
+                </div>
+<pre><code class="language-python">import time # Modul untuk memberikan jeda waktu
+
+waktu_tersisa = int(input("Atur waktu mundur (detik): "))
+
+while waktu_tersisa &gt; 0:
+    print(f"Waktu tersisa: {waktu_tersisa} detik")
+    time.sleep(1) # Berhenti sejenak selama 1 detik
+    
+    # Kurangi waktu tersisa agar perulangan bisa berhenti
+    waktu_tersisa = waktu_tersisa - 1 
+
+print("Waktu habis!")</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 13 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Praktik Menengah</div>
+            <h2>Praktik Level Menengah: Memaksa Validasi Jawaban</h2>
+            <p>Perulangan <code>while</code> sangat cocok digunakan untuk mengunci pengguna di layar jika ia memberikan jawaban yang keliru.</p>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">validasi_sandi.py</span>
+                </div>
+<pre><code class="language-python">kata_sandi = ""
+
+# Program akan terus bertanya selama sandi belum "KKA2026"
+while kata_sandi != "KKA2026":
+    kata_sandi = input("Masukkan kata sandi rahasia: ")
+    
+    if kata_sandi != "KKA2026":
+        print("Sandi salah. Coba lagi.\n")
+
+print("\nAkses disetujui. Selamat masuk ke sistem.")</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 14 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Kontrol Lanjutan</div>
+            <h2>Memutus Perulangan Secara Paksa: <code>break</code></h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Terkadang kita perlu menghentikan putaran sebelum mencapai batas akhirnya (misalnya: jika sebuah pencarian telah menemukan hasil yang diinginkan).</p>
+                    <p>Perintah <code>break</code> akan menghancurkan blok perulangan secara instan, dan program akan melompat keluar melanjutkan baris kode di bawahnya.</p>
+                </div>
+                <div class="kolom kartu">
+<pre><code class="language-python">for angka in range(1, 10):
+    if angka == 5:
+        print("Ketemu angka 5! Berhenti sekarang.")
+        break
+    print("Mengecek angka:", angka)
+
+print("Keluar dari blok perulangan.")</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 15 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Kontrol Lanjutan</div>
+            <h2>Melompati Satu Putaran: <code>continue</code></h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Berbeda dengan <code>break</code> yang menghancurkan seluruh putaran, perintah <code>continue</code> hanya mengabaikan sisa instruksi <strong>pada putaran saat itu saja</strong>, dan langsung melompat ke putaran angka berikutnya.</p>
+                </div>
+                <div class="kolom kartu">
+<pre><code class="language-python">for angka in range(1, 6):
+    if angka == 3:
+        print("Angka 3 dilewati.")
+        continue
+        
+    print("Mencetak angka:", angka)
+    
+# Hasilnya: 1, 2, (3 dilewati), 4, 5</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 16 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Konsep Kompleks</div>
+            <h2>Perulangan Bersarang (Nested Loop)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Dalam materi tingkat lanjut, kita dapat meletakkan perulangan <code>for</code> di dalam perulangan <code>for</code> yang lain. Ini digunakan untuk menyelesaikan masalah yang memiliki dua dimensi (seperti baris dan kolom).</p>
+                    <div class="kotak-info">
+                        <p><strong>Logika Putaran:</strong> Perulangan bagian dalam harus diselesaikan secara penuh (100%) untuk setiap satu kali putaran pada perulangan luar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 17 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Praktik Sulit</div>
+            <h2>Praktik Level Sulit: Membuat Pola Bintang</h2>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">pola_bintang.py</span>
+                </div>
+<pre><code class="language-python">tingkat = int(input("Masukkan jumlah baris pola: "))
+
+# Perulangan luar: Mengatur jumlah baris vertikal
+for baris in range(1, tingkat + 1):
+    simbol = ""
+    
+    # Perulangan dalam: Mengisi kolom horizontal pada baris saat itu
+    for kolom in range(baris):
+        simbol = simbol + "★ "
+        
+    print(simbol)</code></pre>
+            </div>
+            <p class="teks-redup">Catatan: Kode di atas akan mencetak pola segitiga bintang yang ukurannya sesuai dengan angka yang dimasukkan pengguna.</p>
+        </div>
+
+        <!-- ================= SALINDIA 18 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Catatan Pedagogi</div>
+            <h2>Membedah Kesulitan Belajar Siswa pada Nested Loop</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <div class="kotak-info pedagogi">
+                        <h3 class="warna-ungu">Diagnosa Pemahaman Siswa:</h3>
+                        <p>Perulangan bersarang adalah materi tersulit bagi siswa Fase D. Hal ini disebabkan karena mereka kesulitan melacak dua variabel hitungan secara bersamaan di dalam kepala mereka.</p>
+                        <p><strong>Tips Fasilitasi:</strong> Jangan hanya menjelaskan secara lisan. Gunakan tabel di papan tulis untuk menuliskan langkah demi langkah nilai variabel <code>baris</code> dan variabel <code>kolom</code> yang sedang terjadi pada saat putaran tersebut berlangsung.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 19 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 4: Rangkuman</div>
+            <h2>Rangkuman Capaian Pembelajaran Sesi 4</h2>
+            <div class="kartu">
+                <ul>
+                    <li>Struktur Perulangan diciptakan untuk menjalankan tugas repetitif secara efisien (Prinsip <em>D.R.Y</em>).</li>
+                    <li>Perintah <code>for</code> digabungkan dengan <code>range()</code> bila batas putaran program telah diketahui secara pasti.</li>
+                    <li>Perintah <code>while</code> bertindak seperti pengkondisian yang berulang; putaran berhenti saat syarat sudah tidak terpenuhi.</li>
+                    <li>Kewaspadaan terhadap ketiadaan mekanisme pengubah syarat (<em>exit condition</em>) diperlukan untuk menghindari perulangan abadi (<em>Infinite Loop</em>).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 20 ================= -->
+        <div class="salindia rata-tengah aktif">
+            <div class="label-sesi">Transisi Sesi</div>
+            <h1 class="warna-kuning" style="margin-top: 80px;">Akhir Sesi 4</h1>
+            <p>Melalui penggabungan pengkondisian (Sesi 3) dan perulangan (Sesi 4), kita telah menguasai fondasi algoritma komputasi yang menyeluruh.</p>
+            <div class="kotak-info rata-tengah" style="width: 50%; margin: 30px auto; text-align: left;">
+                <p><strong>Persiapan Sesi Terakhir (Sesi 5):</strong> Kita akan masuk pada materi <strong>Modularitas (Fungsi)</strong>. Materi ini bertujuan membedah ratusan baris kode menjadi kumpulan paket (modul) kecil yang rapi dan dapat digunakan ulang (reusable) dalam proyek akhir siswa.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script Pengaturan Salindia -->
+    <script>
+        let salindiaAktif = 0;
+        const daftarSalindia = document.querySelectorAll('.salindia');
+        const bilahKemajuan = document.getElementById('bilah-kemajuan');
+        const penghitung = document.getElementById('penghitung-salindia');
+
+        function perbaruiSalindia() {
+            daftarSalindia.forEach(slide => slide.classList.remove('aktif'));
+            daftarSalindia[salindiaAktif].classList.add('aktif');
+            
+            const kemajuan = ((salindiaAktif + 1) / daftarSalindia.length) * 100;
+            bilahKemajuan.style.width = `${kemajuan}%`;
+            penghitung.innerText = `${salindiaAktif + 1} / 20 (Sesi 4)`;
+        }
+
+        function salindiaSelanjutnya() {
+            if (salindiaAktif < daftarSalindia.length - 1) {
+                salindiaAktif++; perbaruiSalindia();
+            }
+        }
+
+        function salindiaSebelumnya() {
+            if (salindiaAktif > 0) {
+                salindiaAktif--; perbaruiSalindia();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                salindiaSelanjutnya();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                salindiaSebelumnya();
+            }
+        });
+
+        perbaruiSalindia();
+    </script>
+
+</body></html>

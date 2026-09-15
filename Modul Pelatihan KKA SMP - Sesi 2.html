@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///Users/mac/Downloads/gemini-code-1789192316665.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pelatihan KKA SMP - Sesi 2</title>
+    
+    <link href="./Modul Pelatihan KKA SMP - Sesi 2_files/css2" rel="stylesheet">
+    <link href="./Modul Pelatihan KKA SMP - Sesi 2_files/prism-tomorrow.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-utama: #0f172a; --bg-kartu: #1e293b; --teks-utama: #f8fafc; --teks-sekunder: #94a3b8;
+            --aksen-hijau: #34d399; --aksen-kuning: #fbbf24; --aksen-biru: #38bdf8; --aksen-merah: #f87171;
+            --aksen-ungu: #c084fc; --garis-batas: #334155;
+        }
+
+        body { margin: 0; padding: 0; overflow: hidden; background-color: var(--bg-utama); color: var(--teks-utama); font-family: 'Montserrat', sans-serif; background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 30px 30px; }
+        #wadah-presentasi { position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .salindia { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: scale(0.98); padding: 60px 100px; box-sizing: border-box; overflow-y: auto; }
+        .salindia.aktif { opacity: 1; visibility: visible; transform: scale(1); }
+        .label-sesi { position: absolute; top: 40px; right: 80px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--aksen-biru); color: var(--aksen-biru); padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        h1 { font-size: 3.2rem; font-weight: 700; color: var(--aksen-hijau); margin-bottom: 10px; line-height: 1.2;}
+        h2 { font-size: 2.2rem; font-weight: 600; color: var(--aksen-kuning); margin-bottom: 25px; border-bottom: 1px solid var(--garis-batas); padding-bottom: 10px; width: 100%;}
+        h3 { font-size: 1.5rem; font-weight: 600; color: var(--aksen-biru); margin-top: 0; margin-bottom: 15px;}
+        p, li { font-size: 1.3rem; line-height: 1.6; color: var(--teks-utama); }
+        ul, ol { margin-left: 20px; margin-bottom: 20px;}
+        li { margin-bottom: 10px; }
+
+        .rata-tengah { text-align: center; width: 100%; align-items: center;}
+        .teks-redup { color: var(--teks-sekunder); font-size: 1.1rem; }
+        .teks-tebal { font-weight: 600; }
+        .warna-hijau { color: var(--aksen-hijau); } .warna-biru { color: var(--aksen-biru); } .warna-kuning { color: var(--aksen-kuning); } .warna-ungu { color: var(--aksen-ungu); } .warna-merah { color: var(--aksen-merah); }
+
+        .tata-letak-ganda { display: flex; width: 100%; gap: 40px; align-items: stretch; justify-content: space-between; }
+        .tata-letak-tiga { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; width: 100%; }
+        .kolom { flex: 1; display: flex; flex-direction: column;}
+
+        .kartu { background: var(--bg-kartu); border-radius: 8px; padding: 25px; border: 1px solid var(--garis-batas); width: 100%; box-sizing: border-box; box-shadow: 0 10px 25px rgba(0,0,0,0.3); height: 100%; }
+
+        .kepala-jendela { background: #0f172a; padding: 10px 15px; border-radius: 8px 8px 0 0; display: flex; gap: 8px; border-bottom: 1px solid var(--garis-batas); margin: -25px -25px 15px -25px; align-items: center; }
+        .titik { width: 10px; height: 10px; border-radius: 50%; }
+        .titik-merah { background: #ef4444; } .titik-kuning { background: #f59e0b; } .titik-hijau { background: #10b981; }
+        .teks-berkas { color: var(--teks-sekunder); font-family: 'Fira Code', monospace; font-size: 0.9rem; margin-left: 10px;}
+
+        pre[class*="language-"] { font-family: 'Fira Code', monospace !important; font-size: 1.1rem !important; border-radius: 0 0 8px 8px !important; margin: 0 !important; background: transparent !important; padding: 0 !important; overflow-x: auto;}
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 1.2rem;}
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--garis-batas); }
+        th { background: rgba(56, 189, 248, 0.1); color: var(--aksen-biru); font-weight: 600;}
+        tr:hover { background: #2a3a50; }
+
+        .kotak-info { background: rgba(56, 189, 248, 0.1); border-left: 5px solid var(--aksen-biru); padding: 15px 20px; border-radius: 0 4px 4px 0; margin-top: 15px; margin-bottom: 15px; }
+        .kotak-info.peringatan { background: rgba(251, 191, 36, 0.1); border-color: var(--aksen-kuning); }
+        .kotak-info.pedagogi { background: rgba(192, 132, 252, 0.1); border-color: var(--aksen-ungu); }
+
+        #kontrol { position: fixed; bottom: 30px; right: 40px; display: flex; gap: 10px; z-index: 1000;}
+        .tombol-nav { background: var(--bg-kartu); color: var(--teks-utama); border: 1px solid var(--garis-batas); width: 45px; height: 45px; border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
+        .tombol-nav:hover { background: var(--garis-batas); }
+        #bilah-kemajuan { position: fixed; bottom: 0; left: 0; height: 4px; background: var(--aksen-biru); width: 0%; transition: width 0.3s; z-index: 1000;}
+        #penghitung-salindia { position: fixed; bottom: 30px; left: 40px; font-family: 'Fira Code', monospace; color: var(--teks-sekunder); font-size: 1.1rem;}
+    </style>
+</head>
+<body>
+
+    <div id="bilah-kemajuan" style="width: 100%;"></div>
+    <div id="penghitung-salindia">20 / 20 (Sesi 2)</div>
+    <div id="kontrol">
+        <button class="tombol-nav" onclick="salindiaSebelumnya()">❮</button>
+        <button class="tombol-nav" onclick="salindiaSelanjutnya()">❯</button>
+    </div>
+
+    <div id="wadah-presentasi">
+
+        <!-- ================= SALINDIA 1: JUDUL SESI ================= -->
+        <div class="salindia rata-tengah">
+            <h1 style="margin-top: 80px;" class="warna-hijau">Sesi 2: Fondasi Komputasi Teks</h1>
+            <h3 style="color: var(--teks-utama); font-weight: 400; font-size: 1.8rem; margin-top: 20px;">Arsitektur Input, Output, Variabel, dan Operasi Tipe Data</h3>
+            <p class="teks-redup" style="margin-top: 40px;">Pelatihan Komprehensif Guru KKA SMP (Fase D)</p>
+        </div>
+
+        <!-- ================= SALINDIA 2: TUJUAN ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Dasar Python</div>
+            <h2>Tujuan Instruksional Sesi 2</h2>
+            <div class="kartu">
+                <p>Pada sesi praktikum dasar ini, Bapak/Ibu diharapkan mampu menguasai kompetensi berikut untuk diajarkan di dalam kelas:</p>
+                <ol>
+                    <li>Mensimulasikan komunikasi dua arah dengan komputer menggunakan fungsi <code>print()</code> dan <code>input()</code>.</li>
+                    <li>Mendeklarasikan ruang memori data melalui inisiasi <strong>Variabel</strong>.</li>
+                    <li>Mengoperasikan metode penggabungan teks (*String Concatenation*).</li>
+                    <li>Mengidentifikasi dan memanipulasi pemformatan jenis data murni (*Type Casting*).</li>
+                    <li>Menelusuri dan memitigasi galat umum penulisan kode (*SyntaxError* &amp; *NameError*).</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 3: ANATOMI PROGRAM ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Dasar Python</div>
+            <h2>Anatomi Dasar: Interaksi Manusia dan Mesin</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Secara esensial, arsitektur perangkat lunak yang paling mutakhir sekalipun beroperasi dengan prinsip <strong>IPO (Input - Process - Output)</strong>.</p>
+                    <div class="kotak-info pedagogi">
+                        <h3 class="warna-ungu">Analogi Pedagogi:</h3>
+                        <p>Ajarkan kepada siswa SMP bahwa komputer berdialog seperti halnya interaksi sosial manusia. Komputer memiliki <strong>telinga</strong> untuk mendengarkan, <strong>otak</strong> untuk menyimpan dan memproses ingatan, serta <strong>mulut</strong> untuk merespons pesan ke layar terminal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 4: FUNGSI KELUARAN ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Fungsi Keluaran</div>
+            <h2>Fungsi Proyeksi Visual: print()</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Fungsi <code>print()</code> adalah metode absolut Python untuk mengomunikasikan informasi (teks atau angka) dari mesin (komputer) kembali ke layar pengguna.</p>
+                    <p><strong>Aturan Sintaksis Fundamental:</strong></p>
+                    <ul>
+                        <li>Menggunakan huruf kecil seutuhnya (*case sensitive*).</li>
+                        <li>Nilai teks (String) wajib diapit tanda kutip tunggal <code>'...'</code> atau ganda <code>"..."</code>.</li>
+                        <li>Nilai numerik matematis (Angka) tidak memerlukan tanda kutip.</li>
+                    </ul>
+                </div>
+                <div class="kolom kartu">
+                    <div class="kepala-jendela">
+                        <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                        <span class="teks-berkas">keluaran_layar.py</span>
+                    </div>
+<pre><code class="language-python"># Proyeksi Teks Literal
+print("Sistem KKA diinisialisasi.")
+print('Menunggu instruksi pengguna...')
+
+# Proyeksi Nilai Numerik
+print(2026)
+
+# Proyeksi Hasil Komputasi Langsung
+print(50 + 25)</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 5: ATURAN STRING ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Fungsi Keluaran</div>
+            <h2>Konsistensi Pembatas Literal (Kutip)</h2>
+            <p>Salah satu galat paling umum bagi siswa pemula adalah inkonsistensi pembatas teks.</p>
+            
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+                    <h3 class="warna-hijau">Valid (Sintaks Benar)</h3>
+<pre><code class="language-python"># Sepasang kutip ganda
+print("Kalimat ini benar.")
+
+# Sepasang kutip tunggal
+print('Kalimat ini juga benar.')
+
+# Kutip ganda mengapit kutip tunggal
+print("Ini hari Jum'at.")</code></pre>
+                </div>
+                <div class="kolom kartu" style="border-left: 5px solid var(--aksen-merah);">
+                    <h3 class="warna-merah">Invalid (Galat Sintaks)</h3>
+<pre><code class="language-python"># Terlupa kutip penutup
+print("Ini akan error.)
+
+# Penggunaan jenis kutip silang
+print("Format ini salah.')</code></pre>
+                    <p class="teks-redup" style="margin-top: 10px;">Akan memicu pesan peringatan: <code>SyntaxError: unterminated string literal</code></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 6: VARIABEL ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Ruang Memori</div>
+            <h2>Konsep Variabel: Wadah Penyimpanan Sistem</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Variabel adalah label yang diberikan pada sebuah ruang memori di dalam perangkat komputer. Ruang ini digunakan untuk menampung satu nilai spesifik yang dapat diubah atau dipanggil kapan saja (*Mutable*).</p>
+                    <div class="kotak-info">
+                        <p><strong>Arah Aliran Data (Penting!):</strong><br>Simbol <code>=</code> (sama dengan) dalam pemrograman berfungsi sebagai Operator Penugasan (*Assignment Operator*), bukan hasil kesamaan matematika. Data mengalir dari <strong>kanan ke kiri</strong>.</p>
+                    </div>
+                </div>
+                <div class="kolom kartu rata-tengah">
+                    <h3 class="warna-kuning">Anatomi Deklarasi</h3>
+                    <p style="font-family: &#39;Fira Code&#39;, monospace; font-size: 1.5rem; margin-top: 20px;">
+                        <span class="warna-biru">nama_variabel</span> = <span class="warna-hijau">"Nilai Data"</span>
+                    </p>
+                    <p class="teks-redup">(Kotak Penyimpanan) ← (Isi yang dimasukkan)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 7: ATURAN VARIABEL ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Ruang Memori</div>
+            <h2>Standar Penamaan Variabel (Naming Convention)</h2>
+            <p>Sistem bahasa Python menerapkan restriksi yang ketat terhadap pembentukan identitas variabel untuk mencegah ambiguitas pemrosesan kode.</p>
+            
+            <table>
+                <thead>
+                    <tr><th>Kaidah Fundamental</th><th>Valid (Diterima)</th><th>Invalid (Ditolak)</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tanpa Karakter Spasi</strong><br><span class="teks-redup">Gunakan garis bawah (*underscore*) sebagai pemisah.</span></td>
+                        <td><code>nama_siswa = "Budi"</code></td>
+                        <td><code>nama siswa = "Budi"</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Larangan Angka di Depan</strong><br><span class="teks-redup">Angka diperbolehkan asal bukan karakter pertama.</span></td>
+                        <td><code>peserta_1 = "Siti"</code></td>
+                        <td><code>1_peserta = "Siti"</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bebas Simbol Khusus</strong><br><span class="teks-redup">Hindari tanda hubung, bintang, atau karakter unik.</span></td>
+                        <td><code>skor_akhir = 90</code></td>
+                        <td><code>skor-akhir = 90</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= SALINDIA 8: INPUT DASAR ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Fungsi Masukan</div>
+            <h2>Fungsi Pendengaran Sistem: input()</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Fungsi <code>input()</code> menangguhkan eksekusi baris program ke bawah dan memerintahkan komputer untuk menunggu intervensi tombol <em>Enter</em> dari pengguna.</p>
+                    <p>Teks yang ditulis di dalam fungsi tersebut akan diproyeksikan sebagai instruksi visual (*prompt*).</p>
+                </div>
+                <div class="kolom kartu">
+                    <div class="kepala-jendela">
+                        <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                        <span class="teks-berkas">masukan_pengguna.py</span>
+                    </div>
+<pre><code class="language-python"># Menangkap data dan menyimpannya ke memori
+identitas_user = input("Mohon ketik nama Anda: ")
+
+# Mengekstrak memori ke layar terminal
+print("Sistem mencatat identitas berikut:")
+print(identitas_user)</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 9: PRAKTIK MUDAH ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Praktikum</div>
+            <h2>Praktik Level Mudah: Formulir Biodata Daring</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+<pre><code class="language-python">print("=== PORTAL PENDAFTARAN KKA ===")
+
+nama_pendaftar = input("Ketik nama lengkap: ")
+asal_sekolah = input("Ketik asal sekolah: ")
+minat_bakat = input("Apa keahlian Anda: ")
+
+print("\n--- DATA DIVERIFIKASI ---")
+print("Registrasi divalidasi atas nama:")
+print(nama_pendaftar)
+print("Berbasis di lembaga:")
+print(asal_sekolah)</code></pre>
+                </div>
+                <div class="kolom">
+                    <h3 class="warna-kuning">Instruksi Fasilitasi:</h3>
+                    <ol>
+                        <li>Bagikan skrip ini kepada peserta didik (Tweak &amp; Break Method).</li>
+                        <li>Minta mereka memodifikasinya dengan menambahkan parameter alamat.</li>
+                        <li><span class="warna-merah teks-tebal">Catatan Penting:</span> Ingatkan siswa untuk TIDAK menggunakan tanda kutip saat memanggil variabel di dalam perintah <code>print()</code> di baris bawah. (Cth: <code>print("nama_pendaftar")</code> akan mencetak teks mentahnya, bukan isi memorinya).</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 10: CONCATENATION ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Penggabungan Data</div>
+            <h2>Integrasi Teks (String Concatenation)</h2>
+            <p>Mencetak respons baris demi baris menggunakan <code>print()</code> yang terpisah tidak merepresentasikan alur dialog yang dinamis. Python mengakomodasi perangkaian teks statis dan nilai variabel secara horisontal.</p>
+            
+            <div class="tata-letak-ganda" style="margin-top: 20px;">
+                <div class="kolom kartu">
+                    <h3 class="warna-hijau">Metode Operator Tambah (+)</h3>
+                    <p class="teks-redup">Menyambung string secara mutlak tanpa celah.</p>
+<pre><code class="language-python">nama = "Budi"
+# Spasi harus diketik manual di dalam kutip
+print("Selamat datang " + nama + " di kelas KKA.")</code></pre>
+                </div>
+                <div class="kolom kartu">
+                    <h3 class="warna-biru">Metode Operator Koma (,)</h3>
+                    <p class="teks-redup">Secara otomatis menyisipkan jarak pemisah satu spasi.</p>
+<pre><code class="language-python">nama = "Siti"
+# Spasi dihasilkan otomatis oleh koma
+print("Sistem mengenali pendaftar", nama)</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 11: PRAKTIK MENENGAH ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Praktikum</div>
+            <h2>Praktik Level Menengah: Sapaan Artifisial Interaktif</h2>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">asisten_virtual.py</span>
+                </div>
+<pre><code class="language-python">print("Menghubungkan ke Asisten Virtual AI...")
+
+pengguna_aktif = input("Inisialisasi sistem. Siapa nama panggilan Anda? ")
+waktu_akses = input("Sebutkan waktu akses saat ini (Pagi/Siang/Malam): ")
+
+# Komputasi penggabungan teks
+respons_sistem = "Selamat " + waktu_akses + " Kak " + pengguna_aktif + "!"
+
+print("\n[AI Assistant]: " + respons_sistem)
+print("[AI Assistant]: Ada yang bisa saya bantu hari ini?")</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 12: ANALISIS GALAT (NAMEERROR) ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Literasi Galat</div>
+            <h2>Membedah Galat Kritis: NameError</h2>
+            <div class="kartu" style="border-left: 6px solid var(--aksen-merah); margin-bottom: 20px;">
+                <p style="font-family: &#39;Fira Code&#39;, monospace; color: var(--aksen-merah); margin:0;">
+                    NameError: name 'Pengguna_aktif' is not defined. Did you mean: 'pengguna_aktif'?
+                </p>
+            </div>
+            <div class="kotak-info pedagogi">
+                <h3 class="warna-ungu">Diagnosa Pemecahan Masalah Siswa:</h3>
+                <p>Galat <code>NameError</code> mendominasi kegagalan skrip pada pekan pertama pembelajaran. Edukasi peserta didik untuk menginvestigasi tiga kemungkinan berikut:</p>
+                <ol>
+                    <li><strong>Ejaan Tidak Presisi (Typo):</strong> Pengetikan nama variabel yang berbeda satu karakter saja dengan saat deklarasi.</li>
+                    <li><strong>Sensitivitas Kapitalisasi:</strong> Pemanggilan <code>Nama</code>, <code>NAMA</code>, dan <code>nama</code> dianggap sebagai tiga wadah yang sama sekali berbeda oleh mesin Python.</li>
+                    <li><strong>Pemanggilan Prematur:</strong> Menggunakan variabel di baris 2, padahal variabel tersebut baru diciptakan (dideklarasikan) di baris 5.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 13: F-STRING ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Format Lanjutan</div>
+            <h2>Paradigma Modern: Interpolasi Format String (F-String)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Mulai Python versi 3.6, para insinyur perangkat lunak meninggalkan operator tambah (<code>+</code>) untuk menyambung teks karena rawan memicu kekacauan spasi, dan beralih menggunakan <strong>Format String (F-String)</strong>.</p>
+                    <p>Sintaks ini membubuhkan alfabet <code>f</code> sebelum tanda kutip pembuka, memungkinkan injeksi variabel secara langsung ke dalam tubuh kalimat menggunakan kurung kurawal <code>{}</code>.</p>
+                </div>
+                <div class="kolom kartu">
+<pre><code class="language-python">kota_asal = "Malang"
+provinsi = "Jawa Timur"
+
+# Metode Lama (Rentan galat spasi)
+print("Saya dari " + kota_asal + ", " + provinsi + ".")
+
+# Metode Modern (F-String)
+print(f"Saya dari {kota_asal}, {provinsi}.")</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 14: TIPE DATA FUNDAMENTAL ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Basis Data</div>
+            <h2>Esensi Tipe Data Komputasional</h2>
+            <p>Secara harfiah, angka "100" yang diserap mesin belum tentu dinilai sebagai entitas matematis yang dapat dieksekusi dalam kalkulasi. Komputer memperlakukan data berdasarkan klasifikasinya.</p>
+            
+            <table>
+                <thead>
+                    <tr><th>Klasifikasi Python</th><th>Deskripsi Fungsi Terapan</th><th>Contoh Nilai Literal</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="warna-hijau teks-tebal">String (<code>str</code>)</td>
+                        <td>Kumpulan karakter alfanumerik. Merepresentasikan teks bacaan. Diapit tanda kutip.</td>
+                        <td><code>"100"</code>, <code>"Siswa"</code>, <code>"Rp 50.000"</code></td>
+                    </tr>
+                    <tr>
+                        <td class="warna-biru teks-tebal">Integer (<code>int</code>)</td>
+                        <td>Bentuk bilangan real bulat mutlak. Digunakan untuk perhitungan kuantitas.</td>
+                        <td><code>100</code>, <code>-45</code>, <code>0</code></td>
+                    </tr>
+                    <tr>
+                        <td class="warna-kuning teks-tebal">Float (<code>float</code>)</td>
+                        <td>Bentuk bilangan desimal fraksional. Merepresentasikan presisi nilai.</td>
+                        <td><code>3.14</code>, <code>70.5</code>, <code>-0.5</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= SALINDIA 15: IMPLIKASI BAHAYA INPUT ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Literasi Konversi</div>
+            <h2>Bahaya Logika Bawaan: Input is Always String</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <div class="kotak-info peringatan">
+                        <p><strong>Aksioma Fundamental:</strong> Seluruh respons yang ditangkap oleh gerbang fungsi <code>input()</code> akan secara statis diklasifikasikan sebagai data <strong>String (Teks)</strong>, tanpa terkecuali.</p>
+                    </div>
+                </div>
+                <div class="kolom kartu">
+                    <h3 class="warna-merah">Demonstrasi Bahaya Logika:</h3>
+<pre><code class="language-python"># Asumsi pengguna mengetik 10 dan 20
+nilai_a = input("Masukkan angka 1: ")
+nilai_b = input("Masukkan angka 2: ")
+
+hasil = nilai_a + nilai_b
+print(hasil) 
+# HASILNYA 1020, BUKAN 30!</code></pre>
+                    <p class="teks-redup" style="margin-top: 10px;">Simbol <code>+</code> pada entitas string tidak menjumlahkan nilai, melainkan menempelkan kedua kalimat tersebut.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 16: TYPE CASTING ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Solusi Pemrosesan</div>
+            <h2>Konversi Eksplisit Tipe Data (Type Casting)</h2>
+            <p>Guna memfasilitasi operasi matematis, parameter input teks wajib dibungkus (di-<em>casting</em>) untuk diubah paksa formulasinya menjadi klasifikasi angka murni.</p>
+            
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+                    <h3 class="warna-hijau">Implementasi Valid</h3>
+<pre><code class="language-python"># Membungkus instan pada tahap input
+nilai_c = int(input("Masukkan bilangan: "))
+nilai_d = int(input("Pengali: "))
+
+# Variabel kini berstatus Integer matematis
+kalkulasi_bersih = nilai_c * nilai_d
+print(f"Hasil komputasi: {kalkulasi_bersih}")</code></pre>
+                </div>
+                <div class="kolom">
+                    <p>Sistem <em>Casting</em> Utama:</p>
+                    <ul>
+                        <li><code>int()</code> mengonversi teks yang hanya berisi angka bulat menjadi Integer.</li>
+                        <li><code>float()</code> mengonversi teks angka menjadi format desimal akurat.</li>
+                        <li><code>str()</code> menarik nilai matematis kembali menjadi format teks biasa.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 17: PRAKTIK SULIT (KALKULATOR UMUR) ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Praktikum</div>
+            <h2>Praktik Level Sulit: Analisis Estimasi Umur Otomatis</h2>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">kalkulator_umur.py</span>
+                </div>
+<pre><code class="language-python">print("&gt;&gt; Menghidupkan Modul Kalkulator Usia Relatif")
+tahun_referensi = 2026
+
+# Menarik data dan mengonversinya secara instan menjadi perhitungan logis (Integer)
+tahun_kelahiran = int(input("Masukkan parameter kalender lahir Anda (Contoh: 2011): "))
+
+# Eksekusi matematika dengan operator pengurangan (-)
+estimasi_usia = tahun_referensi - tahun_kelahiran
+
+# Output laporan yang digabungkan menggunakan F-String
+print(f"\n[Laporan] Berdasarkan algoritma, komputasi umur Anda saat ini adalah {estimasi_usia} tahun.")</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 18: PRAKTIK SULIT (KASIR MATEMATIS) ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Tantangan Proyek</div>
+            <h2>Tantangan Akhir Sesi 2: Sistem Kasir Digital</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <h3 class="warna-kuning">Misi Tantangan Fasilitator:</h3>
+                    <p>Susunlah skrip operasional yang menerima input identitas pembeli, harga satuan barang dagang, dan jumlah barang yang dibeli.</p>
+                    <p>Program harus sanggup mengeksekusi perhitungan matematis perkalian dan menyisipkan biaya pajak Rp 2.000 ke total tagihan bersih.</p>
+                    <div class="kotak-info pedagogi">
+                        <p style="margin:0;">Latihan ini mensintesis pemahaman fungsi <code>input()</code>, konversi <code>int()</code>, penggunaan format <code>F-String</code>, dan operasi penambahan matematis <code>+</code> yang valid.</p>
+                    </div>
+                </div>
+                <div class="kolom kartu">
+<pre><code class="language-python"># Kunci Jawaban Potensial
+pembeli = input("Nama pembeli: ")
+harga = int(input("Harga satuan: "))
+kuantitas = int(input("Jumlah dibeli: "))
+
+total_awal = harga * kuantitas
+pajak = 2000
+tagihan_final = total_awal + pajak
+
+print(f"\nTerima kasih {pembeli}.")
+print(f"Total yang wajib Anda bayar: Rp {tagihan_final}")</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 19: RANGKUMAN SESI ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 2: Evaluasi Akhir</div>
+            <h2>Rangkuman Capaian Pembelajaran Sesi 2</h2>
+            <div class="kartu">
+                <ul>
+                    <li>Pemrograman interaktif bergantung pada sinkronisasi modul pendaftaran informasi <code>input()</code> dan perwakilan output <code>print()</code>.</li>
+                    <li>Deklarasi penamaan variabel terikat pada kepatuhan aturan baku tanpa spasi maupun angka di awalan.</li>
+                    <li>Sistem tidak mengeksekusi penggabungan string dan operasi matematis di dalam paradigma perlakuan yang sama. Kesadaran terhadap <strong>Tipe Data (str, int, float)</strong> adalah instrumen keselamatan logika *Back-End*.</li>
+                    <li>Implementasi konversi paksa <code>int()</code> / *Type Casting* absolut diperlukan pada pemrosesan kuantitas data mentah dari *prompt* terminal.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 20: TRANSISI ================= -->
+        <div class="salindia rata-tengah aktif">
+            <div class="label-sesi">Transisi Sesi</div>
+            <h1 class="warna-kuning" style="margin-top: 80px;">Akhir Sesi 2</h1>
+            <p>Sistem kini telah dikalibrasi untuk mengenali interaksi pengguna dan mengelola memori statis.</p>
+            <div class="kotak-info rata-tengah" style="width: 50%; margin: 30px auto; text-align: left;">
+                <p><strong>Arah Sesi Selanjutnya (Sesi 3):</strong> Kita akan mengeksplorasi hierarki Arsitektur Percabangan Bersyarat (If, Elif, Else) guna menanamkan kecerdasan pembuat keputusan (Autonomous Decision Making) pada program Bapak/Ibu.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script Pengaturan Salindia -->
+    <script>
+        let salindiaAktif = 0;
+        const daftarSalindia = document.querySelectorAll('.salindia');
+        const bilahKemajuan = document.getElementById('bilah-kemajuan');
+        const penghitung = document.getElementById('penghitung-salindia');
+
+        function perbaruiSalindia() {
+            daftarSalindia.forEach(slide => slide.classList.remove('aktif'));
+            daftarSalindia[salindiaAktif].classList.add('aktif');
+            
+            const kemajuan = ((salindiaAktif + 1) / daftarSalindia.length) * 100;
+            bilahKemajuan.style.width = `${kemajuan}%`;
+            penghitung.innerText = `${salindiaAktif + 1} / 20 (Sesi 2)`;
+        }
+
+        function salindiaSelanjutnya() {
+            if (salindiaAktif < daftarSalindia.length - 1) {
+                salindiaAktif++; perbaruiSalindia();
+            }
+        }
+
+        function salindiaSebelumnya() {
+            if (salindiaAktif > 0) {
+                salindiaAktif--; perbaruiSalindia();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                salindiaSelanjutnya();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                salindiaSebelumnya();
+            }
+        });
+
+        perbaruiSalindia();
+    </script>
+
+</body></html>

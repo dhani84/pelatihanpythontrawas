@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///Users/mac/Downloads/gemini-code-1789192144185.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pelatihan KKA SMP - Sesi 1</title>
+    
+    <link href="./Modul Pelatihan KKA SMP - Sesi 1_files/css2" rel="stylesheet">
+    <link href="./Modul Pelatihan KKA SMP - Sesi 1_files/prism-tomorrow.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-utama: #0f172a; --bg-kartu: #1e293b; --teks-utama: #f8fafc; --teks-sekunder: #94a3b8;
+            --aksen-hijau: #34d399; --aksen-kuning: #fbbf24; --aksen-biru: #38bdf8; --aksen-merah: #f87171;
+            --aksen-ungu: #c084fc; --garis-batas: #334155;
+        }
+
+        body { margin: 0; padding: 0; overflow: hidden; background-color: var(--bg-utama); color: var(--teks-utama); font-family: 'Montserrat', sans-serif; background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 30px 30px; }
+        #wadah-presentasi { position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .salindia { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: scale(0.98); padding: 60px 100px; box-sizing: border-box; overflow-y: auto; }
+        .salindia.aktif { opacity: 1; visibility: visible; transform: scale(1); }
+        .label-sesi { position: absolute; top: 40px; right: 80px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--aksen-biru); color: var(--aksen-biru); padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        h1 { font-size: 3.2rem; font-weight: 700; color: var(--aksen-hijau); margin-bottom: 10px; line-height: 1.2;}
+        h2 { font-size: 2.2rem; font-weight: 600; color: var(--aksen-kuning); margin-bottom: 25px; border-bottom: 1px solid var(--garis-batas); padding-bottom: 10px; width: 100%;}
+        h3 { font-size: 1.5rem; font-weight: 600; color: var(--aksen-biru); margin-top: 0; margin-bottom: 15px;}
+        p, li { font-size: 1.3rem; line-height: 1.6; color: var(--teks-utama); }
+        ul, ol { margin-left: 20px; margin-bottom: 20px;}
+        li { margin-bottom: 10px; }
+
+        .rata-tengah { text-align: center; width: 100%; align-items: center;}
+        .teks-redup { color: var(--teks-sekunder); font-size: 1.1rem; }
+        .teks-tebal { font-weight: 600; }
+        .warna-hijau { color: var(--aksen-hijau); } .warna-biru { color: var(--aksen-biru); } .warna-kuning { color: var(--aksen-kuning); } .warna-ungu { color: var(--aksen-ungu); }
+
+        .tata-letak-ganda { display: flex; width: 100%; gap: 40px; align-items: stretch; justify-content: space-between; }
+        .tata-letak-tiga { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; width: 100%; }
+        .kolom { flex: 1; display: flex; flex-direction: column;}
+
+        .kartu { background: var(--bg-kartu); border-radius: 8px; padding: 25px; border: 1px solid var(--garis-batas); width: 100%; box-sizing: border-box; box-shadow: 0 10px 25px rgba(0,0,0,0.3); height: 100%; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 1.2rem;}
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--garis-batas); }
+        th { background: rgba(56, 189, 248, 0.1); color: var(--aksen-biru); font-weight: 600;}
+        tr:hover { background: #2a3a50; }
+
+        .kotak-info { background: rgba(56, 189, 248, 0.1); border-left: 5px solid var(--aksen-biru); padding: 15px 20px; border-radius: 0 4px 4px 0; margin-top: 15px; margin-bottom: 15px; }
+        .kotak-info.peringatan { background: rgba(251, 191, 36, 0.1); border-color: var(--aksen-kuning); }
+        .kotak-info.pedagogi { background: rgba(192, 132, 252, 0.1); border-color: var(--aksen-ungu); }
+
+        #kontrol { position: fixed; bottom: 30px; right: 40px; display: flex; gap: 10px; z-index: 1000;}
+        .tombol-nav { background: var(--bg-kartu); color: var(--teks-utama); border: 1px solid var(--garis-batas); width: 45px; height: 45px; border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
+        .tombol-nav:hover { background: var(--garis-batas); }
+        #bilah-kemajuan { position: fixed; bottom: 0; left: 0; height: 4px; background: var(--aksen-biru); width: 0%; transition: width 0.3s; z-index: 1000;}
+        #penghitung-salindia { position: fixed; bottom: 30px; left: 40px; font-family: 'Fira Code', monospace; color: var(--teks-sekunder); font-size: 1.1rem;}
+    </style>
+</head>
+<body>
+
+    <div id="bilah-kemajuan" style="width: 100%;"></div>
+    <div id="penghitung-salindia">18 / 18</div>
+    <div id="kontrol">
+        <button class="tombol-nav" onclick="salindiaSebelumnya()">❮</button>
+        <button class="tombol-nav" onclick="salindiaSelanjutnya()">❯</button>
+    </div>
+
+    <div id="wadah-presentasi">
+
+        <!-- ================= SALINDIA 1 ================= -->
+        <div class="salindia rata-tengah">
+            <h1 style="margin-top: 80px;">Pelatihan Komprehensif Guru KKA SMP</h1>
+            <h3 style="color: var(--teks-utama); font-weight: 400; font-size: 1.8rem; margin-top: 20px;">Sesi 1: Transisi Pedagogi, Kurikulum, dan Ekosistem Pemrograman Python</h3>
+            <p class="teks-redup" style="margin-top: 40px;">Gunakan panah navigasi pada papan ketik (keyboard) untuk melanjutkan.</p>
+        </div>
+
+        <!-- ================= SALINDIA 2 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Kurikulum &amp; Pedagogi</div>
+            <h2>Tujuan Instruksional Sesi 1</h2>
+            <div class="kartu">
+                <p>Pada akhir sesi ini, Bapak/Ibu fasilitator diharapkan mampu:</p>
+                <ol>
+                    <li>Memahami kedudukan mata pelajaran Koding dan Kecerdasan Artifisial (KKA) dalam struktur kurikulum yang berlaku.</li>
+                    <li>Mengidentifikasi tantangan psikologis dan kognitif peserta didik saat beralih dari pemrograman berbasis blok menuju teks.</li>
+                    <li>Menerapkan tiga metode pedagogi utama (*Unplugged, Tweak &amp; Break, Pair Programming*) untuk mengatasi kecemasan siswa.</li>
+                    <li>Menganalisis dan menentukan Lingkungan Pengembangan Terpadu (IDE) yang paling relevan dengan infrastruktur sekolah.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 3 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Kurikulum &amp; Pedagogi</div>
+            <h2>Kedudukan Mata Pelajaran KKA</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Mata pelajaran Koding dan Kecerdasan Artifisial (KKA) dirancang secara spesifik untuk menjawab tantangan kompetensi digital abad ke-21.</p>
+                    <div class="kotak-info">
+                        <h3 class="warna-biru">Status Independen</h3>
+                        <p>KKA diimplementasikan sebagai <strong>mata pelajaran pilihan yang terpisah dan berdiri sendiri</strong>, bukan merupakan integrasi paksa atau sisipan di dalam mata pelajaran lain. Hal ini berlaku secara berkesinambungan hingga jenjang menengah atas (Fase E dan F).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 4 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Kurikulum &amp; Pedagogi</div>
+            <h2>Integrasi 8 Dimensi Profil Lulusan</h2>
+            <p>Pembelajaran komputasi tidak hanya melatih keterampilan teknis (<em>hard skills</em>), tetapi dirancang secara terstruktur untuk menginternalisasi <strong>8 Dimensi Profil Lulusan</strong>.</p>
+            <div class="tata-letak-tiga">
+                <div class="kartu">
+                    <h3 class="warna-hijau">Bernalar Kritis</h3>
+                    <p class="teks-redup">Siswa dilatih untuk memecahkan masalah sistematis melalui analisis pesan galat (*error debugging*) dan penyusunan algoritma logis.</p>
+                </div>
+                <div class="kartu">
+                    <h3 class="warna-kuning">Bergotong Royong</h3>
+                    <p class="teks-redup">Diwujudkan melalui partisipasi aktif dalam metode Pemrograman Berpasangan (*Pair Programming*) di laboratorium.</p>
+                </div>
+                <div class="kartu">
+                    <h3 class="warna-biru">Kemandirian</h3>
+                    <p class="teks-redup">Membangun kepercayaan diri siswa untuk mengeksplorasi modul kode secara mandiri tanpa ketergantungan absolut pada pendidik.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 5 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Kurikulum &amp; Pedagogi</div>
+            <h2>Mengapa Memilih Bahasa Python di Fase D?</h2>
+            <div class="kartu">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Karakteristik Python</th>
+                            <th>Manfaat Pedagogis bagi Siswa SMP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="teks-tebal warna-hijau">Sintaksis Manusiawi</td>
+                            <td>Struktur perintah menyerupai bahasa Inggris dasar. Meminimalisir penghafalan simbol (tidak memerlukan titik koma atau kurung kurawal pembatas).</td>
+                        </tr>
+                        <tr>
+                            <td class="teks-tebal warna-biru">Fokus pada Logika</td>
+                            <td>Siswa dapat memusatkan perhatian pada alur penyelesaian masalah (algoritma), bukan terjebak pada kerumitan tata bahasa program.</td>
+                        </tr>
+                        <tr>
+                            <td class="teks-tebal warna-kuning">Relevansi Industri</td>
+                            <td>Python merupakan fondasi standar industri modern untuk Kecerdasan Artifisial (AI) dan Ilmu Data (*Data Science*).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 6 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Analisis Masalah</div>
+            <h2>Tantangan Transisi: Sindrom Kanvas Kosong</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <div class="kotak-info peringatan">
+                        <h3 class="warna-kuning">Identifikasi Masalah:</h3>
+                        <p>Siswa yang sebelumnya mahir menyusun algoritma di platform berbasis blok (seperti Pictoblox atau Scratch) seringkali mengalami kelumpuhan kognitif (*cognitive overload*) ketika dihadapkan pada layar editor teks yang kosong.</p>
+                    </div>
+                    <p><strong>Faktor Penyebab:</strong> Ketiadaan elemen visual penuntun memaksa siswa untuk mengingat struktur sintaksis sekaligus memikirkan solusi masalah secara bersamaan. Hal ini memicu kecemasan dan demotivasi secara instan.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 7 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Solusi Pedagogi</div>
+            <h2>Tiga Pilar Strategi Pengajaran Teks</h2>
+            <p>Untuk memitigasi sindrom kanvas kosong dan memfasilitasi transisi pemahaman yang optimal, pendidik diwajibkan menerapkan tiga metodologi utama:</p>
+            <div class="tata-letak-tiga">
+                <div class="kartu rata-tengah">
+                    <h3 class="warna-hijau">1. Unplugged</h3>
+                    <p class="teks-redup">Membangun pemahaman konseptual algoritma melalui aktivitas fisik tanpa perangkat komputer.</p>
+                </div>
+                <div class="kartu rata-tengah">
+                    <h3 class="warna-kuning">2. Tweak &amp; Break</h3>
+                    <p class="teks-redup">Mengeksplorasi, memodifikasi, dan menganalisis draf kode yang sudah disediakan oleh pendidik.</p>
+                </div>
+                <div class="kartu rata-tengah">
+                    <h3 class="warna-biru">3. Pair Programming</h3>
+                    <p class="teks-redup">Mendistribusikan beban kognitif awal dengan bekerja secara kolaboratif menggunakan satu perangkat.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 8 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Metode 1</div>
+            <h2>Pilar 1: Pendekatan Unplugged (Tanpa Komputer)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Konsep komputasi seperti Variabel (Memori) dan Percabangan (If-Else) bersifat sangat abstrak bagi siswa menengah pertama. Pendekatan <em>Unplugged</em> memanifestasikan konsep tersebut ke dalam wujud fisik di ruang kelas.</p>
+                    <div class="kotak-info pedagogi">
+                        <p><strong>Tujuan Utama:</strong> Siswa memahami arah aliran data (Data Flow) dan hierarki pengambilan keputusan oleh mesin sebelum mereka disibukkan dengan cara mengetiknya di papan tik.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 9 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Metode 1</div>
+            <h2>Contoh Praktik Unplugged: Permainan Peran (Roleplay)</h2>
+            <div class="kartu">
+                <h3 class="warna-hijau">Skenario: "Sistem Palang Pintu Otomatis"</h3>
+                <p>Libatkan tiga orang peserta didik di depan kelas dengan pembagian peran berikut:</p>
+                <ol>
+                    <li><strong>Siswa A (Sensor/Input):</strong> Bertugas menyebutkan status cuaca saat ini secara acak (Misal: "Hujan" atau "Cerah").</li>
+                    <li><strong>Siswa B (Memori/Variabel):</strong> Diberikan papan tulis kecil. Tugasnya mencatat apa yang diucapkan Siswa A dan menunjukkannya kepada Siswa C.</li>
+                    <li><strong>Siswa C (Logika If-Else):</strong> Memegang dua karton. Satu bertuliskan "Tutup Pintu", satu lagi "Buka Pintu". Ia mengevaluasi catatan Siswa B. Jika tertulis "Hujan", ia mengangkat karton "Tutup Pintu".</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 10 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Metode 2</div>
+            <h2>Pilar 2: Metode Tweak &amp; Break</h2>
+            <p>Metode instruksional untuk mencegah siswa memulai pekerjaan dari layar yang kosong.</p>
+            <table style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Fase Metodologi</th>
+                        <th style="width: 40%;">Aktivitas Guru</th>
+                        <th style="width: 40%;">Aktivitas Siswa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sediakan (Provide)</strong></td>
+                        <td>Mendistribusikan draf kode yang dijamin bebas dari kesalahan (error-free).</td>
+                        <td>Menyalin, menjalankan, dan memvalidasi bahwa program beroperasi dengan sukses.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modifikasi (Tweak)</strong></td>
+                        <td>Memberikan instruksi pengubahan nilai parameter (angka/teks).</td>
+                        <td>Mengubah kode dan mengamati dampak perubahannya pada layar terminal secara instan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analisis (Break)</strong></td>
+                        <td>Memerintahkan penghapusan elemen sintaks secara sengaja (misal: tanda kutip).</td>
+                        <td>Menginvestigasi pesan galat yang muncul dan memulihkan kembali kode seperti semula.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= SALINDIA 11 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Literasi Galat</div>
+            <h2>Menormalisasi Pesan Galat (Error Message Literacy)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Pesan galat berwarna merah sering diasosiasikan oleh pemula sebagai indikator kebodohan atau kerusakan perangkat keras. Pendidik wajib merestrukturisasi paradigma ini sejak pertemuan pertama.</p>
+                    <div class="kotak-info">
+                        <p><strong>Aksi Afirmatif Guru:</strong> Tanamkan pemahaman bahwa pesan galat adalah bentuk komunikasi kooperatif dari komputer. Komputer secara eksplisit sedang menginformasikan bahwa instruksi yang ia terima memiliki inkonsistensi tata bahasa, dan ia memberikan petunjuk (tanda panah <code>^</code>) di baris mana perbaikan dibutuhkan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 12 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Metode 3</div>
+            <h2>Pilar 3: Pemrograman Berpasangan (Pair Programming)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Bahkan ketika infrastruktur sekolah memiliki rasio 1 komputer untuk 1 siswa, metode pemrograman berpasangan tetap direkomendasikan pada tahap dasar pembelajaran teks.</p>
+                    <p><strong>Pembagian Peran Dinamis:</strong></p>
+                    <ul>
+                        <li><strong>Pengemudi (Driver):</strong> Mengendalikan papan tik (*keyboard*). Bertanggung jawab atas akurasi pengetikan sintaks.</li>
+                        <li><strong>Navigator:</strong> Tidak menyentuh gawai. Bertanggung jawab memvalidasi alur logika, membaca panduan, dan menemukan kesalahan ejaan.</li>
+                    </ul>
+                    <p class="teks-redup">Rotasi peran harus dilakukan setiap 15 hingga 20 menit untuk menjaga keseimbangan kompetensi kognitif dan psikomotorik.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 13 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Infrastruktur</div>
+            <h2>Pemilihan Lingkungan Pemrograman (IDE)</h2>
+            <p>Implementasi Python di sekolah membutuhkan platform perangkat lunak yang disesuaikan dengan infrastruktur jaringan dan ketersediaan gawai.</p>
+            
+            <div class="kartu">
+                <h3 class="warna-hijau">1. Thonny IDE (Instalasi Luring / Offline)</h3>
+                <p><strong>Rekomendasi Utama untuk Laboratorium Statis.</strong> Keunggulan absolut Thonny terletak pada antarmukanya yang sangat minimalis dan keberadaan fitur *Visual Step Debugger*. Fitur ini memungkinkan siswa mengamati proses evaluasi variabel oleh komputer secara gerak lambat (step-by-step).</p>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 14 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Infrastruktur</div>
+            <h2>Platform Berbasis Komputasi Awan (Cloud IDE)</h2>
+            
+            <div class="kartu" style="margin-bottom: 20px;">
+                <h3 class="warna-biru">2. Google Colaboratory (Colab) / Replit</h3>
+                <p><strong>Rekomendasi untuk Ekosistem Daring dan Skema BYOD.</strong> Platform ini dieksekusi murni melalui peramban (browser) web, sehingga mengeliminasi kendala instalasi perangkat lunak pada sistem operasi yang berbeda-beda. Sangat bersinergi dengan ekosistem akun Belajar.id karena seluruh berkas (*file*) kode disimpan secara otomatis di ruang penyimpanan awan (Google Drive).</p>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 15 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Infrastruktur</div>
+            <h2>Solusi Infrastruktur Terbatas</h2>
+            
+            <div class="kartu">
+                <h3 class="warna-kuning">3. Aplikasi Pydroid 3 (Gawai Cerdas)</h3>
+                <p>Dalam kondisi mitigasi di mana sekolah tidak memiliki alokasi laboratorium komputer yang memadai dan peserta didik hanya bergantung pada gawai pribadi (telepon pintar), aplikasi Pydroid 3 menjadi alternatif yang sangat relevan.</p>
+                <p>Aplikasi ini dapat menjalankan skrip dasar Python sepenuhnya secara luring tanpa membutuhkan konsumsi paket data seluler.</p>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 16 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Tata Laksana Kelas</div>
+            <h2>Kerangka Kerja Bring Your Own Device (BYOD)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Pembelajaran KKA selaras dengan paradigma kemandirian fasilitas. Penerapan kebijakan BYOD (Membawa Perangkat Sendiri) memberikan fleksibilitas tinggi bagi keberlangsungan materi kelas.</p>
+                    <div class="kotak-info pedagogi">
+                        <p><strong>Manfaat Eksekusi BYOD:</strong></p>
+                        <ol>
+                            <li>Peserta didik terbiasa merawat konfigurasi lingkungannya sendiri.</li>
+                            <li>Pembelajaran dan penyelesaian proyek dapat dilanjutkan secara mulus (*seamless*) di rumah tanpa kendala perbedaan versi perangkat lunak.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 17 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 1: Evaluasi</div>
+            <h2>Rangkuman Capaian Sesi 1</h2>
+            <div class="kartu">
+                <ul>
+                    <li>Mata pelajaran KKA berdiri secara independen dan menjadi wahana optimal penanaman 8 Dimensi Profil Lulusan.</li>
+                    <li>Transisi pemrograman teks (Python) menuntut pendekatan yang peka terhadap beban psikologis pemula.</li>
+                    <li>Siklus pembelajaran diawali dengan kegiatan <strong>Unplugged</strong>, dieksekusi melalui metode <strong>Tweak &amp; Break</strong>, dan diamankan dengan kolaborasi <strong>Pair Programming</strong>.</li>
+                    <li>Pemilihan platform IDE (Thonny, Colab, Pydroid) wajib merefleksikan kesiapan infrastruktur nyata di lapangan.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 18 ================= -->
+        <div class="salindia rata-tengah aktif">
+            <div class="label-sesi">Transisi Sesi</div>
+            <h1 class="warna-kuning" style="margin-top: 80px;">Akhir Sesi 1</h1>
+            <p>Pada sesi berikutnya (Sesi 2), kita akan memasuki ruang praktikum secara langsung untuk membedah anatomi I/O (Input/Output) dan Variabel pada Python.</p>
+            <div class="kotak-info rata-tengah" style="width: 50%; margin: 30px auto; text-align: left;">
+                <p><strong>Persiapan Sesi Selanjutnya:</strong> Pastikan Bapak/Ibu telah membuka platform Thonny IDE atau Google Colab di perangkat masing-masing.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script Pengaturan Salindia -->
+    <script>
+        let salindiaAktif = 0;
+        const daftarSalindia = document.querySelectorAll('.salindia');
+        const bilahKemajuan = document.getElementById('bilah-kemajuan');
+        const penghitung = document.getElementById('penghitung-salindia');
+
+        function perbaruiSalindia() {
+            daftarSalindia.forEach(slide => slide.classList.remove('aktif'));
+            daftarSalindia[salindiaAktif].classList.add('aktif');
+            
+            const kemajuan = ((salindiaAktif + 1) / daftarSalindia.length) * 100;
+            bilahKemajuan.style.width = `${kemajuan}%`;
+            penghitung.innerText = `${salindiaAktif + 1} / ${daftarSalindia.length}`;
+        }
+
+        function salindiaSelanjutnya() {
+            if (salindiaAktif < daftarSalindia.length - 1) {
+                salindiaAktif++; perbaruiSalindia();
+            }
+        }
+
+        function salindiaSebelumnya() {
+            if (salindiaAktif > 0) {
+                salindiaAktif--; perbaruiSalindia();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                salindiaSelanjutnya();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                salindiaSebelumnya();
+            }
+        });
+
+        perbaruiSalindia();
+    </script>
+
+</body></html>

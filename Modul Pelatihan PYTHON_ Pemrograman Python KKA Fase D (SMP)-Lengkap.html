@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///Users/mac/Downloads/gemini-code-1789191661081.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pelatihan 100 Salindia: Pemrograman Python KKA Fase D (SMP)</title>
+    <link href="./Modul Pelatihan PYTHON_ Pemrograman Python KKA Fase D (SMP)-Lengkap_files/css2" rel="stylesheet">
+    <link href="./Modul Pelatihan PYTHON_ Pemrograman Python KKA Fase D (SMP)-Lengkap_files/prism-tomorrow.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-utama: #0f172a; --bg-kartu: #1e293b; --teks-utama: #f8fafc; --teks-sekunder: #94a3b8;
+            --aksen-hijau: #34d399; --aksen-kuning: #fbbf24; --aksen-biru: #38bdf8; --aksen-merah: #f87171;
+            --aksen-ungu: #c084fc; --garis-batas: #334155;
+        }
+        body { margin: 0; padding: 0; overflow: hidden; background-color: var(--bg-utama); color: var(--teks-utama); font-family: 'Montserrat', sans-serif; background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 30px 30px; }
+        #wadah-presentasi { position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .salindia { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, transform 0.3s ease; transform: scale(0.98); padding: 50px 80px; box-sizing: border-box; overflow-y: auto; }
+        .salindia.aktif { opacity: 1; visibility: visible; transform: scale(1); }
+        .label-sesi { position: absolute; top: 30px; right: 60px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--aksen-biru); color: var(--aksen-biru); padding: 6px 14px; border-radius: 4px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        h1 { font-size: 2.8rem; font-weight: 700; color: var(--aksen-hijau); margin-bottom: 10px; line-height: 1.2;}
+        h2 { font-size: 1.8rem; font-weight: 600; color: var(--aksen-kuning); margin-bottom: 20px; border-bottom: 1px solid var(--garis-batas); padding-bottom: 10px; width: 100%;}
+        h3 { font-size: 1.3rem; font-weight: 600; color: var(--aksen-biru); margin-top: 0; margin-bottom: 10px;}
+        p, li { font-size: 1.15rem; line-height: 1.5; color: var(--teks-utama); }
+        ul, ol { margin-left: 20px; margin-bottom: 15px;}
+        li { margin-bottom: 8px; }
+        .rata-tengah { text-align: center; width: 100%; align-items: center;}
+        .teks-redup { color: var(--teks-sekunder); font-size: 1rem; }
+        .teks-tebal { font-weight: 600; }
+        .warna-hijau { color: var(--aksen-hijau); } .warna-biru { color: var(--aksen-biru); } .warna-kuning { color: var(--aksen-kuning); } .warna-ungu { color: var(--aksen-ungu); } .warna-merah { color: var(--aksen-merah); }
+        .tata-letak-ganda { display: flex; width: 100%; gap: 25px; align-items: stretch; justify-content: space-between; }
+        .tata-letak-tiga { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; }
+        .kolom { flex: 1; display: flex; flex-direction: column;}
+        .kartu { background: var(--bg-kartu); border-radius: 8px; padding: 20px; border: 1px solid var(--garis-batas); width: 100%; box-sizing: border-box; box-shadow: 0 8px 20px rgba(0,0,0,0.3); height: 100%; }
+        .kepala-jendela { background: #0f172a; padding: 8px 12px; border-radius: 8px 8px 0 0; display: flex; gap: 8px; border-bottom: 1px solid var(--garis-batas); margin: -20px -20px 10px -20px; align-items: center; }
+        .titik { width: 10px; height: 10px; border-radius: 50%; }
+        .titik-merah { background: #ef4444; } .titik-kuning { background: #f59e0b; } .titik-hijau { background: #10b981; }
+        .teks-berkas { color: var(--teks-sekunder); font-family: 'Fira Code', monospace; font-size: 0.8rem; margin-left: 10px;}
+        pre[class*="language-"] { font-family: 'Fira Code', monospace !important; font-size: 0.95rem !important; border-radius: 0 0 8px 8px !important; margin: 0 !important; background: transparent !important; padding: 0 !important; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 1.05rem;}
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--garis-batas); }
+        th { background: rgba(56, 189, 248, 0.1); color: var(--aksen-biru); font-weight: 600;}
+        .kotak-info { background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--aksen-biru); padding: 12px 18px; border-radius: 0 4px 4px 0; margin: 10px 0; }
+        .kotak-info.peringatan { background: rgba(251, 191, 36, 0.1); border-color: var(--aksen-kuning); }
+        .kotak-info.pedagogi { background: rgba(192, 132, 252, 0.1); border-color: var(--aksen-ungu); }
+        #kontrol { position: fixed; bottom: 20px; right: 30px; display: flex; gap: 10px; z-index: 1000;}
+        .tombol-nav { background: var(--bg-kartu); color: var(--teks-utama); border: 1px solid var(--garis-batas); width: 40px; height: 40px; border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
+        .tombol-nav:hover { background: var(--garis-batas); }
+        #bilah-kemajuan { position: fixed; bottom: 0; left: 0; height: 4px; background: var(--aksen-biru); width: 0%; transition: width 0.3s; z-index: 1000;}
+        #penghitung-salindia { position: fixed; bottom: 20px; left: 30px; font-family: 'Fira Code', monospace; color: var(--teks-sekunder); font-size: 1rem;}
+    </style>
+</head>
+<body>
+    <div id="bilah-kemajuan" style="width: 98.0769%;"></div>
+    <div id="penghitung-salindia">102 / 104</div>
+    <div id="kontrol">
+        <button class="tombol-nav" onclick="salindiaSebelumnya()">❮</button>
+        <button class="tombol-nav" onclick="salindiaSelanjutnya()">❯</button>
+    </div>
+
+    <div id="wadah-presentasi">
+
+        <!-- ================= BAGIAN 1: PENDAHULUAN & PEDAGOGI (1-15) ================= -->
+        <div class="salindia rata-tengah">
+            <h1 style="margin-top: 80px;">Pelatihan Komprehensif Pemrograman Python</h1>
+            <h3 style="color: var(--teks-utama); font-weight: 400; font-size: 1.5rem;">Mata Pelajaran Koding dan Kecerdasan Artifisial (KKA) Jenjang SMP</h3>
+            <p class="teks-redup" style="margin-top: 30px;">Tekan panah Kanan (❯) untuk melanjutkan.</p>
+        </div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pendahuluan</div><h2>Tujuan Instruksional Umum</h2><div class="kartu"><p>Pelatihan ini dirancang untuk membekali pendidik dengan kompetensi esensial dalam:</p><ol><li>Memahami arsitektur sintaks dasar bahasa Python.</li><li>Mentransisikan logika dari pemrograman blok (visual) menuju pemrograman teks secara sistematis.</li><li>Menerapkan metode pedagogi yang interaktif untuk mereduksi tingkat kecemasan siswa terhadap kompleksitas kode.</li><li>Mengembangkan modul praktikum berlapis (Tingkat Mudah, Menengah, Sulit).</li></ol></div></div>
+        
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pendahuluan</div><h2>Peta Jalan Kurikulum KKA (Fase D)</h2><div class="tata-letak-ganda"><div class="kolom kartu"><h3 class="warna-hijau">Fase Eksplorasi</h3><p class="teks-redup">Pengenalan algoritma visual, logika urutan, dan penyelesaian masalah dasar melalui blok kode.</p></div><div class="kolom kartu"><h3 class="warna-kuning">Fase Transisi</h3><p class="teks-redup">Pengenalan antarmuka konsol, struktur I/O teks, dan pengkondisian bersyarat menggunakan Python dasar.</p></div></div><div class="tata-letak-ganda" style="margin-top: 20px;"><div class="kolom kartu"><h3 class="warna-biru">Fase Analitis</h3><p class="teks-redup">Implementasi perulangan, komputasi matematis dinamis, dan ekstraksi nilai logika berjenjang.</p></div><div class="kolom kartu"><h3 class="warna-ungu">Fase Sintesis</h3><p class="teks-redup">Pengembangan proyek terintegrasi menggunakan arsitektur fungsi modular (Purwarupa Kecerdasan Artifisial).</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pendahuluan</div><h2>Regulasi &amp; Kedudukan Mata Pelajaran KKA</h2><div class="kartu"><p>Sesuai dengan penyesuaian kurikulum terbaru, Koding dan Kecerdasan Artifisial (KKA) diposisikan secara strategis dalam Kurikulum Merdeka.</p><ul><li><strong>Status Mata Pelajaran:</strong> Ditetapkan sebagai mata pelajaran pilihan terpisah yang berdiri secara independen, bukan terintegrasi di dalam materi mata pelajaran lain.</li><li><strong>Fokus Implementasi:</strong> Menanamkan nalar komputasional sedini mungkin tanpa mewajibkan siswa menghafal keseluruhan sintaks bahasa tingkat tinggi.</li><li><strong>Fleksibilitas Platform:</strong> Mendorong sekolah memanfaatkan kerangka Bring Your Own Device (BYOD) agar pembelajaran tidak bergantung secara mutlak pada fasilitas laboratorium statis.</li></ul></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pendahuluan</div><h2>Penyelarasan dengan 8 Dimensi Profil Lulusan</h2><p>Pengajaran pemrograman harus memfasilitasi internalisasi 8 Dimensi Profil Lulusan secara konkret di dalam kelas:</p><div class="tata-letak-tiga"><div class="kartu"><h3 class="warna-hijau">Bernalar Kritis</h3><p class="teks-redup">Dilatih melalui proses analisis galat (*debugging*) dan perumusan alur percabangan kompleks.</p></div><div class="kartu"><h3 class="warna-biru">Kreativitas</h3><p class="teks-redup">Berkembang ketika siswa memodifikasi (Tweak) parameter variabel untuk menghasilkan keluaran unik.</p></div><div class="kartu"><h3 class="warna-kuning">Bergotong Royong</h3><p class="teks-redup">Dibentuk secara langsung melalui metode Pemrograman Berpasangan (*Pair Programming*).</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pendahuluan</div><h2>Mengapa Python Dipilih untuk Fase D?</h2><div class="tata-letak-ganda"><div class="kolom"><p>Python direkomendasikan secara global untuk pendidikan menengah karena arsitekturnya yang berfokus pada keterbacaan manusia.</p><ul><li>Mengeliminasi penggunaan karakter khusus berlebihan (seperti titik koma <code>;</code> dan kurung kurawal <code>{}</code>).</li><li>Menggunakan indentasi horisontal yang mendisiplinkan struktur berpikir spasial siswa.</li><li>Skalabilitas tinggi: Dimulai dari level konsol sederhana hingga analisis data kecerdasan artifisial profesional.</li></ul></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pedagogi</div><h2>Tantangan Transisi Pemrograman Blok ke Teks</h2><div class="kotak-info peringatan"><p>Peserta didik yang mahir memanipulasi blok di Pictoblox seringkali mengalami kelumpuhan kognitif saat dihadapkan pada layar editor teks putih kosong.</p></div><p>Faktor Penyebab Kecemasan:</p><ul><li>Ketiadaan elemen visual penuntun (puzzle yang saling mengunci).</li><li>Ketakutan psikologis terhadap teks galat (Error) berwarna merah di terminal.</li><li>Kesalahan kecil seperti huruf kapital yang menyebabkan program terhenti secara absolut (*Case Sensitivity*).</li></ul></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pedagogi</div><h2>Strategi Transisi Pedagogis</h2><p>Untuk mengatasi kecemasan siswa, diperlukan strategi yang tidak langsung membebankan sintaks di pertemuan awal.</p><table><thead><tr><th>Metodologi</th><th>Fokus Implementasi</th><th>Tujuan Instruksional</th></tr></thead><tbody><tr><td><strong>Unplugged</strong></td><td>Simulasi pergerakan data fisik.</td><td>Membangun pemahaman konseptual tanpa beban gawai.</td></tr><tr><td><strong>Tweak &amp; Break</strong></td><td>Eksplorasi kode siap pakai.</td><td>Mengeliminasi fobia terhadap pesan galat sistem.</td></tr><tr><td><strong>Pair Programming</strong></td><td>Kerja kolaboratif satu perangkat.</td><td>Mendistribusikan beban kognitif pada tahap awal.</td></tr></tbody></table></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pedagogi</div><h2>Metode 1: Aktivitas Tanpa Komputer (Unplugged)</h2><div class="tata-letak-ganda"><div class="kolom"><p>Dekonstruksi konsep komputasi abstrak menjadi aktivitas lokomotorik di dalam ruang kelas.</p><div class="kotak-info pedagogi"><h3 class="warna-ungu">Tata Laksana:</h3><p>Assignasikan peran kepada siswa: Siswa A sebagai "Memori/Variabel" yang memegang karton kosong untuk mencatat angka, Siswa B sebagai "Logika Evaluasi" yang memeriksa apakah angka di karton Siswa A sesuai dengan ketentuan instruksi instruktur.</p></div></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pedagogi</div><h2>Contoh Unplugged: Sistem Rute Keputusan</h2><div class="kartu rata-tengah"><p>Gambarkan persimpangan jalur di lantai kelas menggunakan pita perekat (selotip). Letakkan label "Kondisi" di persimpangan.</p><p class="warna-kuning" style="font-size: 2rem; margin: 20px 0;">[Awal] ➡️ [Cek Kondisi: Hujan?] ➡️ Ya / Tidak</p><p>Arahkan siswa untuk mengambil keputusan secara fisik (berjalan ke arah spesifik) berdasarkan status kondisi saat ditanya. Ini meletakkan fondasi absolut untuk materi <code>If-Else</code>.</p></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pedagogi</div><h2>Metode 2: Tweak and Break (Modifikasi &amp; Analisis)</h2><p>Strategi membedah anatomi program untuk membiasakan siswa dengan lingkungan penulisan sintaks.</p><div class="tata-letak-tiga"><div class="kartu rata-tengah"><h3 class="warna-hijau">1. Fase Sediakan</h3><p class="teks-redup">Guru memberikan draf kode yang sudah teruji valid. Siswa sekadar menyalin dan menjalankan program (sukses di eksekusi pertama).</p></div><div class="kartu rata-tengah"><h3 class="warna-kuning">2. Fase Modifikasi</h3><p class="teks-redup">Siswa diperintahkan mengubah parameter angka atau teks (Tweak) guna menyadari korelasi langsung antara instruksi dan hasil keluaran.</p></div><div class="kartu rata-tengah"><h3 class="warna-merah">3. Fase Destruksi</h3><p class="teks-redup">Siswa diinstruksikan untuk sengaja menghapus elemen krusial (seperti koma) agar memunculkan galat untuk diinvestigasi.</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pedagogi</div><h2>Bahaya Paradigma Kanvas Kosong (Blank Canvas)</h2><div class="tata-letak-ganda"><div class="kolom"><div class="kotak-info peringatan"><h3 class="warna-kuning">Catatan Fasilitator:</h3><p>Meminta siswa SMP menyusun logika dari lembar kerja kosong pada kuartal pertama pembelajaran Python adalah kesalahan pedagogi komputasional yang fatal.</p></div><p>Kanvas kosong memaksa siswa untuk mengingat struktur (sintaks) sekaligus memikirkan solusi masalah (logika). Beban ganda ini menurunkan retensi materi hingga 70%.</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pedagogi</div><h2>Metode 3: Penormalan Pesan Galat (Debugging)</h2><div class="kartu" style="border-left: 6px solid var(--aksen-merah); margin-bottom: 20px;"><p style="font-family: &#39;Fira Code&#39;, monospace; color: var(--aksen-merah); margin:0;">SyntaxError: invalid syntax<br>IndentationError: expected an indented block<br>TypeError: can only concatenate str to str</p></div><p>Tanamkan literasi galat: Pesan merah di terminal komputer <strong>bukanlah kerusakan sistem perangkat keras</strong>. Galat adalah respons dialogis komputer yang meminta spesifikasi ulang atas instruksi yang dinilai ambigu. Siswa harus diposisikan sebagai "Dokter Logika" yang menganalisis rekam medis program tersebut.</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Pedagogi</div><h2>Metode 4: Pemrograman Berpasangan (Pair Programming)</h2><div class="tata-letak-ganda"><div class="kolom"><p>Dalam skenario infrastruktur yang memadai sekalipun, metode satu perangkat untuk dua siswa sangat direkomendasikan pada tahap awal.</p><ul><li><strong>Pengemudi (Driver):</strong> Memiliki kontrol mutlak pada papan tik. Fokus pada penulisan sintaks secara akurat tanpa salah ejaan.</li><li><strong>Pemandu (Navigator):</strong> Membaca lembar panduan, mengevaluasi arsitektur logika, dan memantau galat pengetikan. Peran harus dirotasi setiap 20 menit.</li></ul></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 1: Lingkungan</div><h2>Ekosistem Lingkungan Pengembangan Terpadu (IDE)</h2><table><thead><tr><th>Kategori</th><th>Platform</th><th>Rekomendasi Skema Penggunaan</th></tr></thead><tbody><tr><td>Luring (Aplikasi Desktop)</td><td><strong>Thonny IDE</strong></td><td>Sangat dianjurkan untuk lab statis. Fitur utama adalah "Visual Step Debugger" yang mengevaluasi jalannya variabel secara gerak lambat.</td></tr><tr><td>Daring (Berbasis Web)</td><td><strong>Google Colab</strong> / Replit</td><td>Optimal untuk kebijakan BYOD (Bring Your Own Device). Penyimpanan otomatis terhubung infrastruktur Belajar.id (Google Workspace).</td></tr><tr><td>Gawai (Mobile App)</td><td><strong>Pydroid 3</strong></td><td>Alternatif mitigasi darurat jika peserta didik hanya mengandalkan peranti Android untuk praktikum mandiri.</td></tr></tbody></table></div>
+
+        <!-- ================= BAGIAN 2: PRAKTIKUM I/O & VARIABEL (16-30) ================= -->
+        <div class="salindia rata-tengah"><div class="label-sesi">Sesi 2: Fondasi</div><h1 class="warna-hijau">Sesi 2: Fondasi I/O dan Variabel</h1><p>Memahami mekanisme masuknya informasi, pengolahan, dan proyeksi data.</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Fondasi</div><h2>Konsep Dasar I/O (Input/Output)</h2><div class="tata-letak-ganda"><div class="kolom"><p>Arsitektur komputer modern beroperasi dalam tiga dimensi berkesinambungan: Menerima stimulasi dari pengguna, mengalokasikan data di dalam memori, lalu menyajikan resolusinya secara visual ke layar terminal.</p><div class="kotak-info"><p style="margin:0;">Di lingkungan Python dasar, komunikasi teks divisualisasikan sepenuhnya pada Konsol/Terminal teks berwarna hitam-putih di bagian bawah editor kode.</p></div></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Praktik</div><h2>Praktik Keluaran Layar: fungsi print()</h2><div class="tata-letak-ganda"><div class="kolom"><p>Fungsi <code>print()</code> adalah modul absolut untuk mengomunikasikan teks ke pengguna akhir.</p><ul><li>Teks (String) wajib dideklarasikan di dalam tanda kutip tunggal <code>'...'</code> atau ganda <code>"..."</code> secara sekuensial.</li><li>Fungsi <code>print()</code> secara bawaan (default) akan menambahkan pergantian baris (Enter) di setiap pemanggilannya.</li></ul></div><div class="kolom kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">keluaran.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Deklarasi tunggal</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Modul Sistem KKA Aktif"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Siswa siap belajar'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Angka tidak memerlukan kutip</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">2026</span><span class="token punctuation">)</span></code></pre></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Fondasi</div><h2>Aturan Penulisan Sintaks Dasar</h2><div class="kartu"><p>Kaidah utama dalam menulis kode Python di kelas SMP:</p><ol><li><strong>Sensitivitas Huruf (Case Sensitive):</strong> Penulisan <code>Print()</code> dengan huruf kapital 'P' adalah salah. Semua fungsi bawaan menggunakan huruf kecil.</li><li><strong>Konsistensi Kutipan:</strong> Membuka teks dengan kutip ganda <code>"</code> harus diakhiri dengan kutip ganda <code>"</code>. Mencampurkan kutipan (seperti <code>"Teks'</code>) akan memicu galat sintaksis.</li><li><strong>Pembatas Blok:</strong> Python mengandalkan garis baris baru (Enter) sebagai akhir dari sebuah instruksi tunggal.</li></ol></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Fondasi</div><h2>Konsep Variabel (Penyimpanan Data)</h2><div class="tata-letak-ganda"><div class="kolom"><p>Variabel adalah entitas alokasi memori yang diberi label untuk merekam sebuah nilai secara spesifik dan sementara. Nilai dalam variabel bersifat mutabel (dapat ditimpa dengan nilai baru kapan saja).</p></div><div class="kolom kartu rata-tengah"><p style="font-size: 4rem; margin:10px 0;">🏷️ 📦</p><p class="teks-redup">Nama Variabel = Nilai Data</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Fondasi</div><h2>Tata Aturan Penamaan Variabel Valid</h2><div class="kotak-info peringatan"><p>Python memiliki restriksi ketat terhadap pemberian nama wadah memori.</p></div><table><thead><tr><th>Aturan Fundamental</th><th>Valid (Diterima)</th><th>Invalid (Ditolak)</th></tr></thead><tbody><tr><td>Tidak boleh menggunakan karakter spasi</td><td><code>nama_lengkap = ...</code></td><td><code>nama lengkap = ...</code></td></tr><tr><td>Tidak boleh diawali oleh angka numerik</td><td><code>peserta_1 = ...</code></td><td><code>1_peserta = ...</code></td></tr><tr><td>Hindari simbol khusus kecuali garis bawah</td><td><code>skor_akhir = ...</code></td><td><code>skor@akhir = ...</code></td></tr></tbody></table></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Praktik Mudah</div><h2>Praktik Mudah: Deklarasi Variabel Statis</h2><div class="tata-letak-ganda"><div class="kolom"><p>Mari kita alokasikan teks statis ke dalam variabel dan merujuk nama variabel tersebut di dalam fungsi <code>print()</code>.</p><p class="warna-kuning">Instruksi: Jangan menambahkan tanda kutip pada pemanggilan nama variabel di fungsi keluaran.</p></div><div class="kolom kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">variabel_statis.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Deklarasi (Assignment)</span>
+kota_provinsi <span class="token operator">=</span> <span class="token string">"Malang"</span>
+target_tahun <span class="token operator">=</span> <span class="token number">2026</span>
+
+<span class="token comment"># Pemanggilan kembali (Recall)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>kota_provinsi<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>target_tahun<span class="token punctuation">)</span></code></pre></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Fondasi</div><h2>Fungsi Interaksi Pengguna: input()</h2><div class="tata-letak-ganda"><div class="kolom"><p>Fungsi <code>input()</code> menangguhkan (pause) eksekusi program dan menunggu hingga pengguna menekan tombol Enter. Teks argumen di dalam fungsi bertindak sebagai *prompt* atau panduan visual bagi pengguna di terminal.</p></div><div class="kolom kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">input_dasar.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Menangkap data pengguna ke memori</span>
+nama_pengguna <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Tulis nama Anda: "</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sistem mencatat:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>nama_pengguna<span class="token punctuation">)</span></code></pre></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Praktik Menengah</div><h2>Praktik Menengah: Dialog Interaktif Sederhana</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">dialog_sederhana.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"=== REGISTRASI SISTEM KKA ==="</span><span class="token punctuation">)</span>
+nama_siswa <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Identifikasi Nama: "</span><span class="token punctuation">)</span>
+jenjang_kelas <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Identifikasi Kelas (Contoh: 8A): "</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-----------------------------"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Status Registrasi:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Terima kasih telah mendaftar,"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>nama_siswa<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Penempatan data berada pada blok kelas:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>jenjang_kelas<span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Fondasi</div><h2>Penggabungan Logis (Concatenation)</h2><p>Mencetak kalimat terpisah baris demi baris tidaklah efisien. Python memungkinkan penggabungan parameter teks statis dengan variabel di dalam satu baris instruksi yang seragam.</p><div class="kotak-info"><p>Pendekatan yang diajarkan pada tingkat pemula adalah menggunakan operator simbol Koma (<code>,</code>) dan Tambah (<code>+</code>).</p></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Praktik</div><h2>Perbedaan Penggabungan: Koma vs Tambah</h2><div class="tata-letak-ganda"><div class="kolom kartu"><h3 class="warna-hijau">Metode Simbol Koma (,)</h3><p class="teks-redup">Secara otomatis menyisipkan jarak satu spasi pemisah di antara setiap argumen.</p><pre class="language-python" tabindex="0"><code class="language-python">user <span class="token operator">=</span> <span class="token string">"Andi"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Halo"</span><span class="token punctuation">,</span> user<span class="token punctuation">)</span>
+<span class="token comment"># Hasil: Halo Andi</span></code></pre></div><div class="kolom kartu"><h3 class="warna-biru">Metode Simbol Tambah (+)</h3><p class="teks-redup">Penggabungan presisi murni tanpa ruang spasi tambahan (harus disisipkan manual secara literal).</p><pre class="language-python" tabindex="0"><code class="language-python">user <span class="token operator">=</span> <span class="token string">"Andi"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Halo "</span> <span class="token operator">+</span> user<span class="token punctuation">)</span>
+<span class="token comment"># Hasil: Halo Andi</span></code></pre></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Praktik Sulit</div><h2>Praktik Sulit: Sintesis Modul Biodata Pengguna</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">biodata_gabung.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">input_depan <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Ketik nama depan: "</span><span class="token punctuation">)</span>
+input_belakang <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Ketik nama belakang: "</span><span class="token punctuation">)</span>
+asal_instansi <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Asal sekolah/instansi: "</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Menyusun identitas penuh</span>
+nama_penuh <span class="token operator">=</span> input_depan <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> input_belakang
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKredensial Pengguna Diverifikasi:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Siswa "</span> <span class="token operator">+</span> nama_penuh <span class="token operator">+</span> <span class="token string">" terafiliasi dengan entitas "</span> <span class="token operator">+</span> asal_instansi <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">)</span></code></pre></div><p class="teks-redup">Tugas Peserta: Modifikasi program di atas agar sistem merangkai sapaan menggunakan metode simbol koma.</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Fondasi Lanjut</div><h2>Interpolasi Karakter Format String (f-String)</h2><div class="kotak-info pedagogi"><p>Format F-String adalah cara paling modern dan direkomendasikan di kalangan profesional Python untuk menyisipkan variabel langsung di dalam satu baris teks tanpa perlu operator tambah yang rumit.</p></div><div class="kartu"><pre class="language-python" tabindex="0"><code class="language-python">kota <span class="token operator">=</span> <span class="token string">"Surabaya"</span>
+tahun <span class="token operator">=</span> <span class="token number">2026</span>
+
+<span class="token comment"># Huruf 'f' di depan tanda kutip mengaktifkan format dinamis</span>
+<span class="token comment"># Variabel langsung disisipkan di dalam kurung kurawal {}</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Konferensi KKA diadakan di </span><span class="token interpolation"><span class="token punctuation">{</span>kota<span class="token punctuation">}</span></span><span class="token string"> pada kurun </span><span class="token interpolation"><span class="token punctuation">{</span>tahun<span class="token punctuation">}</span></span><span class="token string">."</span></span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Praktik</div><h2>Praktik Format F-String</h2><p>Refaktorisasi (penyusunan ulang) modul biodata sebelumnya menggunakan kapabilitas F-String.</p><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">refaktorisasi_fstring.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">makanan_favorit <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Apa masakan kesukaan Anda? "</span><span class="token punctuation">)</span>
+minuman_favorit <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Apa minuman kesukaan Anda? "</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Teks lebih presisi dan terhindar dari galat spasi</span>
+laporan_akhir <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"Catatan pesanan: 1 porsi </span><span class="token interpolation"><span class="token punctuation">{</span>makanan_favorit<span class="token punctuation">}</span></span><span class="token string"> dan segelas </span><span class="token interpolation"><span class="token punctuation">{</span>minuman_favorit<span class="token punctuation">}</span></span><span class="token string">."</span></span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>laporan_akhir<span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Evaluasi</div><h2>Analisis Galat: NameError (Variabel Tak Ditemukan)</h2><div class="kartu" style="border-left: 6px solid var(--aksen-merah); margin-bottom: 20px;"><p style="font-family: &#39;Fira Code&#39;, monospace; color: var(--aksen-merah); margin:0;">NameError: name 'nama_pengguna' is not defined</p></div><p>Galat tipe <code>NameError</code> adalah galat paling lazim saat praktik kelas. Penyebab utamanya adalah:</p><ul><li>Adanya kesalahan ejaan karakter (*typo*) saat memanggil variabel di baris bawah.</li><li>Pemanggilan fungsi dilakukan sebelum alokasi variabel (urutan baris terbalik).</li><li>Memperhatikan sensitivitas huruf (misal: <code>Siswa</code> dipanggil dengan <code>siswa</code>).</li></ul></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 2: Rangkuman</div><h2>Rangkuman Capaian Sesi 2</h2><div class="kartu"><ul><li>Program Python mengandalkan aliran hierarkis eksekusi dari atas ke bawah.</li><li>Fungsi <code>input()</code> menangguhkan alur untuk merekam respons.</li><li>Penggabungan informasi pada tahap dasar dapat dieksekusi dengan operator (<code>+</code> atau <code>,</code>) dan dievolusi menggunakan metode struktur F-String.</li><li>Kesalahan karakter penamaan akan secara absolut memicu penolakan eksekusi (Galat Nama).</li></ul></div></div>
+
+        <!-- ================= BAGIAN 3: TIPE DATA & ARITMATIKA (31-45) ================= -->
+        <div class="salindia rata-tengah"><div class="label-sesi">Sesi 3: Tipe Data</div><h1 class="warna-kuning">Sesi 3: Tipe Data &amp; Operasi Aritmatika</h1><p>Memproses manipulasi logis data numerik dan konversi fundamental.</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Konsep Dasar</div><h2>Mengapa Identifikasi Tipe Data Krusial?</h2><div class="tata-letak-ganda"><div class="kolom"><p>Dalam bahasa komputasi murni, simbol angka "100" belum tentu dipahami sebagai nilai matematis yang dapat dikalikan. Komputer merespons secara spesifik berdasarkan klasifikasi *Tipe Data* yang mendasari informasi tersebut.</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Konsep Dasar</div><h2>Tipe Data Tekstual: String (str)</h2><p>Semua informasi yang diformat di dalam blok kutipan tunggal atau ganda akan diperlakukan sebagai urutan karakter literal (teks murni), sekalipun memuat angka.</p><div class="kartu"><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Deklarasi String Literal</span>
+kode_pos <span class="token operator">=</span> <span class="token string">"65141"</span>
+nomor_telepon <span class="token operator">=</span> <span class="token string">'08123456789'</span>
+
+<span class="token comment"># Penggabungan akan menyambungkan teks, BUKAN menjumlahkan matematis</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>kode_pos <span class="token operator">+</span> <span class="token string">" area lokal"</span><span class="token punctuation">)</span> 
+<span class="token comment"># Hasil: 65141 area lokal</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Konsep Dasar</div><h2>Tipe Data Numerik murni: Integer &amp; Float</h2><div class="tata-letak-ganda"><div class="kolom kartu"><h3 class="warna-hijau">Integer (int)</h3><p class="teks-redup">Menyimpan bilangan real bulat, baik positif maupun negatif, tanpa komponen desimal.</p><pre class="language-python" tabindex="0"><code class="language-python">skor <span class="token operator">=</span> <span class="token number">100</span>
+tahun <span class="token operator">=</span> <span class="token number">2026</span>
+kredit <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">50</span></code></pre></div><div class="kolom kartu"><h3 class="warna-biru">Float (float)</h3><p class="teks-redup">Menyimpan estimasi nilai angka pecahan desimal. Menggunakan notasi tanda titik (<code>.</code>).</p><pre class="language-python" tabindex="0"><code class="language-python">suhu_tubuh <span class="token operator">=</span> <span class="token number">36.5</span>
+indeks_prestasi <span class="token operator">=</span> <span class="token number">3.85</span></code></pre></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Fondasi Kompleks</div><h2>Konversi Eksplisit Tipe Data (Casting)</h2><div class="kotak-info peringatan"><p>Data yang dikumpulkan dari pengguna melalui fungsi <code>input()</code> akan selalu berklasifikasi Tipe Data String secara bawaan. Memanipulasi nilai ini tanpa konversi akan berakibat galat eksekusi.</p></div><p>Metode Pembungkusan Konversi:</p><ul><li><code>int()</code> mengonversi teks literal berformat angka bulat menjadi nilai matematis utuh.</li><li><code>float()</code> mengonversi teks ke format angka pecahan.</li><li><code>str()</code> memaksa konversi nilai numerik menjadi teks format bebas untuk digabungkan dengan kalimat lain.</li></ul></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Evaluasi Galat</div><h2>Investigasi: Bahaya Logika Tipe Data</h2><div class="tata-letak-ganda"><div class="kolom kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">bug_kalkulasi.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">nilai_a <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Masukkan angka pertama: "</span><span class="token punctuation">)</span>
+nilai_b <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Masukkan angka kedua: "</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Jika pengguna memasukkan 10 dan 20</span>
+hasil <span class="token operator">=</span> nilai_a <span class="token operator">+</span> nilai_b
+<span class="token keyword">print</span><span class="token punctuation">(</span>hasil<span class="token punctuation">)</span> 
+<span class="token comment"># HASILNYA ADALAH "1020", bukan 30!</span></code></pre></div><div class="kolom"><div class="kotak-info pedagogi"><p>Fenomena ini disebut <em>Logical Error</em>. Sistem tidak mencetak merah, kode berjalan sempurna, namun konklusi matematika salah secara total karena instruksi plus (<code>+</code>) pada teks berfungsi sebagai lem penyambung dua kalimat.</p></div></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Praktik Mudah</div><h2>Level Mudah: Eksekusi Konversi (Casting) yang Valid</h2><p>Guna menyelesaikan distorsi pada latihan sebelumnya, variabel input wajib dialokasikan di dalam pembungkus klasifikasi nilai konversi <code>int()</code>.</p><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">solusi_casting.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Opsi 1: Pembungkusan langsung saat merekam respons</span>
+nilai_c <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Masukkan angka bulat pengali: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Opsi 2: Konversi tertunda pada tahap pemrosesan alur</span>
+nilai_d_teks <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Masukkan angka desimal: "</span><span class="token punctuation">)</span>
+nilai_d_float <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>nilai_d_teks<span class="token punctuation">)</span>
+
+kalkulasi_bersih <span class="token operator">=</span> nilai_c <span class="token operator">*</span> nilai_d_float
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Proses penyelesaian kalkulasi:"</span><span class="token punctuation">,</span> kalkulasi_bersih<span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Konsep Dasar</div><h2>Daftar Referensi Operator Aritmatika Formal</h2><table><thead><tr><th>Simbol Aritmatika</th><th>Definisi Operasi Matematika</th><th>Visualisasi Penerapan Dasar</th></tr></thead><tbody><tr><td><code>+</code></td><td>Penjumlahan Total</td><td><code>5 + 2</code> (Output: 7)</td></tr><tr><td><code>-</code></td><td>Pengurangan (Substraksi)</td><td><code>5 - 2</code> (Output: 3)</td></tr><tr><td><code>*</code></td><td>Perkalian (Multiplikasi)</td><td><code>5 * 2</code> (Output: 10)</td></tr><tr><td><code>/</code></td><td>Pembagian Desimal Akurat</td><td><code>5 / 2</code> (Output: 2.5)</td></tr><tr><td><code>**</code></td><td>Eksponen (Perpangkatan/Pangkat)</td><td><code>5 ** 2</code> (Output: 25)</td></tr></tbody></table></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Praktik Menengah</div><h2>Level Menengah: Merancang Kalkulator Analisis Umur</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">kalkulator_umur.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Variabel sistem (Statis)</span>
+tahun_referensi <span class="token operator">=</span> <span class="token number">2026</span>
+
+<span class="token comment"># Variabel operasional pengguna (Dinamis)</span>
+tahun_lahir <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Masukkan tahun kalender kelahiran Anda: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Evaluasi matematika</span>
+estimasi_umur <span class="token operator">=</span> tahun_referensi <span class="token operator">-</span> tahun_lahir
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Berdasarkan komputasi, Anda menginjak usia </span><span class="token interpolation"><span class="token punctuation">{</span>estimasi_umur<span class="token punctuation">}</span></span><span class="token string"> tahun."</span></span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Praktik Sulit</div><h2>Level Sulit: Purwarupa Sistem Kasir Dagang</h2><div class="tata-letak-ganda"><div class="kolom kartu"><pre class="language-python" tabindex="0"><code class="language-python">item_dagang <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Barang: "</span><span class="token punctuation">)</span>
+harga_dasar <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Harga per kg (Rp): "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+bobot_timbangan <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Kuantitas (kg): "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+pajak_layanan <span class="token operator">=</span> <span class="token number">500</span>
+
+total_kotor <span class="token operator">=</span> harga_dasar <span class="token operator">*</span> bobot_timbangan
+total_bersih <span class="token operator">=</span> total_kotor <span class="token operator">+</span> pajak_layanan
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Total pembayaran item </span><span class="token interpolation"><span class="token punctuation">{</span>item_dagang<span class="token punctuation">}</span></span><span class="token string"> sebesar: Rp </span><span class="token interpolation"><span class="token punctuation">{</span>total_bersih<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></code></pre></div><div class="kolom"><h3 class="warna-kuning">Instruksi Modifikasi Khusus:</h3><p>Implementasikan perbaruan logika kode di samping agar mampu memproses dan menampilkan perhitungan diskon absolut senilai Rp 2000 pada total estimasi hasil akhir harga (total bersih).</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Operasi Khusus</div><h2>Operator Lanjutan: Modulo dan Pembagian Bulat</h2><p>Bahasa pemrograman modern memfasilitasi algoritma analisis numerik spesifik tingkat menengah:</p><div class="tata-letak-ganda"><div class="kolom kartu"><h3 class="warna-hijau">Modulo (%)</h3><p class="teks-redup">Digunakan untuk mengambil nilai SISA BAGI murni dari operasi matematis. Sangat esensial untuk memeriksa angka yang berstatus ganjil atau genap.</p><pre class="language-python" tabindex="0"><code class="language-python"><span class="token number">10</span> <span class="token operator">%</span> <span class="token number">3</span> 
+<span class="token comment"># Menghasilkan 1 (10 dibagi 3 sisa 1)</span></code></pre></div><div class="kolom kartu"><h3 class="warna-biru">Pembagian Bulat (//)</h3><p class="teks-redup">Pengembalian hasil pembagian utuh yang mengeliminasi pembulatan pecahan.</p><pre class="language-python" tabindex="0"><code class="language-python"><span class="token number">10</span> <span class="token operator">//</span> <span class="token number">3</span>
+<span class="token comment"># Menghasilkan 3 (angka di belakang koma dibuang)</span></code></pre></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Praktik Khusus</div><h2>Praktikum Penerapan Ekstraksi Paritas (Ganjil/Genap)</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">deteksi_paritas.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Meminta verifikasi deret angka utuh</span>
+bilangan_uji <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Masukkan sebuah digit bilangan bulat: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Logika ekstrak algoritma modulus</span>
+sisa_kalkulasi <span class="token operator">=</span> bilangan_uji <span class="token operator">%</span> <span class="token number">2</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Evaluasi sisa pembagian paritas dari angka tersebut adalah: </span><span class="token interpolation"><span class="token punctuation">{</span>sisa_kalkulasi<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Catatan: Jika hasil 0 maka berstatus Genap. Jika hasil 1 berstatus Ganjil."</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Operasi Khusus</div><h2>Operator Penugasan Gabungan (Assignment)</h2><p>Sintaks ringkas (*shorthand*) sering direpresentasikan untuk mengakumulasikan nilai sebuah variabel dengan pembaruan dinamis dalam perulangan atau kalkulator bertingkat.</p><table><thead><tr><th>Notasi Panjang (Literal)</th><th>Sintaks Pintasan Operasional</th><th>Implikasi</th></tr></thead><tbody><tr><td><code>skor = skor + 1</code></td><td><code>skor += 1</code></td><td>Meningkatkan nilai variabel.</td></tr><tr><td><code>dana = dana - 50</code></td><td><code>dana -= 50</code></td><td>Menurunkan nilai akumulasi.</td></tr><tr><td><code>saldo = saldo * 2</code></td><td><code>saldo *= 2</code></td><td>Penggandaan langsung.</td></tr></tbody></table></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Analisis Galat</div><h2>Memahami Invalid Conversion (ValueError)</h2><div class="kartu" style="border-left: 6px solid var(--aksen-merah); margin-bottom: 20px;"><p style="font-family: &#39;Fira Code&#39;, monospace; color: var(--aksen-merah); margin:0;">ValueError: invalid literal for int() with base 10: 'abc'</p></div><p>Peserta didik seringkali secara impulsif memasukkan karakter alfanumerik (huruf dan abjad) saat program mengeksekusi instruksi pembungkus <code>int()</code> pada masukan numerik.</p><p>Metodologi Penyelesaian: Ajarkan pentingnya perincian arahan antarmuka yang sangat jelas bagi pengguna di <code>input("Masukkan angka spesifik:")</code>.</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Pedagogi</div><h2>Studi Kasus Pedagogi Modul Aritmatika</h2><div class="kotak-info pedagogi"><h3 class="warna-ungu">Perspektif Metodologi Mengajar:</h3><p>Konsep matematis dalam Python bagi tingkatan SMP sebaiknya dihubungkan menggunakan konteks yang memancing ketertarikan gaya hidup digital mereka (Sistem Diskon Daring, Perhitungan Daya Kerusakan (*Damage*) dalam simulasi permainan elektronik, dan komputasi nilai kapasitas data unggahan). Ini membentuk tingkat partisipasi konseptual kelas.</p></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 3: Rangkuman</div><h2>Rangkuman Capaian Sesi 3</h2><div class="kartu"><ul><li>Identifikasi variabel mendikte metode spesifik bagaimana sistem memproses instrumen tersebut (Teks vs. Numerik murni).</li><li>Semua fungsi masukan <code>input()</code> memproyeksikan format bawaan bertipe String.</li><li>Aktivasi modifikasi konversi <code>int()</code> / <code>float()</code> mutlak dibutuhkan sebelum membedah data tersebut menggunakan operasi relasi matematis.</li><li>Sistem Modulo menyajikan parameter komputasional efisien untuk mengelompokkan nilai basis data.</li></ul></div></div>
+
+        <!-- ================= BAGIAN 4: LOGIKA KONTROL (46-65) ================= -->
+        <div class="salindia rata-tengah"><div class="label-sesi">Sesi 4: Keputusan</div><h1 class="warna-merah">Sesi 4: Arsitektur Keputusan &amp; Logika Kontrol</h1><p>Memampukan program untuk membelah alur sistem sesuai pemenuhan kondisi secara otomatis.</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Konsep Dasar</div><h2>Landasan Fundamental Pengkondisian</h2><div class="tata-letak-ganda"><div class="kolom"><p>Dalam hierarki eksekusi absolut, komputer mengeksekusi instruksi dari baris atas secara tegak lurus (linear). Akan tetapi, penerapan blok pemrograman bersyarat (<em>Conditional Statements</em>) menginstruksikan sistem melakukan interupsi logika dan hanya menjalankan baris yang lolos seleksi kelayakan kondisi.</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Konsep Dasar</div><h2>Tipe Data Boolean Fundamental</h2><p>Pilar utama instruksi pengkondisian bersandar pada format Tipe Data Boolean yang diklasifikasikan ke dalam 2 resolusi absolut:</p><div class="tata-letak-ganda"><div class="kolom kartu rata-tengah"><h3 class="warna-hijau">True (1)</h3><p class="teks-redup">Status logika Benar / Kondisi terpenuhi mutlak.</p></div><div class="kolom kartu rata-tengah"><h3 class="warna-merah">False (0)</h3><p class="teks-redup">Status logika Salah / Kondisi tidak memenuhi standar resolusi.</p></div></div><p style="margin-top: 15px;" class="teks-redup">Sistem membedakan huruf besar secara spesifik: Wajib menggunakan huruf kapital 'T' dan 'F' (sebagai True / False).</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Konsep Lanjutan</div><h2>Daftar Parameter Operator Logika Tambahan</h2><p>Instruksi dapat dikompilasikan dari sejumlah kombinasi bersyarat sekaligus (Evaluasi Paralel).</p><table><thead><tr><th>Argumen Operator</th><th>Perilaku Pemrosesan Status</th><th>Contoh Visualisasi</th></tr></thead><tbody><tr><td><code>and</code></td><td>Meminta keabsahan absolut dari <strong>semua kondisi</strong> (Wajib seluruhnya True).</td><td><code>skor &gt; 50 and kelas == 8</code></td></tr><tr><td><code>or</code></td><td>Menerima jika <strong>salah satu kondisi tunggal</strong> memenuhi kriteria keabsahan.</td><td><code>hari == "Sabtu" or hari == "Minggu"</code></td></tr><tr><td><code>not</code></td><td>Sistem Inversi: Membalikkan nilai akhir boolean.</td><td><code>not (skor == 0)</code></td></tr></tbody></table></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Praktik Dasar</div><h2>Arsitektur Percabangan Absolut Tunggal: "if"</h2><p>Mendikte sistem untuk memproses alur khusus hanya jika parameter kondisional di-evaluasi bernilai True.</p><div class="kartu"><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Variabel pendukung operasi</span>
+koneksi_aktif <span class="token operator">=</span> <span class="token boolean">True</span>
+
+<span class="token comment"># Tahap evaluasi parameter if</span>
+<span class="token keyword">if</span> koneksi_aktif <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Mengeksekusi transmisi unggahan."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Modul pengiriman paket daring berjalan."</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Instruksi baris bawah akan dieksekusi secara linear tanpa rintangan."</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Konstruksi Baris</div><h2>Signifikansi Mutlak Indentasi (Tabulasi)</h2><div class="tata-letak-ganda"><div class="kolom"><div class="kotak-info peringatan"><p>Penyelarasan margin dalam Python bersifat absolut, tidak opsional. Ini adalah fondasi pembatas (<em>Boundary</em>).</p></div><ul><li>Semua alur instruksi yang sejajar dan menjorok setelah kondisi <code>if</code> diidentifikasi sebagai badan pelaksana kondisi (<em>Block Code</em>).</li><li>Standar industri umumnya menetapkan empat baris spasi atau satu tabulasi murni.</li></ul></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Praktik Mudah</div><h2>Level Mudah: Sistem Evaluasi Peringatan Dasar</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_mudah_6.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">ambang_batas <span class="token operator">=</span> <span class="token number">75</span>
+hasil_uji_siswa <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Silakan masukkan nilai kumulatif angka Anda: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> hasil_uji_siswa <span class="token operator">&gt;=</span> ambang_batas<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n--- NOTIFIKASI KELULUSAN ---"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Apresiasi untuk siswa. Penilaian dinyatakan Valid (Lulus)."</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Tahap sinkronisasi database ditutup sementara."</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Konsep Dasar</div><h2>Arsitektur Ganda: if - else</h2><p>Memberikan parameter jalur sekunder atau penampung sisaan (<em>Fallback mechanism</em>). Dieksekusi absolut bila seluruh prasyarat yang diajukan di <code>if</code> ditolak karena status parameter bernilai False.</p><div class="kartu"><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">if</span> kondisi_spesifik_a<span class="token punctuation">:</span>
+    blok_eksekusi_target_a<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token comment"># Seluruh entitas sisa dimasukkan pada eksekusi b</span>
+    blok_eksekusi_penampung_b<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Praktik Menengah</div><h2>Level Menengah: Filter Keamanan Basis Usia</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_menengah_5.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Variabel persyaratan izin administratif</span>
+batas_usia <span class="token operator">=</span> <span class="token number">13</span>
+
+input_usia <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Verifikasi usia pendaftar akun KKA: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> input_usia <span class="token operator">&gt;=</span> batas_usia<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sistem memverifikasi Anda memiliki hak administratif (Memenuhi Usia Minimum)."</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Penolakan! Dibutuhkan supervisi dan izin dari wali pelaksana pendamping."</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Konsep Multijalur</div><h2>Rantai Kompilasi Pengkondisian: elif</h2><p>Memungkinkan pengujian bertingkat secara beruntun. Singkatan esensial dari istilah <em>else-if</em> yang mereduksi perpanjangan tabulasi hierarki ke dalam.</p><div class="kartu"><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">if</span> cuaca <span class="token operator">==</span> <span class="token string">"Panas"</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Mode 1 Aktif."</span><span class="token punctuation">)</span>
+<span class="token keyword">elif</span> cuaca <span class="token operator">==</span> <span class="token string">"Hujan Sedang"</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Mode 2 Transisi."</span><span class="token punctuation">)</span>
+<span class="token keyword">elif</span> cuaca <span class="token operator">==</span> <span class="token string">"Badai"</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Mode Darurat."</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Standby. Sistem belum terkalibrasi ke parameter cuaca."</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Praktik Sulit</div><h2>Level Sulit: Kategorisasi Peringkat Multikondisi</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_sulit_5.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">poin_akumulasi <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Masukkan perolehan skor pemain (1-1000): "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> poin_akumulasi <span class="token operator">&gt;=</span> <span class="token number">800</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Peraih Status: Peringkat Penakluk"</span><span class="token punctuation">)</span>
+<span class="token keyword">elif</span> poin_akumulasi <span class="token operator">&gt;=</span> <span class="token number">500</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Peraih Status: Peringkat Pejuang Lanjutan"</span><span class="token punctuation">)</span>
+<span class="token keyword">elif</span> poin_akumulasi <span class="token operator">&gt;=</span> <span class="token number">200</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Peraih Status: Praktisi Basis Menengah"</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Peraih Status: Penjelajah Pendatang Baru"</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Logika Arsitektur</div><h2>Pengkondisian Berlapis Bersarang (Nested If)</h2><div class="tata-letak-ganda"><div class="kolom"><p>Mendelegasikan logika berlapis pada syarat yang spesifik. Diaplikasikan di level lanjutan ketika analisis sekunder bergantung langsung kepada lolosnya syarat filter awal.</p><div class="kotak-info pedagogi"><p>Sangat ideal merepresentasikan proses autentikasi (username lolos, barulah memeriksa ketersediaan password).</p></div></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Praktik Nested If</div><h2>Praktik Mudah Bersarang: Filter Administrasi</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">mudah_bersarang.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">status_pelajar <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Apakah Anda seorang siswa terdaftar? (Ya/Tidak): "</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> status_pelajar <span class="token operator">==</span> <span class="token string">"Ya"</span><span class="token punctuation">:</span>
+    jenjang_absen <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Apakah pendaftaran melalui sistem lokal? (Ya/Tidak): "</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">if</span> jenjang_absen <span class="token operator">==</span> <span class="token string">"Ya"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Tanda pengenal divalidasi dan dicetak di loket internal."</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Merespons cetak ke pintu gerbang eksternal."</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Akses ditolak pada filter keamanan luar."</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Praktik Nested Lanjutan</div><h2>Praktik Menengah Bersarang: Filter Keamanan Event KKA</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">menengah_bersarang.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">tiket_vip <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Memegang Kode Tiket VIP Pameran? (Valid/Tidak): "</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> tiket_vip <span class="token operator">==</span> <span class="token string">"Valid"</span><span class="token punctuation">:</span>
+    usia_hadirin <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Umur Pengunjung Khusus: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">if</span> usia_hadirin <span class="token operator">&gt;=</span> <span class="token number">18</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Disetujui. Akses penuh menuju Ruang Panelis KKA Dewasa."</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Disetujui sebagian. Diteruskan ke ruangan observasi Siswa."</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Jalur pengalihan pintu pameran umum diakses."</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Praktik Kompleks</div><h2>Praktik Sulit: Sistem Deteksi Diagnostik Algoritma</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">sulit_bersarang.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">indikasi_server <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Apakah Server KKA online? (Y/T): "</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> indikasi_server <span class="token operator">==</span> <span class="token string">"Y"</span><span class="token punctuation">:</span>
+    ping_ms <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Laporkan waktu tempuh sinyal (ms): "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">if</span> ping_ms <span class="token operator">&lt;</span> <span class="token number">50</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Kondisi optimal hijau."</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> ping_ms <span class="token operator">&lt;</span> <span class="token number">150</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Kondisi transitivitas data melambat (Kuning)."</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Indikasi kepadatan (*Bottleneck*). Merah."</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Modul peringatan! Inisiasi ulang modul pemantik eksternal."</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Analisis Galat</div><h2>Membedah IndentationError</h2><div class="kartu" style="border-left: 6px solid var(--aksen-merah); margin-bottom: 20px;"><p style="font-family: &#39;Fira Code&#39;, monospace; color: var(--aksen-merah); margin:0;">IndentationError: expected an indented block after 'if' statement</p></div><p>Peserta didik sering meremehkan keteraturan margin karena terbiasa mengetik dokumen fleksibel. Pemecahan masalah (troubleshooting) harus dipandu dengan tegas untuk menekan karakter <strong>Tab</strong>, bukan kombinasi tumpukan tombol Spasi yang berbeda ketebalannya.</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Mitigasi Kesalahan</div><h2>Penyelarasan Spasi Indentasi</h2><div class="tata-letak-ganda"><div class="kolom"><div class="kotak-info"><p>Mayoritas aplikasi IDE cerdas (Google Colab, Thonny) akan memposisikan otomatis (auto-indent) baris baru segera setelah mendeteksi penulisan simbol akhir <code>:</code>. Anjurkan siswa mengikuti tata irama yang disuguhkan mesin tersebut tanpa diinterupsi modifikasi hapus *backspace* mandiri.</p></div></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Evaluasi Pelatihan</div><h2>Uji Kasus Pedagogi Logika Evaluasi (Diskon Bersyarat)</h2><p>Penilaian pemahaman mandiri bagi kelompok pendidik.</p><div class="kartu"><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Draf Kode Problematic (Berikan ini ke peserta latih)</span>
+diskon <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Ada diskon? "</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> diskon <span class="token operator">==</span> <span class="token string">"ada"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Aplikasi diskon sukses"</span><span class="token punctuation">)</span></code></pre></div><p class="teks-redup" style="margin-top:10px;">Latihan: Temukan 2 kesalahan krusial pada cuplikan sintaks di atas secara cepat. (Jawaban: Ketiadaan indentasi di baris cetak dan ketiadaan tanda titik dua pembatas kondisi).</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Studi Kasus</div><h2>Studi Kasus Pedagogi "Lemari Laci"</h2><div class="tata-letak-ganda"><div class="kolom"><p>Membantu memori visual bagi SMP: "Kata <code>if</code> di ujung baris sejajar adalah dinding bingkai lemarinya. Apa pun yang diketik dengan jeda di depannya berarti kalian memasukkan instruksi komputasi itu ke dalam ruang laci bersyarat di sebelahnya. Bila ditutup (Kondisi False), segala isi di dalam margin dalam itu lenyap atau tidak dihiraukan."</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 4: Rangkuman</div><h2>Rangkuman Capaian Sesi 4</h2><div class="kartu"><ul><li>Klausa pengkondisian menjadi katalis evolusi dari komputasi skrip linear menjadi sistem kecerdasan artifisial dasar.</li><li>Keabsahan boolean dikonversi menjadi gerbang kendali pembatas logika `if`.</li><li>Metode seleksi multijalur ditunjang secara ringkas menggunakan operator deklaratif `elif`.</li><li>Penataan spasi bertindak mutlak bukan sebagai unsur estetika, namun elemen kompilasi sintaks struktural yang kaku di ekosistem bahasa Python.</li></ul></div></div>
+
+        <!-- ================= BAGIAN 5: PERULANGAN / ITERASI (66-80) ================= -->
+        <div class="salindia rata-tengah"><div class="label-sesi">Sesi 5: Iterasi</div><h1 class="warna-biru">Sesi 5: Struktur Iterasi Perulangan (Looping)</h1><p>Mendikte mesin otomatisasi, menghindari keletihan repetisi (D.R.Y).</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Konsep Awal</div><h2>Prinsip D.R.Y (Don't Repeat Yourself)</h2><div class="tata-letak-ganda"><div class="kolom"><p>Fondasi rekayasa perangkat lunak mengedepankan otomasi sistem. Jika terdapat tiga atau lebih baris komando sistematis yang seragam dan diulang ketik manual, sistem tersebut dikategorisasikan tidak matang secara algoritma. Python menyajikan blok pengulang statis dan dinamis.</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Klasifikasi Loop</div><h2>Perulangan Rentang Tentu: for loop</h2><div class="tata-letak-ganda"><div class="kolom kartu"><p>Format <code>for</code> menginstruksikan siklus yang batas akhir iterasi (perulangan) nya diketahui atau telah dideklarasikan secara absolut pada objek urut-urutan (sequence), kumpulan parameter angka, atau jumlah huruf karakter (String).</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Sintaks Ekstraksi</div><h2>Eksploitasi Deret Angka (Fungsi range())</h2><p>Sebuah pelengkap inheren bagi parameter putaran `for` yang secara otomatis melahirkan urutan bilangan tanpa pendaftaran ganda manual.</p><div class="kartu"><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Format Argumen Fungsi (Awal, Akhir_Batas_Berhenti_Minus_Satu)</span>
+<span class="token keyword">for</span> urutan <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Mengulang rotasi nomor: </span><span class="token interpolation"><span class="token punctuation">{</span>urutan<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token comment"># Eksekusi mencetak:</span>
+<span class="token comment"># Mengulang rotasi nomor: 1</span>
+<span class="token comment"># Mengulang rotasi nomor: 2</span>
+<span class="token comment"># Mengulang rotasi nomor: 3</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Praktik Dasar For</div><h2>Level Mudah: Menyusun Cetak Absensi Deret</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_mudah_7.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">total_kelas <span class="token operator">=</span> <span class="token number">5</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Menyiapkan cetakan lembar kertas absen..."</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> daftar <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> total_kelas <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Cetak kelas bagian: 8"</span><span class="token punctuation">,</span> daftar<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Proses penyelesaian dokumen keliling berhasil dikoordinasikan."</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Praktik Menengah For</div><h2>Level Menengah: Generator Tabel Multiplikasi (Perkalian)</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_menengah_6.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">angka_pokok <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Membangun matriks perkalian untuk pangkalan: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\n--- Generator Tabel Perkalian Dasar </span><span class="token interpolation"><span class="token punctuation">{</span>angka_pokok<span class="token punctuation">}</span></span><span class="token string"> ---"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> iterasi <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Komputasi matematis repetitif per blok</span>
+    produk_hasil <span class="token operator">=</span> angka_pokok <span class="token operator">*</span> iterasi
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>angka_pokok<span class="token punctuation">}</span></span><span class="token string"> dikali </span><span class="token interpolation"><span class="token punctuation">{</span>iterasi<span class="token punctuation">}</span></span><span class="token string"> ekuivalen </span><span class="token interpolation"><span class="token punctuation">{</span>produk_hasil<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Kondisional Loop</div><h2>Siklus Bersyarat Tanpa Rentang: while loop</h2><div class="tata-letak-ganda"><div class="kolom"><p>Mendelegasikan repetisi instruksi berlanjut berkesinambungan <strong>selama prasyarat kondisi tetap dipertahankan bernilai True.</strong> Secara konseptual analogis, blok ini adalah pengulangan dari instruksi penampungan variabel pengondisian "If" yang teraktivasi terus menerus.</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Elemen Krusial While</div><h2>Konsep Batasan Modifikasi (Exit Condition)</h2><div class="kotak-info peringatan"><p>Struktur `while` wajib memboyong sintaks pembaruan (Update) kondisi di dalam pelukan blok margin terdalamnya. Ketiadaan *decrement* atau *increment* nilai pengecekan akan secara mutlak melahirkan Galat <strong>Infinite Loop</strong> atau perulangan tak terbatas yang dapat merusak alokasi *RAM/Memory* komputasi lokal perangkat Anda.</p></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Investigasi Galat Loop</div><h2>Bahaya Eksekusi Infinite Loop (Perulangan Abadi)</h2><div class="tata-letak-ganda"><div class="kolom kartu"><h3 class="warna-merah">Demonstrasi Bahaya:</h3><pre class="language-python" tabindex="0"><code class="language-python">mesin_menyala <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token comment"># Variabel tidak berkurang</span>
+<span class="token keyword">while</span> mesin_menyala <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Konsol mencetak abadi tak tertahan!"</span><span class="token punctuation">)</span>
+    <span class="token comment"># LUPA MENARUH FUNGSI PENGURANGAN DI SINI</span></code></pre></div><div class="kolom"><div class="kotak-info pedagogi"><p>Sampaikan pada siswa: Tindakan penyelamatan rekayasa komputasi terminal dapat ditempuh memencet tombol sekunder kombinasi <strong>CTRL + C</strong> (*Keyboard Interrupt*) secara paksa di baris antarmuka aplikasi.</p></div></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Praktik Mudah While</div><h2>Level Mudah: Eksekusi Penghitung Waktu Mundur Dasar</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_mudah_8.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">timer_awal <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Atur parameter waktu tunggu mundur (detik): "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sistem memproses antrean berhitung:"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">while</span> timer_awal <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Jeda komputasi..."</span><span class="token punctuation">,</span> timer_awal<span class="token punctuation">)</span>
+    <span class="token comment"># Langkah wajib exit condition</span>
+    timer_awal <span class="token operator">-=</span> <span class="token number">1</span> 
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Detonasi Waktu Selesai."</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Praktik Menengah While</div><h2>Level Menengah: Validasi Akses Paksa (Force Trap Input)</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_menengah_7.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">kunci_diterima <span class="token operator">=</span> <span class="token string">""</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Area Kredensial Khusus Pendidik KKA."</span><span class="token punctuation">)</span>
+
+<span class="token keyword">while</span> kunci_diterima <span class="token operator">!=</span> <span class="token string">"KKA2026"</span><span class="token punctuation">:</span>
+    kunci_diterima <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Berikan respons kode akses portal valid: "</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">if</span> kunci_diterima <span class="token operator">!=</span> <span class="token string">"KKA2026"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sandi keliru, sistem berulang mengunci.\n"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nGerbang Modul Pengajaran Ekstra Terbuka. Akses diluluskan."</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Kontrol Hierarki Siklus</div><h2>Intervensi Eksplisit Siklus: break dan continue</h2><table><thead><tr><th>Kata Kunci Instruksi</th><th>Konklusi Eksekusi Mesin</th></tr></thead><tbody><tr><td><code>break</code></td><td>Menghancurkan jaring siklus saat itu juga. Melompat tuntas keluar blok perulangan utama secara radikal.</td></tr><tr><td><code>continue</code></td><td>Mengabaikan tuntas sisa kode instruksi di bagian dasar untuk putaran blok saat itu, melompat untuk memutar putaran parameter rentang di urutan terbaru.</td></tr></tbody></table></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Praktik Sulit (Kontrol)</div><h2>Level Sulit: Toleransi Kegagalan Kunci Akses (Retry System)</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_sulit_6.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">kuota_percobaan <span class="token operator">=</span> <span class="token number">3</span>
+
+<span class="token keyword">for</span> pelacakan <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>kuota_percobaan<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    akses_rahasia <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Sandi (Maks </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token number">3</span><span class="token operator">-</span>pelacakan<span class="token punctuation">}</span></span><span class="token string"> kali sisa): "</span></span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">if</span> akses_rahasia <span class="token operator">==</span> <span class="token string">"ROOT_P"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Autentikasi terverifikasi absolut. Selamat."</span><span class="token punctuation">)</span>
+        <span class="token keyword">break</span>
+    
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Identifikasi tertolak."</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token comment"># Terpicu mutlak apabila loop usai tanpa instruksi pemutus `break`</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Waspada: Modul pertahanan keamanan aktif, terminal terkunci!"</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Evaluasi Komprehensif</div><h2>Praktik Sulit Spesifik: Nested Generator Pola Bintang</h2><div class="tata-letak-ganda"><div class="kolom kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_sulit_7.py</span></div><pre class="language-python" tabindex="0"><code class="language-python">baris_skala <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Masukkan dimensi blok segitiga visual: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> urutan_baris <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> baris_skala <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    blok_cetak <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token keyword">for</span> urutan_kolom <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>urutan_baris<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        blok_cetak <span class="token operator">+=</span> <span class="token string">"⭐ "</span>
+    
+    <span class="token keyword">print</span><span class="token punctuation">(</span>blok_cetak<span class="token punctuation">)</span></code></pre></div><div class="kolom"><div class="kotak-info pedagogi"><p>Tantangan Algoritmik (Nested Loop) merepresentasikan kapabilitas penalaran sistematis tingkat lanjut pada siswa SMP. Mengawali simulasi pola deret horizontal (kolom) sebelum beranjak perbarisan (vertikal).</p></div></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Penelaahan Diagnostik</div><h2>Analisis Galat: Memory Limit Exceeded</h2><p>Penghentian otomatis yang dilakukan antarmuka aplikasi basis awan (*cloud platform*) seperti Replit atau Google Colab saat mengeksekusi parameter *Infinite loop* memori pencetakan. Aplikasi gawai Android (Pydroid) biasanya menanggung pembekuan (*freezing* / *Hang*).</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 5: Rangkuman</div><h2>Rangkuman Capaian Sesi 5</h2><div class="kartu"><ul><li>Reduksi replikasi sintaks manual dicapai lewat efisiensi metode loop *for*.</li><li>Modul bersyarat berkelanjutan dikemas dengan blok iterasi putaran tidak terdeteksi *while*.</li><li>Kegagalan memperbarui operator perhitungan berujung pada disfungsi infinit.</li><li>Sistem perulangan mendukung pengendalian anomali sela melalui gerbang pintas `break` dan `continue`.</li></ul></div></div>
+
+        <!-- ================= BAGIAN 6: MODULARITAS / FUNGSI (81-95) ================= -->
+        <div class="salindia rata-tengah"><div class="label-sesi">Sesi 6: Modularitas</div><h1 class="warna-ungu">Sesi 6: Arsitektur Modul Fungsi (Function)</h1><p>Transisi metodologi komputasi repetitif menjadi enkapsulasi rekayasa yang dinamis.</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Tinjauan Konseptual</div><h2>Apa Esensi Fungsi Komputasional?</h2><div class="tata-letak-ganda"><div class="kolom"><p>Pada penulisan proyek kode program yang ekspansif (Ratusan baris di kelas 9 SMP akhir), penumpukan sintaks vertikal tidak efisien. Fungsi membungkus ratusan baris tersebut menjadi satu sebutan (nama) saja, memungkinkan sistem mengeksekusinya tanpa replikasi panjang lebar.</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Konstruksi Logika Dasar</div><h2>Sintaks Inisiasi Deklaratif: def</h2><div class="kartu"><pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Deklarasi penempatan modul pabrik mini sistem (Biasa di paling atas kode)</span>
+<span class="token keyword">def</span> <span class="token function">panel_pembuka_sistem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Papan Sirkuit Dinyalakan."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Modul Sensor Jarak KKA Terhubung Penuh."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Menunggu Instruksi Robotika..."</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Memanggil nama entitas untuk mencetak 3 baris sekaligus (Berulang kali bebas)</span>
+panel_pembuka_sistem<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Praktik Mudah</div><h2>Praktik Mudah: Fungsi Kalimat Instruksional (Sapaan Teks Statis)</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_mudah_9.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">def</span> <span class="token function">modul_peringatan_keamanan</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[!] INSTRUKSI BAHAYA [!]"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Jangan mengakses file root direktori komputer."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hubungi administrator laboran sekolah.\n"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Menganalisis paket mencurigakan di area unduhan lokal..."</span><span class="token punctuation">)</span>
+modul_peringatan_keamanan<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sistem tertahan, ulangi protokol akses sekunder."</span><span class="token punctuation">)</span>
+modul_peringatan_keamanan<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Penerapan Argumen</div><h2>Menyematkan Asupan Bahan Mentah (Parameter Fungsi)</h2><div class="tata-letak-ganda"><div class="kolom"><p>Fungsi statis menjadi tidak relevan di program nyata. Fungsi yang canggih (Kecerdasan Artifisial) selalu mendamba pasokan data (*Input*) yang dikelola untuk menghasilkan *Output*. Variabel asupan lokal pada fungsi disebut parameter.</p></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Praktik Menengah</div><h2>Praktik Menengah: Pengolahan Variabel Argumen Multidata</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_menengah_8.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">def</span> <span class="token function">komputasi_cetak_identitas</span><span class="token punctuation">(</span>nama_asli<span class="token punctuation">,</span> nomer_absen_siswa<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Memproses cetakan valid..."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"ID Pengguna Divalidasi: </span><span class="token interpolation"><span class="token punctuation">{</span>nama_asli<span class="token punctuation">}</span></span><span class="token string"> (Posisi Registrasi No. </span><span class="token interpolation"><span class="token punctuation">{</span>nomer_absen_siswa<span class="token punctuation">}</span></span><span class="token string">)."</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Selesai.\n"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Mesin antrean otomatis:"</span><span class="token punctuation">)</span>
+<span class="token comment"># Argumen dimasukkan manual</span>
+komputasi_cetak_identitas<span class="token punctuation">(</span><span class="token string">"Budi"</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Argumen dilemparkan bebas berulang (Reusability Concept)</span>
+komputasi_cetak_identitas<span class="token punctuation">(</span><span class="token string">"Siti"</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Konsep Hasil Ekstraksi</div><h2>Mengembalikan Nilai Ke Rute Asal: return</h2><div class="kotak-info peringatan"><p>Para pemula di tingkatan menengah kesulitan melepaskan jeratan fungsi <code>print</code> saat mengembangkan fungsi *def*. Biasakan: Fungsi yang baik di *Backend* adalah pengolah hitungan abstrak yang melempar hasilnya (return), bukan sekadar menampilkannya sembarangan (print).</p></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Diferensiasi Visualisasi vs Ekstraksi</div><h2>Perbedaan Analitis: Print vs Return</h2><table><thead><tr><th>Karakter Eksekusi Logika</th><th><code>print()</code> di dalam def</th><th><code>return</code> di dalam def</th></tr></thead><tbody><tr><td>Proyeksi Terminal Konsol</td><td>Mencetak huruf terang secara langsung.</td><td>Tetap bisu (menyimpan rahasia data).</td></tr><tr><td>Keterhubungan Alur (*Data Pipe*)</td><td>Data lenyap, tidak dapat dijumlah ulang di variabel lain.</td><td>Hasil diekstraksi ke baris penangkap untuk operasi gabungan lainnya.</td></tr><tr><td>Aksi Akhir Blok Logika</td><td>Bisa disusul komando berikutnya di dalam fungsi bersangkutan.</td><td>Secara spontan menghancurkan, merusak sisa fungsi bawah dan keluar dari blok secara paksa (*Exit*).</td></tr></tbody></table></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Praktik Dasar Return</div><h2>Praktik Mudah Return: Kalkulasi Luas Lingkaran Abstrak</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_mudah_10.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">def</span> <span class="token function">modul_hitung_luas_bujur_sangkar</span><span class="token punctuation">(</span>dimensi_sisi<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    operasi_akhir <span class="token operator">=</span> dimensi_sisi <span class="token operator">*</span> dimensi_sisi
+    <span class="token keyword">return</span> operasi_akhir
+
+<span class="token comment"># Menangkap return modul</span>
+wadah_tangkap <span class="token operator">=</span> modul_hitung_luas_bujur_sangkar<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Operasi tambahan bebas yang difasilitasi return</span>
+komputasi_tambah <span class="token operator">=</span> wadah_tangkap <span class="token operator">+</span> <span class="token number">10</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Luas wilayah asli ditambah beban 10: </span><span class="token interpolation"><span class="token punctuation">{</span>komputasi_tambah<span class="token punctuation">}</span></span><span class="token string"> unit persegi."</span></span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Isolasi Ruang Variabel</div><h2>Kerahasiaan Ruang Lingkup Variabel (Local vs Global Scope)</h2><div class="tata-letak-ganda"><div class="kolom"><div class="kotak-info"><p>Variabel yang diresmikan di pelukan lekukan <code>def</code> akan secara abadi lenyap dan musnah pasca alur fungsi diselesaikan (*Local Variable*). Sistem di luar fungsi absolut ditolak bila mencoba memanggilnya untuk mencetak logikanya.</p></div></div></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Praktik Menengah Sistem Fungsi</div><h2>Praktik Menengah: Eksekusi Operasional Diskon Mesin Berulang</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_menengah_9.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">def</span> <span class="token function">penerapan_potongan_harga</span><span class="token punctuation">(</span>harga_murni<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> harga_murni <span class="token operator">&gt;=</span> <span class="token number">50000</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> harga_murni <span class="token operator">-</span> <span class="token punctuation">(</span>harga_murni <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> harga_murni
+
+<span class="token comment"># Blok pemanggilan paralel di rutinitas eksekusi</span>
+harga_pesanan_1 <span class="token operator">=</span> penerapan_potongan_harga<span class="token punctuation">(</span><span class="token number">100000</span><span class="token punctuation">)</span>
+harga_pesanan_2 <span class="token operator">=</span> penerapan_potongan_harga<span class="token punctuation">(</span><span class="token number">20000</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Harga bayar nasabah A: Rp </span><span class="token interpolation"><span class="token punctuation">{</span>harga_pesanan_1<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Harga bayar nasabah B: Rp </span><span class="token interpolation"><span class="token punctuation">{</span>harga_pesanan_2<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Opsional Lanjutan</div><h2>Pengembangan Opsional: Inisiasi Parameter Bawaan (Default Parameter)</h2><p>Membantu meminimalisir interupsi *error* <code>TypeError: missing required positional argument</code> apabila pengguna mengabaikan (alpa) pengisian suplai data wajib di dalam kurung modul eksekusi pemanggilan.</p><div class="kartu"><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">def</span> <span class="token function">salam_default</span><span class="token punctuation">(</span>nama_pengenal <span class="token operator">=</span> <span class="token string">"Siswa Misterius"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Modul interaktif menyapa: </span><span class="token interpolation"><span class="token punctuation">{</span>nama_pengenal<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+salam_default<span class="token punctuation">(</span><span class="token string">"Alisa"</span><span class="token punctuation">)</span> <span class="token comment"># Mencetak: Modul interaktif menyapa: Alisa</span>
+salam_default<span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token comment"># Mencetak: Modul interaktif menyapa: Siswa Misterius</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Praktik Sulit (Konversi)</div><h2>Praktik Sulit: Kalkulator Konversi Resolusi Modul Multiguna</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_sulit_8.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">def</span> <span class="token function">alokasi_konversi_c_f_r</span><span class="token punctuation">(</span>suhu_c_awal<span class="token punctuation">,</span> mode_tujuan<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> mode_tujuan <span class="token operator">==</span> <span class="token string">"Fahrenheit"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>suhu_c_awal <span class="token operator">*</span> <span class="token number">9</span><span class="token operator">/</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">32</span>
+    <span class="token keyword">elif</span> mode_tujuan <span class="token operator">==</span> <span class="token string">"Reamur"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> suhu_c_awal <span class="token operator">*</span> <span class="token number">4</span><span class="token operator">/</span><span class="token number">5</span>
+    <span class="token keyword">return</span> suhu_c_awal <span class="token comment"># Kondisi cadangan error pengisian</span>
+
+suhu_sensor <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Laporkan masukan data celcius aktual: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+target_konv <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Pilih model keluaran (Fahrenheit/Reamur): "</span><span class="token punctuation">)</span>
+
+hasil_komputasi <span class="token operator">=</span> alokasi_konversi_c_f_r<span class="token punctuation">(</span>suhu_sensor<span class="token punctuation">,</span> target_konv<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Hasil ekstraksi fisis berdasar model terpilih: </span><span class="token interpolation"><span class="token punctuation">{</span>hasil_komputasi<span class="token punctuation">}</span></span><span class="token string"> derajat."</span></span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Praktik Sulit Tingkat Lanjut</div><h2>Praktik Sulit: Purwarupa Mini Sistem Pakar Rekomendasi (A.I Foundation)</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">tingkat_sulit_9.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">def</span> <span class="token function">kecerdasan_sistem_tugas</span><span class="token punctuation">(</span>preferensi_studi<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> preferensi_studi <span class="token operator">==</span> <span class="token string">"Logika"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Mutlak: Pembuatan Program Robotika KKA."</span>
+    <span class="token keyword">elif</span> preferensi_studi <span class="token operator">==</span> <span class="token string">"Hafalan"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Basis Menengah: Analisis Literatur Sejarah Digital."</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Kurangi redundansi perintah. Format hobi tidak terdefinisikan oleh sistem basis kami."</span>
+
+kueri_pertanyaan <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Cetak minat dasar yang anda kembangkan paling dominan (Logika/Hafalan): "</span><span class="token punctuation">)</span>
+
+hasil_analitik <span class="token operator">=</span> kecerdasan_sistem_tugas<span class="token punctuation">(</span>kueri_pertanyaan<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\n[AI-System-Report] -&gt; </span><span class="token interpolation"><span class="token punctuation">{</span>hasil_analitik<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Studi Evaluasi Pedagogi</div><h2>Studi Kasus Pedagogi Fungsi (Analogi Pabrik Pemrosesan Daging)</h2><div class="kotak-info pedagogi"><p>Sampaikan kepada kelas SMP: Mesin pengolah corong pabrik sosis (def) tidak akan beroperasi jika pemegang kemudi kelistrikan pabrik tidak menekan tombol eksekusi tombol mesin di luar kotak pabrik. Parameter (Daging Mentah) dimasukkan ke dalam modul mesin, dan akan dikeluarkan lewat pipa Return (Sosis Matang).</p></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 6: Rangkuman</div><h2>Rangkuman Capaian Sesi 6</h2><div class="kartu"><ul><li>Koding bertransformasi menjadi kerangka arsitektur logis dengan implementasi pemanggilan modul fungsi mandiri (`def`).</li><li>Modul dapat mentolerir manipulasi luar via penyediaan penampang masukan (parameter opsional/wajib).</li><li>Pemrosesan tertutup (Local Scope Variable) melindungi privasi logika sehingga sintaks `return` merupakan protokol keabsahan penyebaran data hasil algoritma.</li></ul></div></div>
+
+        <!-- ================= BAGIAN 7: PROYEK AKHIR & PENUTUP (96-100) ================= -->
+        <div class="salindia rata-tengah"><div class="label-sesi">Sesi Akhir</div><h1 class="warna-kuning">Evaluasi Proyek Praktikum Mandiri</h1><p>Arsitektur Program Skala Menengah.</p></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 7: Deskripsi Proyek</div><h2>Spesifikasi Mini Hackathon: Chatbot Penjurusan Ekstrakurikuler</h2><div class="kartu"><ul><li>Pembangunan utilitas berbasis antarmuka teks mandiri (Chatbot Interaktif).</li><li>Sistem wajib menampilkan salam, merujuk panggilan pengguna melalui nama pendek.</li><li>Penempatan logika minimum mencakup skema Percabangan Ganda bersarang (Nested if-else).</li><li>Setiap pengkondisian hasil wawancara *Chatbot* minimal memunculkan saran terstruktur (*Return*) dari modul Fungsi buatan khusus di atas program utama.</li></ul></div></div>
+
+        <div class="salindia aktif"><div class="label-sesi">Sesi 7: Resolusi Solusi Mentor</div><h2>Skrip Kode Referensi Pendidik (Kunci Jawaban Chatbot)</h2><div class="kartu"><div class="kepala-jendela"><div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div><span class="teks-berkas">mentor_chatbot.py</span></div><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">def</span> <span class="token function">modul_ai_konseling</span><span class="token punctuation">(</span>keterampilan<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> keterampilan <span class="token operator">==</span> <span class="token string">"Fisik"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Sistem: Daftarkan profil Anda ke tim Futsal Utama Sekolah."</span>
+    <span class="token keyword">elif</span> keterampilan <span class="token operator">==</span> <span class="token string">"Algoritmik"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Rekomendasi Sistem: Segera verifikasi identitas ke Pembina Ekstrakurikuler KKA Dasar."</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"Sistem memandu penjadwalan observasi manual dengan tim Konseling."</span>
+
+nama_klien <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Identitas Pendaftar Baru: "</span><span class="token punctuation">)</span>
+keterampilan_dasar <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Analisis Potensi Anda (Fisik/Algoritmik): "</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Pemanggilan Logika Abstrak Fungsi (Fase Return)</span>
+resolusi_rekomendasi <span class="token operator">=</span> modul_ai_konseling<span class="token punctuation">(</span>keterampilan_dasar<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\nKesimpulan Akhir bagi Ananda </span><span class="token interpolation"><span class="token punctuation">{</span>nama_klien<span class="token punctuation">}</span></span><span class="token string">:\n</span><span class="token interpolation"><span class="token punctuation">{</span>resolusi_rekomendasi<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></code></pre></div></div>
+
+        <div class="salindia"><div class="label-sesi">Sesi 7: Matriks Penilaian</div><h2>Lembar Acuan Penilaian Evaluasi Proyek Peserta Didik KKA</h2><table><thead><tr><th>Aspek Indikator Kompetensi</th><th>Kriteria Eksekusi Lulus Minimal</th></tr></thead><tbody><tr><td>Validasi Tipe Variabel</td><td>Menggunakan parameter yang presisi (Casting Data).</td></tr><tr><td>Keutuhan Skema Hierarki</td><td>Penyusunan indentasi sempurna tanpa IndentationError.</td></tr><tr><td>Kecerdasan Multikondisi</td><td>Alur `elif` dieksekusi secara fungsional.</td></tr><tr><td>Pembagian Blok Modularitas</td><td>`Def` terpisah di luar badan pemanggilan arus masukan fungsi pengguna.</td></tr></tbody></table></div>
+
+        <div class="salindia rata-tengah"><div class="label-sesi">Sesi Akhir</div><h1 style="font-size: 2.8rem; color: var(--aksen-kuning); line-height: 1.4;">"Teknologi Adalah Instrumen.<br>Kreativitas Pendidik Adalah Esensinya."</h1><div class="kartu" style="margin: 30px auto; max-width: 900px; font-style: italic; text-align: left;"><p>"Tujuan integrasi pemrograman tingkat SMP bukanlah mendikte peserta didik menjadi perekayasa perangkat lunak secara utuh. Sasaran utama kita adalah mengeliminasi kecemasan teknis, serta membangun kerangka algoritmik sehingga kelak, mereka mampu mengendalikan sistem kecerdasan artifisial secara bijak, bukan dikendalikan sistem."</p></div><h3 style="color: var(--aksen-hijau);">Terima kasih atas partisipasi aktif Bapak/Ibu sekalian.</h3><p>Modul Pelatihan Penuh KKA Fase D Diselesaikan dengan Sempurna. 🚀</p></div>
+
+    </div>
+
+    <!-- Script Pengaturan Salindia & Pewarnaan Sintaks -->
+    <script src="./Modul Pelatihan PYTHON_ Pemrograman Python KKA Fase D (SMP)-Lengkap_files/prism.min.js"></script>
+    <script src="./Modul Pelatihan PYTHON_ Pemrograman Python KKA Fase D (SMP)-Lengkap_files/prism-python.min.js"></script>
+    
+    <script>
+        let salindiaAktif = 0;
+        const daftarSalindia = document.querySelectorAll('.salindia');
+        const bilahKemajuan = document.getElementById('bilah-kemajuan');
+        const penghitung = document.getElementById('penghitung-salindia');
+
+        function perbaruiSalindia() {
+            daftarSalindia.forEach(slide => slide.classList.remove('aktif'));
+            daftarSalindia[salindiaAktif].classList.add('aktif');
+            
+            const kemajuan = ((salindiaAktif + 1) / daftarSalindia.length) * 100;
+            bilahKemajuan.style.width = `${kemajuan}%`;
+            penghitung.innerText = `${salindiaAktif + 1} / ${daftarSalindia.length}`;
+        }
+
+        function salindiaSelanjutnya() {
+            if (salindiaAktif < daftarSalindia.length - 1) {
+                salindiaAktif++;
+                perbaruiSalindia();
+            }
+        }
+
+        function salindiaSebelumnya() {
+            if (salindiaAktif > 0) {
+                salindiaAktif--;
+                perbaruiSalindia();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                salindiaSelanjutnya();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                salindiaSebelumnya();
+            }
+        });
+
+        perbaruiSalindia();
+    </script>
+
+</body></html>

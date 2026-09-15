@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///Users/mac/Downloads/gemini-code-1789192969401.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pelatihan KKA SMP - Sesi 5</title>
+    
+    <link href="./Modul Pelatihan KKA SMP - Sesi 5_files/css2" rel="stylesheet">
+    <link href="./Modul Pelatihan KKA SMP - Sesi 5_files/prism-tomorrow.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-utama: #0f172a; --bg-kartu: #1e293b; --teks-utama: #f8fafc; --teks-sekunder: #94a3b8;
+            --aksen-hijau: #34d399; --aksen-kuning: #fbbf24; --aksen-biru: #38bdf8; --aksen-merah: #f87171;
+            --aksen-ungu: #c084fc; --garis-batas: #334155;
+        }
+
+        body { margin: 0; padding: 0; overflow: hidden; background-color: var(--bg-utama); color: var(--teks-utama); font-family: 'Montserrat', sans-serif; background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 30px 30px; }
+        #wadah-presentasi { position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .salindia { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: scale(0.98); padding: 60px 100px; box-sizing: border-box; overflow-y: auto; }
+        .salindia.aktif { opacity: 1; visibility: visible; transform: scale(1); }
+        .label-sesi { position: absolute; top: 40px; right: 80px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--aksen-biru); color: var(--aksen-biru); padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        h1 { font-size: 3.2rem; font-weight: 700; color: var(--aksen-hijau); margin-bottom: 10px; line-height: 1.2;}
+        h2 { font-size: 2.2rem; font-weight: 600; color: var(--aksen-kuning); margin-bottom: 25px; border-bottom: 1px solid var(--garis-batas); padding-bottom: 10px; width: 100%;}
+        h3 { font-size: 1.5rem; font-weight: 600; color: var(--aksen-biru); margin-top: 0; margin-bottom: 15px;}
+        p, li { font-size: 1.3rem; line-height: 1.6; color: var(--teks-utama); }
+        ul, ol { margin-left: 20px; margin-bottom: 20px;}
+        li { margin-bottom: 10px; }
+
+        .rata-tengah { text-align: center; width: 100%; align-items: center;}
+        .teks-redup { color: var(--teks-sekunder); font-size: 1.1rem; }
+        .teks-tebal { font-weight: 600; }
+        .warna-hijau { color: var(--aksen-hijau); } .warna-biru { color: var(--aksen-biru); } .warna-kuning { color: var(--aksen-kuning); } .warna-ungu { color: var(--aksen-ungu); } .warna-merah { color: var(--aksen-merah); }
+
+        .tata-letak-ganda { display: flex; width: 100%; gap: 40px; align-items: stretch; justify-content: space-between; }
+        .tata-letak-tiga { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; width: 100%; }
+        .kolom { flex: 1; display: flex; flex-direction: column;}
+
+        .kartu { background: var(--bg-kartu); border-radius: 8px; padding: 25px; border: 1px solid var(--garis-batas); width: 100%; box-sizing: border-box; box-shadow: 0 10px 25px rgba(0,0,0,0.3); height: 100%; }
+
+        .kepala-jendela { background: #0f172a; padding: 10px 15px; border-radius: 8px 8px 0 0; display: flex; gap: 8px; border-bottom: 1px solid var(--garis-batas); margin: -25px -25px 15px -25px; align-items: center; }
+        .titik { width: 10px; height: 10px; border-radius: 50%; }
+        .titik-merah { background: #ef4444; } .titik-kuning { background: #f59e0b; } .titik-hijau { background: #10b981; }
+        .teks-berkas { color: var(--teks-sekunder); font-family: 'Fira Code', monospace; font-size: 0.9rem; margin-left: 10px;}
+
+        pre[class*="language-"] { font-family: 'Fira Code', monospace !important; font-size: 1.1rem !important; border-radius: 0 0 8px 8px !important; margin: 0 !important; background: transparent !important; padding: 0 !important; overflow-x: auto;}
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 1.2rem;}
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--garis-batas); }
+        th { background: rgba(56, 189, 248, 0.1); color: var(--aksen-biru); font-weight: 600;}
+        tr:hover { background: #2a3a50; }
+
+        .kotak-info { background: rgba(56, 189, 248, 0.1); border-left: 5px solid var(--aksen-biru); padding: 15px 20px; border-radius: 0 4px 4px 0; margin-top: 15px; margin-bottom: 15px; }
+        .kotak-info.peringatan { background: rgba(251, 191, 36, 0.1); border-color: var(--aksen-kuning); }
+        .kotak-info.pedagogi { background: rgba(192, 132, 252, 0.1); border-color: var(--aksen-ungu); }
+
+        #kontrol { position: fixed; bottom: 30px; right: 40px; display: flex; gap: 10px; z-index: 1000;}
+        .tombol-nav { background: var(--bg-kartu); color: var(--teks-utama); border: 1px solid var(--garis-batas); width: 45px; height: 45px; border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
+        .tombol-nav:hover { background: var(--garis-batas); }
+        #bilah-kemajuan { position: fixed; bottom: 0; left: 0; height: 4px; background: var(--aksen-biru); width: 0%; transition: width 0.3s; z-index: 1000;}
+        #penghitung-salindia { position: fixed; bottom: 30px; left: 40px; font-family: 'Fira Code', monospace; color: var(--teks-sekunder); font-size: 1.1rem;}
+    </style>
+</head>
+<body>
+
+    <div id="bilah-kemajuan" style="width: 90%;"></div>
+    <div id="penghitung-salindia">18 / 20 (Sesi 5)</div>
+    <div id="kontrol">
+        <button class="tombol-nav" onclick="salindiaSebelumnya()">❮</button>
+        <button class="tombol-nav" onclick="salindiaSelanjutnya()">❯</button>
+    </div>
+
+    <div id="wadah-presentasi">
+
+        <!-- ================= SALINDIA 1 ================= -->
+        <div class="salindia rata-tengah">
+            <h1 style="margin-top: 80px;" class="warna-ungu">Sesi 5: Modularitas &amp; Proyek Akhir</h1>
+            <h3 style="color: var(--teks-utama); font-weight: 400; font-size: 1.8rem; margin-top: 20px;">Menyusun Fungsi (Function) dan Kompetisi Mini Hackathon KKA</h3>
+            <p class="teks-redup" style="margin-top: 40px;">Pelatihan Komprehensif Guru KKA SMP (Fase D)</p>
+        </div>
+
+        <!-- ================= SALINDIA 2 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 5: Tujuan Pembelajaran</div>
+            <h2>Tujuan Instruksional Sesi 5</h2>
+            <div class="kartu">
+                <p>Sebagai puncak pelatihan, Bapak/Ibu fasilitator diharapkan mampu mentransfer kompetensi arsitektur kode tingkat lanjut kepada siswa:</p>
+                <ol>
+                    <li>Mengelompokkan baris instruksi menjadi blok yang dapat digunakan berulang kali (Fungsi/<code>def</code>).</li>
+                    <li>Mendemonstrasikan pertukaran data melalui Parameter dan Argumen.</li>
+                    <li>Menginstruksikan metode pelemparan nilai keluaran terstruktur menggunakan perintah <code>return</code>.</li>
+                    <li>Membedakan ruang lingkup variabel (Lokal vs. Global).</li>
+                    <li>Membimbing peserta didik dalam kompetisi pemecahan masalah (Mini Hackathon) secara kolaboratif.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 3 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 5: Konsep Modularitas</div>
+            <h2>Mengapa Kita Membutuhkan Fungsi?</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Ketika proyek aplikasi mulai membesar hingga menyentuh ratusan baris, menyusun kode dari atas ke bawah secara linear akan menciptakan kekacauan logika (*Spaghetti Code*).</p>
+                    <div class="kotak-info">
+                        <p><strong>Modularitas</strong> adalah teknik memecah program besar menjadi bagian-bagian kecil (modul/fungsi) yang spesifik, mandiri, dan dapat dipanggil kapan saja tanpa perlu menulis ulang baris kodenya.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 4 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 5: Deklarasi Fungsi</div>
+            <h2>Anatomi Pembuatan Fungsi: <code>def</code></h2>
+            <p>Di dalam ekosistem Python, penciptaan sebuah fungsi diawali dengan kata kunci <code>def</code> (singkatan dari *define* atau mendefinisikan).</p>
+            
+            <div class="kartu" style="margin-top: 15px;">
+<pre><code class="language-python"># 1. Mendefinisikan Fungsi (Pembuatan Modul)
+def sapa_sekolah():
+    # Semua yang menjorok ke dalam adalah milik fungsi ini
+    print("Selamat datang di Laboratorium Komputer.")
+    print("Harap mematuhi tata tertib penggunaan gawai.")
+    print("--- Modul KKA Aktif ---")
+
+# Catatan: Baris kode di atas TIDAK AKAN dieksekusi 
+# jika fungsinya tidak dipanggil secara spesifik.</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 5 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 5: Pemanggilan Fungsi</div>
+            <h2>Mengaktifkan Modul: Pemanggilan (Call)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Fungsi bertindak pasif hingga dipanggil. Pemanggilan dilakukan dengan menulis nama fungsi tersebut diikuti sepasang tanda kurung <code>()</code>.</p>
+                    <div class="kotak-info pedagogi">
+                        <h3 class="warna-ungu">Pendekatan Analogi:</h3>
+                        <p>Gunakan metafora "Tombol Mesin". Menulis <code>def</code> sama dengan merakit mesin baru. Sedangkan menulis <code>nama_fungsi()</code> sama dengan menekan tombol daya untuk menyalakan mesin tersebut.</p>
+                    </div>
+                </div>
+                <div class="kolom kartu">
+<pre><code class="language-python"># Merakit Mesin
+def cetak_peringatan():
+    print("Peringatan: Kapasitas memori penuh!")
+
+# Menekan tombol (Bisa berkali-kali)
+cetak_peringatan()
+cetak_peringatan()</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 6 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 5: Asupan Data</div>
+            <h2>Memasukkan Bahan Mentah: Parameter</h2>
+            <p>Fungsi yang dinamis membutuhkan data masukan untuk diolah. Variabel penampung di dalam tanda kurung fungsi disebut <strong>Parameter</strong>.</p>
+            
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">fungsi_parameter.py</span>
+                </div>
+<pre><code class="language-python"># 'nama_siswa' adalah parameter yang siap menerima data
+def sapa_personal(nama_siswa):
+    print(f"Halo, {nama_siswa}! Selamat belajar Python.")
+
+# 'Andi' dan 'Siti' adalah argumen (data nyata yang disetor)
+sapa_personal("Andi")
+sapa_personal("Siti")</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 7 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 5: Multi-Parameter</div>
+            <h2>Memasukkan Banyak Data Sekaligus</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Sistem mengizinkan kita memasukkan lebih dari satu asupan data ke dalam fungsi, cukup dengan memisahkannya menggunakan tanda koma (<code>,</code>).</p>
+                    <p>Posisi penyetoran data (argumen) wajib berurutan sesuai dengan tempat yang disediakan oleh parameter.</p>
+                </div>
+                <div class="kolom kartu">
+<pre><code class="language-python">def laporan_nilai(nama, mata_pelajaran, skor):
+    print("--- Transkrip Siswa ---")
+    print(f"Siswa: {nama}")
+    print(f"Nilai {mata_pelajaran}: {skor}")
+
+# Penyetoran harus berurutan
+laporan_nilai("Budi", "Matematika", 85)</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 8 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 5: Hasil Pemrosesan</div>
+            <h2>Mengekstraksi Hasil Akhir: Kata Kunci <code>return</code></h2>
+            <div class="kotak-info peringatan">
+                <p>Dalam rekayasa perangkat lunak profesional, fungsi yang bertugas menghitung (algoritmik) idealnya tidak boleh langsung mencetak tulisan ke layar menggunakan <code>print()</code>. Mereka harus mengembalikan nilai hasil perhitungannya kepada baris kode yang memanggilnya.</p>
+            </div>
+            <p>Perintah <code>return</code> digunakan untuk melempar (mengembalikan) hasil operasi keluar dari ruang lingkup fungsi.</p>
+        </div>
+
+        <!-- ================= SALINDIA 9 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 5: Perbedaan Visual</div>
+            <h2>Diferensiasi: <code>print()</code> vs <code>return</code></h2>
+            
+            <table>
+                <thead>
+                    <tr><th>Aspek Eksekusi</th><th>Menggunakan <code>print()</code></th><th>Menggunakan <code>return</code></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Fungsi Utama</td><td>Hanya memproyeksikan tulisan ke layar.</td><td>Melemparkan nilai matang sebagai data nyata.</td></tr>
+                    <tr><td>Sifat Data</td><td>Data lenyap (menguap) setelah tampil.</td><td>Data dapat ditangkap oleh variabel dan dihitung ulang.</td></tr>
+                    <tr><td>Dampak pada Blok</td><td>Fungsi tetap berjalan hingga baris terakhir.</td><td>Fungsi <strong>langsung terhenti</strong> (Exit) begitu <code>return</code> tereksekusi.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= SALINDIA 10 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 5: Praktikum Return</div>
+            <h2>Praktik Level Menengah: Modul Konversi Suhu</h2>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">konversi_suhu.py</span>
+                </div>
+<pre><code class="language-python"># Fungsi fokus pada operasi aritmatika murni
+def ubah_celcius_ke_fahrenheit(celcius):
+    suhu_f = (celcius * 9/5) + 32
+    return suhu_f  # Melempar angka hasil
+
+# Alur Utama Program
+suhu_ruangan = float(input("Berapa derajat celcius saat ini? "))
+
+# Menangkap hasil lemparan (return) ke dalam wadah variabel baru
+suhu_hasil = ubah_celcius_ke_fahrenheit(suhu_ruangan)
+
+print(f"Apabila dikonversi, suhu ruangan adalah {suhu_hasil} Fahrenheit.")</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 11 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 5: Isolasi Variabel</div>
+            <h2>Pemahaman Ruang Lingkup (Scope): Lokal vs Global</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Penting bagi siswa untuk memahami batas privasi data:</p>
+                    <ul>
+                        <li><strong>Variabel Lokal:</strong> Segala variabel yang diciptakan di dalam <code>def</code> akan musnah segera setelah fungsi selesai bertugas. Komputer tidak akan mengingatnya di luar blok fungsi.</li>
+                        <li><strong>Variabel Global:</strong> Diciptakan di luar fungsi, dan dapat dibaca oleh seluruh elemen di dalam program tersebut.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 12 ================= -->
+        <div class="salindia rata-tengah">
+            <div class="label-sesi">Persiapan Kompetisi</div>
+            <h1 class="warna-kuning" style="margin-top: 60px;">Uji Eksekusi: Mini Hackathon</h1>
+            <p>Mengeksplorasi kemampuan komputasional pendidik dalam ajang kompetisi pengembangan purwarupa kecerdasan buatan (Chatbot).</p>
+        </div>
+
+        <!-- ================= SALINDIA 13 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Kompetisi: Aturan Main</div>
+            <h2>Spesifikasi Kompetisi Chatbot Asisten Siswa</h2>
+            <div class="kartu">
+                <p>Bapak/Ibu difasilitasi waktu <strong>45 Menit</strong> untuk bekerja berpasangan merancang sebuah program Chatbot Konseling Sekolah. Program diwajibkan memuat kriteria berikut:</p>
+                <ul>
+                    <li><span class="warna-biru teks-tebal">Validasi Input:</span> Mampu merekam nama siswa dan pertanyaan survei.</li>
+                    <li><span class="warna-kuning teks-tebal">Arsitektur Modular:</span> Mewajibkan pembuatan minimal satu buah fungsi (<code>def</code>) yang menggunakan parameter dan mengembalikan nilai dengan <code>return</code>.</li>
+                    <li><span class="warna-hijau teks-tebal">Evaluasi Bersyarat:</span> Harus memuat logika <code>if-elif-else</code> untuk memberikan setidaknya 3 rekomendasi ekstrakurikuler berbeda berdasarkan jawaban siswa.</li>
+                    <li><span class="warna-merah teks-tebal">Robustness (Ketahanan):</span> Skrip berjalan mulus tanpa Galat Sintaksis.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 14 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Kompetisi: Penilaian</div>
+            <h2>Matriks Penilaian Terpadu (Rubrik Guru)</h2>
+            <p>Hasil karya *Pair Programming* Bapak/Ibu akan dinilai berdasarkan instrumen berikut:</p>
+            <table>
+                <thead>
+                    <tr><th style="width: 20%;">Kriteria</th><th style="width: 80%;">Indikator Keberhasilan Mutlak</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Fungsionalitas</strong></td><td>Program tidak terhenti (*crash*) dan seluruh masukan tipe data di-*casting* dengan akurat.</td></tr>
+                    <tr><td><strong>Struktur Logika</strong></td><td>Pemosisian Indentasi (spasi menjorok) sempurna pada blok If-Else dan pembungkus Fungsi.</td></tr>
+                    <tr><td><strong>Prinsip D.R.Y</strong></td><td>Kemampuan mengurangi penulisan kode yang berulang menggunakan delegasi modul Fungsi.</td></tr>
+                    <tr><td><strong>Kreativitas Dialog</strong></td><td>Relevansi bahasa Chatbot yang komunikatif, humanis, dan sesuai dengan target siswa SMP.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= SALINDIA 15 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Lembar Referensi 1</div>
+            <h2>Cheat Sheet 1: Input, Output, dan Tipe Data</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+<pre><code class="language-python"># Format Teks (String)
+print("Kalimat sapaan")
+
+# Menyisipkan variabel ke teks (F-String)
+nama = "Andi"
+print(f"Halo, {nama}. Selamat pagi.")
+
+# Meminta data teks
+hobi = input("Apa hobimu? ")
+
+# Meminta data angka murni (Di-casting)
+umur = int(input("Masukkan umurmu: "))</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 16 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Lembar Referensi 2</div>
+            <h2>Cheat Sheet 2: Percabangan (If-Elif-Else)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+<pre><code class="language-python">minat = input("Kamu suka olahraga atau seni? ")
+
+# Pastikan identitas besar kecil huruf dijaga
+if minat == "olahraga":
+    # Wajib Indentasi
+    print("Rekomendasi: Ikut tim Futsal.")
+elif minat == "seni":
+    print("Rekomendasi: Ikut klub Teater.")
+else:
+    # Cadangan bila tidak ada yang cocok
+    print("Rekomendasi: Diskusi dengan wali kelas.")</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 17 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Lembar Referensi 3</div>
+            <h2>Cheat Sheet 3: Modul Fungsi (Def &amp; Return)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+<pre><code class="language-python"># Menyusun modul rekomendasi
+def penentu_status(skor_ujian):
+    if skor_ujian &gt; 80:
+        return "Sangat Berprestasi"
+    else:
+        return "Terus Semangat"
+
+# Memanggil dan mencetak modul ke variabel
+angka = int(input("Nilai Anda: "))
+hasil_akhir = penentu_status(angka)
+
+print(f"Kesimpulan: {hasil_akhir}")</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 18 ================= -->
+        <div class="salindia aktif">
+            <div class="label-sesi">Kompetisi: Referensi Solusi</div>
+            <h2>Solusi Arsitektur Modul (Draf Acuan Fasilitator)</h2>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">solusi_chatbot.py</span>
+                </div>
+<pre><code class="language-python">def modul_ai_penjurusan(bakat):
+    if bakat == "Logika":
+        return "Klub Robotika KKA siap menampung bakat Anda."
+    elif bakat == "Fisik":
+        return "Tim Basket Sekolah menanti kehadiran Anda."
+    else:
+        return "Silakan konsultasi lebih lanjut dengan Guru Bimbingan Konseling."
+
+print("=== Asisten Pendaftaran Ekstrakurikuler ===")
+nama_siswa = input("Identitas Siswa: ")
+bakat_utama = input("Bidang dominan (Logika/Fisik): ")
+
+# Pemrosesan logika secara terpisah dari input
+hasil_rekomendasi = modul_ai_penjurusan(bakat_utama)
+
+print(f"\nRingkasan Evaluasi untuk {nama_siswa}:")
+print(hasil_rekomendasi)</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 19 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Evaluasi Keseluruhan</div>
+            <h2>Rangkuman Capaian Keseluruhan Pelatihan</h2>
+            <div class="kartu">
+                <p>Melalui lima sesi komprehensif ini, Bapak/Ibu telah memetakan alur pedagogi KKA secara utuh:</p>
+                <ul>
+                    <li><span class="warna-hijau teks-tebal">Demistifikasi Kode:</span> Mengeliminasi ketakutan siswa pada layar teks melalui metode Tweak &amp; Break.</li>
+                    <li><span class="warna-biru teks-tebal">Fondasi Interaktif:</span> Menghidupkan program pasif menjadi dinamis menggunakan Input, Variabel, dan Type Casting.</li>
+                    <li><span class="warna-kuning teks-tebal">Arsitektur Otonom:</span> Membangun nalar buatan (AI dasar) melalui blok If-Else dan iterasi Looping.</li>
+                    <li><span class="warna-ungu teks-tebal">Rekayasa Perangkat Lunak:</span> Menyusun kode sekelas industri yang rapi dan terukur menggunakan Modularitas Fungsi (`def`).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 20 ================= -->
+        <div class="salindia rata-tengah">
+            <h1 style="font-size: 3rem; color: var(--aksen-kuning); line-height: 1.4;">"Teknologi Adalah Instrumen.<br>Kreativitas Pendidik Adalah Esensinya."</h1>
+            
+            <div class="kartu" style="margin: 30px auto; max-width: 900px; font-style: italic; text-align: left;">
+                <p>"Tujuan integrasi pemrograman tingkat SMP bukanlah mendikte peserta didik menjadi perekayasa perangkat lunak secara utuh. Sasaran utama kita adalah mengeliminasi kecemasan teknis, serta membangun kerangka algoritmik sehingga kelak, mereka mampu mengendalikan sistem kecerdasan artifisial secara bijak, bukan dikendalikan sistem."</p>
+            </div>
+            
+            <h3 style="color: var(--aksen-hijau);">Terima kasih atas partisipasi aktif Bapak/Ibu sekalian.</h3>
+            <p>Pelatihan Penuh Python Fase D Diselesaikan dengan Sempurna. 🚀</p>
+        </div>
+
+    </div>
+
+    <!-- Script Pengaturan Salindia -->
+    <script>
+        let salindiaAktif = 0;
+        const daftarSalindia = document.querySelectorAll('.salindia');
+        const bilahKemajuan = document.getElementById('bilah-kemajuan');
+        const penghitung = document.getElementById('penghitung-salindia');
+
+        function perbaruiSalindia() {
+            daftarSalindia.forEach(slide => slide.classList.remove('aktif'));
+            daftarSalindia[salindiaAktif].classList.add('aktif');
+            
+            const kemajuan = ((salindiaAktif + 1) / daftarSalindia.length) * 100;
+            bilahKemajuan.style.width = `${kemajuan}%`;
+            penghitung.innerText = `${salindiaAktif + 1} / 20 (Sesi 5)`;
+        }
+
+        function salindiaSelanjutnya() {
+            if (salindiaAktif < daftarSalindia.length - 1) {
+                salindiaAktif++; perbaruiSalindia();
+            }
+        }
+
+        function salindiaSebelumnya() {
+            if (salindiaAktif > 0) {
+                salindiaAktif--; perbaruiSalindia();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                salindiaSelanjutnya();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                salindiaSebelumnya();
+            }
+        });
+
+        perbaruiSalindia();
+    </script>
+
+</body></html>

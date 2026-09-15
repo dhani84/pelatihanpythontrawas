@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///Users/mac/Downloads/gemini-code-1789193667135.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pelatihan KKA SMP - Sesi 6 (Proyek Akhir)</title>
+    
+    <link href="./Modul Pelatihan KKA SMP - Sesi 6 (Proyek Akhir)_files/css2" rel="stylesheet">
+    <link href="./Modul Pelatihan KKA SMP - Sesi 6 (Proyek Akhir)_files/prism-tomorrow.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-utama: #0f172a; --bg-kartu: #1e293b; --teks-utama: #f8fafc; --teks-sekunder: #94a3b8;
+            --aksen-hijau: #34d399; --aksen-kuning: #fbbf24; --aksen-biru: #38bdf8; --aksen-merah: #f87171;
+            --aksen-ungu: #c084fc; --garis-batas: #334155;
+        }
+
+        body { margin: 0; padding: 0; overflow: hidden; background-color: var(--bg-utama); color: var(--teks-utama); font-family: 'Montserrat', sans-serif; background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 30px 30px; }
+        #wadah-presentasi { position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .salindia { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: scale(0.98); padding: 60px 100px; box-sizing: border-box; overflow-y: auto; }
+        .salindia.aktif { opacity: 1; visibility: visible; transform: scale(1); }
+        .label-sesi { position: absolute; top: 40px; right: 80px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--aksen-biru); color: var(--aksen-biru); padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        h1 { font-size: 3.2rem; font-weight: 700; color: var(--aksen-hijau); margin-bottom: 10px; line-height: 1.2;}
+        h2 { font-size: 2.2rem; font-weight: 600; color: var(--aksen-kuning); margin-bottom: 25px; border-bottom: 1px solid var(--garis-batas); padding-bottom: 10px; width: 100%;}
+        h3 { font-size: 1.5rem; font-weight: 600; color: var(--aksen-biru); margin-top: 0; margin-bottom: 15px;}
+        p, li { font-size: 1.3rem; line-height: 1.6; color: var(--teks-utama); }
+        ul, ol { margin-left: 20px; margin-bottom: 20px;}
+        li { margin-bottom: 10px; }
+
+        .rata-tengah { text-align: center; width: 100%; align-items: center;}
+        .teks-redup { color: var(--teks-sekunder); font-size: 1.1rem; }
+        .teks-tebal { font-weight: 600; }
+        .warna-hijau { color: var(--aksen-hijau); } .warna-biru { color: var(--aksen-biru); } .warna-kuning { color: var(--aksen-kuning); } .warna-ungu { color: var(--aksen-ungu); } .warna-merah { color: var(--aksen-merah); }
+
+        .tata-letak-ganda { display: flex; width: 100%; gap: 40px; align-items: stretch; justify-content: space-between; }
+        .tata-letak-tiga { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; width: 100%; }
+        .kolom { flex: 1; display: flex; flex-direction: column;}
+
+        .kartu { background: var(--bg-kartu); border-radius: 8px; padding: 25px; border: 1px solid var(--garis-batas); width: 100%; box-sizing: border-box; box-shadow: 0 10px 25px rgba(0,0,0,0.3); height: 100%; }
+
+        .kepala-jendela { background: #0f172a; padding: 10px 15px; border-radius: 8px 8px 0 0; display: flex; gap: 8px; border-bottom: 1px solid var(--garis-batas); margin: -25px -25px 15px -25px; align-items: center; }
+        .titik { width: 10px; height: 10px; border-radius: 50%; }
+        .titik-merah { background: #ef4444; } .titik-kuning { background: #f59e0b; } .titik-hijau { background: #10b981; }
+        .teks-berkas { color: var(--teks-sekunder); font-family: 'Fira Code', monospace; font-size: 0.9rem; margin-left: 10px;}
+
+        pre[class*="language-"] { font-family: 'Fira Code', monospace !important; font-size: 1.05rem !important; border-radius: 0 0 8px 8px !important; margin: 0 !important; background: transparent !important; padding: 0 !important; overflow-x: auto;}
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 1.2rem;}
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--garis-batas); }
+        th { background: rgba(56, 189, 248, 0.1); color: var(--aksen-biru); font-weight: 600;}
+        tr:hover { background: #2a3a50; }
+
+        .kotak-info { background: rgba(56, 189, 248, 0.1); border-left: 5px solid var(--aksen-biru); padding: 15px 20px; border-radius: 0 4px 4px 0; margin-top: 15px; margin-bottom: 15px; }
+        .kotak-info.peringatan { background: rgba(251, 191, 36, 0.1); border-color: var(--aksen-kuning); }
+        .kotak-info.pedagogi { background: rgba(192, 132, 252, 0.1); border-color: var(--aksen-ungu); }
+
+        #kontrol { position: fixed; bottom: 30px; right: 40px; display: flex; gap: 10px; z-index: 1000;}
+        .tombol-nav { background: var(--bg-kartu); color: var(--teks-utama); border: 1px solid var(--garis-batas); width: 45px; height: 45px; border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
+        .tombol-nav:hover { background: var(--garis-batas); }
+        #bilah-kemajuan { position: fixed; bottom: 0; left: 0; height: 4px; background: var(--aksen-biru); width: 0%; transition: width 0.3s; z-index: 1000;}
+        #penghitung-salindia { position: fixed; bottom: 30px; left: 40px; font-family: 'Fira Code', monospace; color: var(--teks-sekunder); font-size: 1.1rem;}
+    </style>
+</head>
+<body>
+
+    <div id="bilah-kemajuan" style="width: 100%;"></div>
+    <div id="penghitung-salindia">20 / 20 (Sesi 6)</div>
+    <div id="kontrol">
+        <button class="tombol-nav" onclick="salindiaSebelumnya()">❮</button>
+        <button class="tombol-nav" onclick="salindiaSelanjutnya()">❯</button>
+    </div>
+
+    <div id="wadah-presentasi">
+
+        <!-- ================= SALINDIA 1 ================= -->
+        <div class="salindia rata-tengah">
+            <h1 style="margin-top: 80px;" class="warna-hijau">Sesi 6: Proyek Akhir Komprehensif</h1>
+            <h3 style="color: var(--teks-utama); font-weight: 400; font-size: 1.8rem; margin-top: 20px;">Integrasi Materi: Membangun Aplikasi Asisten Akademik</h3>
+            <p class="teks-redup" style="margin-top: 40px;">Pelatihan Guru Koding dan Kecerdasan Artifisial (KKA) Fase D</p>
+        </div>
+
+        <!-- ================= SALINDIA 2 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Tujuan Pembelajaran</div>
+            <h2>Tujuan Proyek Akhir</h2>
+            <div class="kartu">
+                <p>Proyek ini bertujuan untuk mengukur keberhasilan pelatihan dengan merangkai seluruh kompetensi dari sesi sebelumnya menjadi satu kesatuan program utuh. Aspek yang dinilai meliputi:</p>
+                <ul>
+                    <li><strong>Sesi 1:</strong> Penerapan pedagogi pemecahan masalah (pembuatan alur sebelum penulisan kode).</li>
+                    <li><strong>Sesi 2:</strong> Penggunaan variabel, fungsi <code>input()</code>, pemformatan teks, dan konversi tipe data.</li>
+                    <li><strong>Sesi 3:</strong> Penerapan logika percabangan bersyarat (If-Elif-Else) yang akurat.</li>
+                    <li><strong>Sesi 4:</strong> Pemanfaatan perulangan (While Loop) untuk menjalankan program secara terus-menerus.</li>
+                    <li><strong>Sesi 5:</strong> Penerapan modularitas menggunakan fungsi (<code>def</code>) dan pengembalian nilai (<code>return</code>).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 3 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Deskripsi Aplikasi</div>
+            <h2>Spesifikasi Aplikasi Asisten Akademik</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Kita akan merancang program sederhana yang relevan dengan tugas guru sehari-hari, yaitu program pengolahan nilai siswa.</p>
+                    <div class="kotak-info">
+                        <h3 class="warna-kuning">Alur Kerja Program:</h3>
+                        <ol>
+                            <li>Sistem meminta data nama siswa, nilai tugas, dan nilai ujian.</li>
+                            <li>Sistem menghitung nilai rata-rata melalui sebuah fungsi matematika.</li>
+                            <li>Sistem menentukan predikat huruf (A/B/C/D) melalui fungsi logika.</li>
+                            <li>Sistem menampilkan laporan hasil belajar ke layar.</li>
+                            <li>Sistem menawarkan opsi untuk memproses siswa lain (mengulang alur dari awal) atau keluar dari program.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 4 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Perancangan Awal</div>
+            <h2>Tahap 1: Perancangan Alur Logika</h2>
+            <div class="kartu">
+                <p>Sesuai dengan praktik baik pedagogi, biasakan peserta didik untuk membuat kerangka dasar (alur) sebelum mengetikkan kode ke dalam komputer.</p>
+                <div class="tata-letak-tiga" style="margin-top: 20px;">
+                    <div class="rata-tengah">
+                        <span style="font-size: 3rem;">📥</span>
+                        <p class="warna-biru teks-tebal">Modul Masukan</p>
+                        <p class="teks-redup">Pengumpulan data dari pengguna.</p>
+                    </div>
+                    <div class="rata-tengah">
+                        <span style="font-size: 3rem;">⚙️</span>
+                        <p class="warna-kuning teks-tebal">Modul Pemrosesan</p>
+                        <p class="teks-redup">Perhitungan rata-rata dan seleksi predikat.</p>
+                    </div>
+                    <div class="rata-tengah">
+                        <span style="font-size: 3rem;">🔁</span>
+                        <p class="warna-hijau teks-tebal">Modul Kendali</p>
+                        <p class="teks-redup">Opsi perulangan program atau berhenti.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 5 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Penulisan Kode (1)</div>
+            <h2>Tahap 2: Menyusun Fungsi Hitung Rata-rata</h2>
+            <p>Langkah pertama dalam penulisan kode adalah membuat fungsi komputasi. Letakkan seluruh blok fungsi di bagian paling atas dokumen kode program.</p>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">sistem_akademik.py (Bagian 1)</span>
+                </div>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># --- BLOK PEMBUATAN FUNGSI ---</span>
+
+<span class="token comment"># Fungsi 1: Menghitung nilai rata-rata dari dua parameter masukan</span>
+<span class="token keyword">def</span> <span class="token function">hitung_rata_rata</span><span class="token punctuation">(</span>nilai1<span class="token punctuation">,</span> nilai2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    total <span class="token operator">=</span> nilai1 <span class="token operator">+</span> nilai2
+    rata_rata <span class="token operator">=</span> total <span class="token operator">/</span> <span class="token number">2</span>
+    <span class="token keyword">return</span> rata_rata <span class="token comment"># Mengembalikan hasil ke pemanggil fungsi</span></code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 6 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Penulisan Kode (2)</div>
+            <h2>Tahap 3: Menyusun Fungsi Penentuan Predikat</h2>
+            <p>Fungsi kedua memanfaatkan materi percabangan bersyarat untuk menentukan predikat kelulusan berdasarkan angka rata-rata.</p>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">sistem_akademik.py (Bagian 2)</span>
+                </div>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Fungsi 2: Menggunakan Logika Percabangan (If-Elif-Else)</span>
+<span class="token keyword">def</span> <span class="token function">tentukan_predikat</span><span class="token punctuation">(</span>nilai_akhir<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> nilai_akhir <span class="token operator">&gt;=</span> <span class="token number">90</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"A (Sangat Baik)"</span>
+    <span class="token keyword">elif</span> nilai_akhir <span class="token operator">&gt;=</span> <span class="token number">75</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"B (Tuntas)"</span>
+    <span class="token keyword">elif</span> nilai_akhir <span class="token operator">&gt;=</span> <span class="token number">60</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"C (Perlu Bimbingan)"</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"D (Wajib Remedial)"</span></code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 7 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Penulisan Kode (3)</div>
+            <h2>Tahap 4: Mengawali Alur Program Utama (Perulangan)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Setelah fungsi siap digunakan, kita menyusun alur program utama. Kita menggunakan fungsi <code>while</code> agar program siap menerima data beberapa siswa sekaligus secara berkelanjutan tanpa perlu dijalankan ulang.</p>
+                </div>
+                <div class="kolom kartu">
+                    <div class="kepala-jendela">
+                        <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                        <span class="teks-berkas">sistem_akademik.py (Bagian 3)</span>
+                    </div>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># --- BLOK PROGRAM UTAMA ---</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"=== APLIKASI ASISTEN AKADEMIK ==="</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Variabel pengontrol perulangan</span>
+status_aplikasi <span class="token operator">=</span> <span class="token string">"berjalan"</span>
+
+<span class="token comment"># Perulangan utama program</span>
+<span class="token keyword">while</span> status_aplikasi <span class="token operator">==</span> <span class="token string">"berjalan"</span><span class="token punctuation">:</span>
+    <span class="token comment"># (Kode penerimaan input akan berada di sini)</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 8 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Penulisan Kode (4)</div>
+            <h2>Tahap 5: Menerima Masukan Pengguna (Input)</h2>
+            <p>Di dalam blok perulangan <code>while</code>, masukkan perintah untuk meminta data dari pengguna. Perhatikan keharusan menggunakan konversi tipe data (<code>float</code>) untuk nilai angka.</p>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">sistem_akademik.py (Bagian 4)</span>
+                </div>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">while</span> status_aplikasi <span class="token operator">==</span> <span class="token string">"berjalan"</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n--- Formulir Masukan Data Siswa ---"</span><span class="token punctuation">)</span>
+    nama <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Ketikkan Nama Siswa: "</span><span class="token punctuation">)</span>
+    
+    <span class="token comment"># Mengonversi format teks menjadi angka desimal (float)</span>
+    nilai_tugas <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Masukkan Nilai Tugas: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    nilai_ujian <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Masukkan Nilai Ujian: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    
+    <span class="token comment"># Memanggil Fungsi yang telah dibuat sebelumnya</span>
+    hasil_rata2 <span class="token operator">=</span> hitung_rata_rata<span class="token punctuation">(</span>nilai_tugas<span class="token punctuation">,</span> nilai_ujian<span class="token punctuation">)</span>
+    hasil_predikat <span class="token operator">=</span> tentukan_predikat<span class="token punctuation">(</span>hasil_rata2<span class="token punctuation">)</span></code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 9 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Penulisan Kode (5)</div>
+            <h2>Tahap 6: Menampilkan Hasil dan Opsi Penghentian</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Langkah terakhir adalah menampilkan kesimpulan evaluasi kepada pengguna menggunakan format interpolasi teks (F-String), kemudian memberikan mekanisme bagi pengguna untuk menghentikan program.</p>
+                </div>
+                <div class="kolom kartu">
+<pre class="language-python" tabindex="0"><code class="language-python">    <span class="token comment"># Menampilkan Laporan Hasil</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n--- HASIL EVALUASI ---"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Nama Siswa   : </span><span class="token interpolation"><span class="token punctuation">{</span>nama<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Rata-rata    : </span><span class="token interpolation"><span class="token punctuation">{</span>hasil_rata2<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Predikat     : </span><span class="token interpolation"><span class="token punctuation">{</span>hasil_predikat<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    
+    <span class="token comment"># Mekanisme Menghentikan Perulangan</span>
+    lanjut <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"\nProses data siswa lain? (Ya/Tidak): "</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> lanjut <span class="token operator">!=</span> <span class="token string">"Ya"</span><span class="token punctuation">:</span>
+        status_aplikasi <span class="token operator">=</span> <span class="token string">"berhenti"</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nAplikasi ditutup. Terima kasih."</span><span class="token punctuation">)</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 10 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Tinjauan Hasil</div>
+            <h2>Contoh Tampilan Layar Program (Terminal)</h2>
+            <div class="kartu" style="background: #000; border: 1px solid #333;">
+                <p style="font-family: &#39;Fira Code&#39;, monospace; color: #a3e635; margin:0;">
+                    === APLIKASI ASISTEN AKADEMIK ===<br><br>
+                    --- Formulir Masukan Data Siswa ---<br>
+                    Ketikkan Nama Siswa: <span style="color:#fff;">Andika</span><br>
+                    Masukkan Nilai Tugas: <span style="color:#fff;">85.5</span><br>
+                    Masukkan Nilai Ujian: <span style="color:#fff;">90</span><br><br>
+                    --- HASIL EVALUASI ---<br>
+                    Nama Siswa   : Andika<br>
+                    Rata-rata    : 87.75<br>
+                    Predikat     : B (Tuntas)<br><br>
+                    Proses data siswa lain? (Ya/Tidak): <span style="color:#fff;">Tidak</span><br><br>
+                    Aplikasi ditutup. Terima kasih.
+                </p>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 11 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Latihan Modifikasi</div>
+            <h2>Latihan Modifikasi Kode Program (Tweak)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <div class="kotak-info pedagogi">
+                        <h3 class="warna-ungu">Latihan Praktik Kelas:</h3>
+                        <p>Setelah program dasar berhasil dijalankan, instruksikan peserta untuk melakukan penyesuaian fungsional:</p>
+                        <ol>
+                            <li>Tambahkan komponen nilai ketiga, misalnya: <code>nilai_sikap</code>.</li>
+                            <li>Sesuaikan parameter pada fungsi <code>hitung_rata_rata</code> untuk menerima dan memproses 3 buah angka.</li>
+                            <li>Tampilkan komponen baru tersebut pada hasil cetak laporan evaluasi akhir.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 12 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Identifikasi Galat</div>
+            <h2>Identifikasi Pesan Kesalahan Terpadu (Debugging)</h2>
+            <p>Saat melakukan modifikasi pada kode yang komprehensif, peserta didik mungkin akan menemui kendala berlapis. Fasilitator harus membantu mengidentifikasi akar permasalahannya.</p>
+            
+            <table>
+                <thead>
+                    <tr><th>Tampilan Pesan Kesalahan (Galat)</th><th>Akar Permasalahan (Diagnosis)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="warna-merah"><code>TypeError: hitung_rata_rata() takes 2 positional arguments but 3 were given</code></td><td>Peserta memasukkan 3 nilai saat memanggil fungsi, tetapi di bagian deklarasi fungsi (<code>def</code>) hanya terdapat 2 parameter.</td></tr>
+                    <tr><td class="warna-merah"><code>ValueError: could not convert string to float</code></td><td>Pengguna mengetikkan abjad atau huruf pada permintaan input yang secara khusus dikonversi menggunakan <code>float()</code>.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= SALINDIA 13 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Pengayaan Materi</div>
+            <h2>Materi Pengayaan Lanjutan: Penanganan Galat Dinamis</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Program yang dirancang dengan baik tidak akan langsung tertutup secara paksa (*crash*) hanya karena satu kesalahan input dari pengguna.</p>
+                    <p>Sebagai materi pengayaan bagi siswa yang telah menguasai logika dasar, guru dapat memperkenalkan blok struktur kontrol penanganan kesalahan menggunakan perintah <code>try</code> dan <code>except ValueError</code>.</p>
+                    <p class="teks-redup">Fitur ini akan mencegah program berhenti saat pengguna mengetik huruf di kolom angka, dan justru akan memberikan peringatan kepada pengguna untuk memperbaiki ketikannya.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 14 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Tujuan Instruksional</div>
+            <h2>Manfaat Penyelesaian Proyek Bagi Siswa</h2>
+            <div class="kartu">
+                <ul>
+                    <li><span class="warna-hijau teks-tebal">Relevansi Ekosistem:</span> Proyek ini menghadirkan solusi komputasi yang dapat diterapkan langsung pada permasalahan di lingkungan akademis.</li>
+                    <li><span class="warna-biru teks-tebal">Pemahaman Konsep AI Dasar:</span> Siswa menyadari bahwa perangkat lunak cerdas pada hakikatnya adalah perpaduan sistematis antara penerimaan data (input), operasi matematika, dan pengambilan keputusan logis (If-Else).</li>
+                    <li><span class="warna-kuning teks-tebal">Kecakapan Rekayasa Praktis:</span> Menggeser paradigma siswa dari menghafal teori sintaks menjadi mampu merakit alat bantu digital fungsional secara mandiri.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 15 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 6: Evaluasi Pembelajaran</div>
+            <h2>Rubrik Penilaian Praktik (Penilaian Formatif)</h2>
+            <p>Bapak/Ibu dapat mengadopsi instrumen berikut sebagai acuan untuk mengevaluasi kompetensi pemrograman peserta didik:</p>
+            <table>
+                <thead>
+                    <tr><th>Komponen Penilaian</th><th>Indikator Pencapaian Kompetensi Tuntas</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Arsitektur Logika (30%)</strong></td><td>Penerapan <code>if-elif-else</code> akurat, tidak terdapat tumpang tindih syarat kondisi.</td></tr>
+                    <tr><td><strong>Efisiensi Kode (30%)</strong></td><td>Pembuatan modul terpisah menggunakan <code>def</code> serta melakukan pemanggilan fungsi secara tepat.</td></tr>
+                    <tr><td><strong>Siklus Berkelanjutan (20%)</strong></td><td>Perulangan <code>while</code> berjalan lancar dan menyediakan rute terminasi (opsi berhenti) yang berfungsi.</td></tr>
+                    <tr><td><strong>Antarmuka Pengguna (20%)</strong></td><td>Menyajikan instruksi pengisian dan menampilkan laporan hasil yang informatif.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= SALINDIA 16 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Referensi Akhir Sesi 1 &amp; 2</div>
+            <h2>Ringkasan Sintaks: Masukan, Keluaran, dan Konversi</h2>
+            <div class="kartu">
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Menampilkan Teks ke Layar</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Selamat Pagi"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Menerima Masukan Teks</span>
+nama <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Tuliskan nama Anda: "</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Menerima dan Mengonversi Angka Desimal</span>
+angka_desimal <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Tuliskan angka desimal: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Menerima dan Mengonversi Angka Bulat</span>
+angka_bulat <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Tuliskan umur Anda: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Menampilkan Hasil Menggunakan F-String</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Halo </span><span class="token interpolation"><span class="token punctuation">{</span>nama<span class="token punctuation">}</span></span><span class="token string">, umur Anda </span><span class="token interpolation"><span class="token punctuation">{</span>angka_bulat<span class="token punctuation">}</span></span><span class="token string"> tahun."</span></span><span class="token punctuation">)</span></code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 17 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Referensi Akhir Sesi 3 &amp; 4</div>
+            <h2>Ringkasan Sintaks: Percabangan dan Perulangan</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+                    <h3 class="warna-kuning">Percabangan Logika</h3>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">if</span> skor <span class="token operator">&gt;=</span> <span class="token number">80</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sangat Baik"</span><span class="token punctuation">)</span>
+<span class="token keyword">elif</span> skor <span class="token operator">&gt;=</span> <span class="token number">60</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Cukup Baik"</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Kurang"</span><span class="token punctuation">)</span></code></pre>
+                </div>
+                <div class="kolom kartu">
+                    <h3 class="warna-biru">Perulangan Terstruktur</h3>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Perulangan Terbatas (For)</span>
+<span class="token keyword">for</span> urutan <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Nomor urut:"</span><span class="token punctuation">,</span> urutan<span class="token punctuation">)</span>
+
+<span class="token comment"># Perulangan Bersyarat (While)</span>
+<span class="token keyword">while</span> status <span class="token operator">==</span> <span class="token string">"aktif"</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sistem berjalan..."</span><span class="token punctuation">)</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 18 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Referensi Akhir Sesi 5</div>
+            <h2>Ringkasan Sintaks: Modularitas Fungsi</h2>
+            <div class="kartu">
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token comment"># Membuat fungsi dengan parameter</span>
+<span class="token keyword">def</span> <span class="token function">hitung_penjumlahan</span><span class="token punctuation">(</span>angka_pertama<span class="token punctuation">,</span> angka_kedua<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    hasil_tambah <span class="token operator">=</span> angka_pertama <span class="token operator">+</span> angka_kedua
+    <span class="token comment"># Mengembalikan nilai hasil perhitungan</span>
+    <span class="token keyword">return</span> hasil_tambah
+
+<span class="token comment"># Memanggil fungsi dan menyimpannya di variabel</span>
+total <span class="token operator">=</span> hitung_penjumlahan<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Hasil kalkulasi adalah </span><span class="token interpolation"><span class="token punctuation">{</span>total<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 19 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Kesimpulan Pelatihan</div>
+            <h2>Kesimpulan Akhir Program Pelatihan KKA</h2>
+            <div class="kartu">
+                <p>Melalui enam sesi terpadu ini, Bapak/Ibu fasilitator telah menguasai alur strategis pengajaran pemrograman teks (Python):</p>
+                <ul>
+                    <li><span class="warna-hijau teks-tebal">Adaptasi Psikologis:</span> Mengurangi kecemasan awal siswa terhadap lingkungan pemrograman menggunakan pendekatan *Tweak &amp; Break*.</li>
+                    <li><span class="warna-biru teks-tebal">Interaktivitas Data:</span> Merancang program dua arah menggunakan variabel dan operasi tipe data.</li>
+                    <li><span class="warna-kuning teks-tebal">Kemampuan Pemecahan Masalah:</span> Menerapkan logika pengkondisian bersyarat dan optimasi perulangan otomatis.</li>
+                    <li><span class="warna-ungu teks-tebal">Arsitektur Perangkat Lunak:</span> Menyusun program terstruktur profesional dengan mengaplikasikan prinsip fungsi.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 20 ================= -->
+        <div class="salindia rata-tengah aktif">
+            <h1 style="font-size: 3rem; color: var(--aksen-kuning); line-height: 1.4;">"Teknologi Adalah Instrumen.<br>Kreativitas Pendidik Adalah Esensinya."</h1>
+            
+            <div class="kartu" style="margin: 30px auto; max-width: 900px; font-style: italic; text-align: left;">
+                <p>"Tujuan integrasi bahasa pemrograman di tingkat SMP bukanlah untuk mendikte setiap peserta didik agar menjadi pembuat perangkat lunak secara profesional. Sasaran utama kita adalah mengeliminasi hambatan teknologi teknis sejak dini, serta menanamkan nalar komputasional logis, sehingga di masa depan mereka mampu mengendalikan sistem informasi secara sadar dan bijaksana."</p>
+            </div>
+            
+            <h3 style="color: var(--aksen-hijau);">Terima kasih atas partisipasi aktif Bapak/Ibu sekalian.</h3>
+            <p>Seluruh Rangkaian Modul Pelatihan KKA SMP (Fase D) Telah Tuntas. 🚀</p>
+        </div>
+
+    </div>
+
+    <!-- Script Pengaturan Salindia -->
+    <script src="./Modul Pelatihan KKA SMP - Sesi 6 (Proyek Akhir)_files/prism.min.js"></script>
+    <script src="./Modul Pelatihan KKA SMP - Sesi 6 (Proyek Akhir)_files/prism-python.min.js"></script>
+    
+    <script>
+        let salindiaAktif = 0;
+        const daftarSalindia = document.querySelectorAll('.salindia');
+        const bilahKemajuan = document.getElementById('bilah-kemajuan');
+        const penghitung = document.getElementById('penghitung-salindia');
+
+        function perbaruiSalindia() {
+            daftarSalindia.forEach(slide => slide.classList.remove('aktif'));
+            daftarSalindia[salindiaAktif].classList.add('aktif');
+            
+            const kemajuan = ((salindiaAktif + 1) / daftarSalindia.length) * 100;
+            bilahKemajuan.style.width = `${kemajuan}%`;
+            penghitung.innerText = `${salindiaAktif + 1} / 20 (Sesi 6)`;
+        }
+
+        function salindiaSelanjutnya() {
+            if (salindiaAktif < daftarSalindia.length - 1) {
+                salindiaAktif++; perbaruiSalindia();
+            }
+        }
+
+        function salindiaSebelumnya() {
+            if (salindiaAktif > 0) {
+                salindiaAktif--; perbaruiSalindia();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                salindiaSelanjutnya();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                salindiaSebelumnya();
+            }
+        });
+
+        perbaruiSalindia();
+    </script>
+
+</body></html>

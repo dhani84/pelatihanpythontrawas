@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///Users/mac/Downloads/gemini-code-1789192658001.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pelatihan KKA SMP - Sesi 3</title>
+    
+    <link href="./Modul Pelatihan KKA SMP - Sesi 3_files/css2" rel="stylesheet">
+    <link href="./Modul Pelatihan KKA SMP - Sesi 3_files/prism-tomorrow.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-utama: #0f172a; --bg-kartu: #1e293b; --teks-utama: #f8fafc; --teks-sekunder: #94a3b8;
+            --aksen-hijau: #34d399; --aksen-kuning: #fbbf24; --aksen-biru: #38bdf8; --aksen-merah: #f87171;
+            --aksen-ungu: #c084fc; --garis-batas: #334155;
+        }
+
+        body { margin: 0; padding: 0; overflow: hidden; background-color: var(--bg-utama); color: var(--teks-utama); font-family: 'Montserrat', sans-serif; background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 30px 30px; }
+        #wadah-presentasi { position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .salindia { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: scale(0.98); padding: 60px 100px; box-sizing: border-box; overflow-y: auto; }
+        .salindia.aktif { opacity: 1; visibility: visible; transform: scale(1); }
+        .label-sesi { position: absolute; top: 40px; right: 80px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--aksen-biru); color: var(--aksen-biru); padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        h1 { font-size: 3.2rem; font-weight: 700; color: var(--aksen-hijau); margin-bottom: 10px; line-height: 1.2;}
+        h2 { font-size: 2.2rem; font-weight: 600; color: var(--aksen-kuning); margin-bottom: 25px; border-bottom: 1px solid var(--garis-batas); padding-bottom: 10px; width: 100%;}
+        h3 { font-size: 1.5rem; font-weight: 600; color: var(--aksen-biru); margin-top: 0; margin-bottom: 15px;}
+        p, li { font-size: 1.3rem; line-height: 1.6; color: var(--teks-utama); }
+        ul, ol { margin-left: 20px; margin-bottom: 20px;}
+        li { margin-bottom: 10px; }
+
+        .rata-tengah { text-align: center; width: 100%; align-items: center;}
+        .teks-redup { color: var(--teks-sekunder); font-size: 1.1rem; }
+        .teks-tebal { font-weight: 600; }
+        .warna-hijau { color: var(--aksen-hijau); } .warna-biru { color: var(--aksen-biru); } .warna-kuning { color: var(--aksen-kuning); } .warna-ungu { color: var(--aksen-ungu); } .warna-merah { color: var(--aksen-merah); }
+
+        .tata-letak-ganda { display: flex; width: 100%; gap: 40px; align-items: stretch; justify-content: space-between; }
+        .kolom { flex: 1; display: flex; flex-direction: column;}
+
+        .kartu { background: var(--bg-kartu); border-radius: 8px; padding: 25px; border: 1px solid var(--garis-batas); width: 100%; box-sizing: border-box; box-shadow: 0 10px 25px rgba(0,0,0,0.3); height: 100%; }
+
+        .kepala-jendela { background: #0f172a; padding: 10px 15px; border-radius: 8px 8px 0 0; display: flex; gap: 8px; border-bottom: 1px solid var(--garis-batas); margin: -25px -25px 15px -25px; align-items: center; }
+        .titik { width: 10px; height: 10px; border-radius: 50%; }
+        .titik-merah { background: #ef4444; } .titik-kuning { background: #f59e0b; } .titik-hijau { background: #10b981; }
+        .teks-berkas { color: var(--teks-sekunder); font-family: 'Fira Code', monospace; font-size: 0.9rem; margin-left: 10px;}
+
+        pre[class*="language-"] { font-family: 'Fira Code', monospace !important; font-size: 1.1rem !important; border-radius: 0 0 8px 8px !important; margin: 0 !important; background: transparent !important; padding: 0 !important; overflow-x: auto;}
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 1.2rem;}
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--garis-batas); }
+        th { background: rgba(56, 189, 248, 0.1); color: var(--aksen-biru); font-weight: 600;}
+        tr:hover { background: #2a3a50; }
+
+        .kotak-info { background: rgba(56, 189, 248, 0.1); border-left: 5px solid var(--aksen-biru); padding: 15px 20px; border-radius: 0 4px 4px 0; margin-top: 15px; margin-bottom: 15px; }
+        .kotak-info.peringatan { background: rgba(251, 191, 36, 0.1); border-color: var(--aksen-kuning); }
+        .kotak-info.pedagogi { background: rgba(192, 132, 252, 0.1); border-color: var(--aksen-ungu); }
+
+        #kontrol { position: fixed; bottom: 30px; right: 40px; display: flex; gap: 10px; z-index: 1000;}
+        .tombol-nav { background: var(--bg-kartu); color: var(--teks-utama); border: 1px solid var(--garis-batas); width: 45px; height: 45px; border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
+        .tombol-nav:hover { background: var(--garis-batas); }
+        #bilah-kemajuan { position: fixed; bottom: 0; left: 0; height: 4px; background: var(--aksen-biru); width: 0%; transition: width 0.3s; z-index: 1000;}
+        #penghitung-salindia { position: fixed; bottom: 30px; left: 40px; font-family: 'Fira Code', monospace; color: var(--teks-sekunder); font-size: 1.1rem;}
+    </style>
+</head>
+<body>
+
+    <div id="bilah-kemajuan" style="width: 100%;"></div>
+    <div id="penghitung-salindia">20 / 20 (Sesi 3)</div>
+    <div id="kontrol">
+        <button class="tombol-nav" onclick="salindiaSebelumnya()">❮</button>
+        <button class="tombol-nav" onclick="salindiaSelanjutnya()">❯</button>
+    </div>
+
+    <div id="wadah-presentasi">
+
+        <!-- ================= SALINDIA 1 ================= -->
+        <div class="salindia rata-tengah">
+            <h1 style="margin-top: 80px;" class="warna-kuning">Sesi 3: Logika Percabangan (If-Else)</h1>
+            <h3 style="color: var(--teks-utama); font-weight: 400; font-size: 1.8rem; margin-top: 20px;">Mengajarkan Cara Komputer Mengambil Keputusan</h3>
+            <p class="teks-redup" style="margin-top: 40px;">Pelatihan Komprehensif Guru KKA SMP (Fase D)</p>
+        </div>
+
+        <!-- ================= SALINDIA 2 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Tujuan Pembelajaran</div>
+            <h2>Tujuan Sesi 3</h2>
+            <div class="kartu">
+                <p>Setelah mengikuti sesi ini, Bapak/Ibu fasilitator diharapkan mampu mengajarkan kepada siswa hal-hal berikut:</p>
+                <ol>
+                    <li>Mengenal tipe data Boolean (Benar/Salah) sebagai dasar logika program.</li>
+                    <li>Menggunakan operator perbandingan untuk memeriksa nilai variabel.</li>
+                    <li>Membuat struktur percabangan menggunakan <code>if</code>, <code>elif</code>, dan <code>else</code>.</li>
+                    <li>Memahami pentingnya penulisan spasi ke dalam (indentasi) pada Python.</li>
+                    <li>Menyusun logika kondisi bersarang (*nested if*) secara sistematis.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 3 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Konsep Dasar</div>
+            <h2>Konsep Dasar Percabangan Program</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Secara normal, komputer menjalankan baris kode secara lurus berurutan dari atas ke bawah. Namun, program sering kali harus memberikan hasil yang berbeda tergantung pada tindakan pengguna.</p>
+                    <p><strong>Logika Percabangan (*Conditional Logic*)</strong> memungkinkan program untuk mengecek suatu syarat, kemudian memutuskan baris kode mana yang harus dijalankan dan mana yang harus dilewati.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 4 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Tipe Data</div>
+            <h2>Tipe Data Boolean (Benar / Salah)</h2>
+            <p>Setiap pengecekan syarat pada program komputer hanya akan menghasilkan dua kemungkinan, yaitu Benar atau Salah. Dalam pemrograman, ini disebut tipe data Boolean.</p>
+            
+            <div class="tata-letak-ganda" style="margin-top: 20px;">
+                <div class="kolom kartu rata-tengah">
+                    <h3 class="warna-hijau" style="font-size: 2.5rem; margin-top: 15px;">True</h3>
+                    <p class="teks-redup">Syarat terpenuhi. Program akan menjalankan perintah.</p>
+                </div>
+                <div class="kolom kartu rata-tengah">
+                    <h3 class="warna-merah" style="font-size: 2.5rem; margin-top: 15px;">False</h3>
+                    <p class="teks-redup">Syarat tidak terpenuhi. Program akan mengabaikan perintah.</p>
+                </div>
+            </div>
+            <div class="kotak-info peringatan" style="margin-top: 20px;">
+                <p style="margin:0;">Aturan Penulisan Python: Kata <code>True</code> dan <code>False</code> wajib diawali dengan huruf kapital. Jika ditulis <code>true</code> (huruf kecil semua), program akan mengalami galat (*error*).</p>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 5 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Memeriksa Data</div>
+            <h2>Operator Perbandingan</h2>
+            <p>Untuk menentukan apakah sebuah syarat bernilai True atau False, Python menggunakan operator perbandingan.</p>
+            
+            <table>
+                <thead>
+                    <tr><th>Simbol</th><th>Arti / Kegunaan</th><th>Contoh Penggunaan</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="teks-tebal warna-biru"><code>==</code></td><td>Sama dengan</td><td><code>if nilai == 100:</code></td></tr>
+                    <tr><td class="teks-tebal warna-biru"><code>!=</code></td><td>Tidak sama dengan</td><td><code>if jawaban != "A":</code></td></tr>
+                    <tr><td class="teks-tebal warna-biru"><code>&gt;</code></td><td>Lebih besar dari</td><td><code>if suhu &gt; 35:</code></td></tr>
+                    <tr><td class="teks-tebal warna-biru"><code>&lt;=</code></td><td>Lebih kecil atau sama dengan</td><td><code>if umur &lt;= 12:</code></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= SALINDIA 6 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Catatan Pedagogi</div>
+            <h2>Perbedaan Penting: <code>=</code> dan <code>==</code></h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <div class="kotak-info pedagogi">
+                        <h3 class="warna-ungu">Fokus Perhatian Siswa:</h3>
+                        <p>Kesalahan menggunakan tanda sama dengan adalah kendala paling umum di kalangan siswa pemula. Jelaskan secara visual perbedaan fungsinya agar siswa tidak tertukar.</p>
+                    </div>
+                </div>
+                <div class="kolom kartu">
+                    <h3 class="warna-merah">Tanda Sama Dengan Tunggal (=)</h3>
+                    <p class="teks-redup" style="margin-bottom: 20px;">Fungsinya untuk <strong>menyimpan</strong> nilai ke dalam variabel.</p>
+                    <code class="language-python" style="background:#0f172a; padding:10px; border-radius:6px; display:block;">skor_ujian = 90</code>
+                    
+                    <h3 class="warna-hijau" style="margin-top: 20px;">Tanda Sama Dengan Ganda (==)</h3>
+                    <p class="teks-redup" style="margin-bottom: 20px;">Fungsinya untuk <strong>memeriksa atau membandingkan</strong> kesamaan dua nilai.</p>
+                    <code class="language-python" style="background:#0f172a; padding:10px; border-radius:6px; display:block;">if skor_ujian == 100:</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 7 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Percabangan Dasar</div>
+            <h2>Struktur Percabangan Tunggal: <code>if</code></h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Perintah <code>if</code> berfungsi seperti penjaga pintu. Perintah-perintah yang berada di bawahnya <strong>hanya akan dijalankan jika syarat bernilai True</strong>.</p>
+                    <div class="kotak-info peringatan">
+                        <h3 class="warna-kuning">Aturan Menulis Percabangan:</h3>
+                        <p>Akhiri baris <code>if</code> dengan tanda titik dua (<code>:</code>). Baris perintah di bawahnya wajib diberi jarak spasi ke dalam (<strong>Indentasi</strong>).</p>
+                    </div>
+                </div>
+                <div class="kolom kartu">
+<pre><code class="language-python">cuaca = "Hujan"
+
+if cuaca == "Hujan":
+    # Baris ini harus bergeser ke kanan (di-Tab)
+    print("Sedia payung sebelum keluar.")
+    print("Jalanan mungkin licin.")
+    
+# Baris yang sejajar di kiri akan selalu dijalankan
+print("Program selesai.")</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 8 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Tips Mengajar</div>
+            <h2>Analogi Pembelajaran: "Lemari Laci"</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <div class="kotak-info pedagogi">
+                        <p>Siswa SMP akan mudah mengerti konsep spasi ke dalam (indentasi) menggunakan analogi <strong>Lemari Laci</strong>:</p>
+                        <p>Anggap tulisan <code>if</code> sebagai bingkai laci lemari. Jika kita menekan tombol *Tab* atau spasi ke kanan, itu berarti kita memasukkan barang-barang (perintah kode) <strong>ke dalam laci</strong> tersebut.</p>
+                        <p>Jika syarat tidak terpenuhi (laci terkunci), maka komputer tidak akan pernah bisa membaca apalagi menjalankan perintah yang ada di dalam laci tersebut.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 9 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Praktik</div>
+            <h2>Praktik Level Mudah: Syarat Nonton Bioskop</h2>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">bioskop.py</span>
+                </div>
+<pre><code class="language-python"># Menetapkan batas umur
+batas_umur = 13
+
+umur_penonton = int(input("Berapa umur Anda? "))
+
+# Hanya tampilkan ucapan ini jika umur mencukupi
+if umur_penonton &gt;= batas_umur:
+    print("\nVerifikasi berhasil.")
+    print("Selamat menonton film!")
+
+print("Layanan tiket elektronik ditutup.")</code></pre>
+            </div>
+            <p class="teks-redup">Catatan untuk fasilitator: Minta peserta menguji kode dengan angka 10. Diskusikan mengapa kalimat "Selamat menonton film!" tidak muncul di layar.</p>
+        </div>
+
+        <!-- ================= SALINDIA 10 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Dua Kemungkinan</div>
+            <h2>Dua Pilihan Kondisi: <code>if - else</code></h2>
+            <p>Jika syarat <code>if</code> tidak terpenuhi (False), program secara otomatis akan melompati perintah tersebut. Namun, terkadang kita perlu memberikan instruksi alternatif.</p>
+            <p>Perintah <code>else</code> digunakan sebagai jalan keluar lain jika kondisi <code>if</code> gagal terpenuhi.</p>
+            
+            <div class="kartu" style="margin-top: 15px;">
+<pre><code class="language-python">if syarat_terpenuhi:
+    # Perintah jika syarat Benar (True)
+    jalankan_perintah_A()
+else:
+    # Perintah jika syarat Salah (False)
+    jalankan_perintah_B()</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 11 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Praktik</div>
+            <h2>Praktik Level Menengah: Cek Kelulusan Siswa</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+                    <div class="kepala-jendela">
+                        <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                        <span class="teks-berkas">kelulusan.py</span>
+                    </div>
+<pre><code class="language-python">kkm_sekolah = 75
+nilai_ujian = int(input("Masukkan nilai ujian siswa: "))
+
+if nilai_ujian &gt;= kkm_sekolah:
+    print("Status: TUNTAS")
+    print("Siswa dapat mengikuti program pengayaan.")
+else:
+    print("Status: BELUM TUNTAS")
+    print("Siswa dijadwalkan mengikuti remedial.")</code></pre>
+                </div>
+                <div class="kolom">
+                    <h3 class="warna-kuning">Instruksi Modifikasi (*Tweak*):</h3>
+                    <p>Ubah tanda <code>&gt;=</code> menjadi tanda <code>&gt;</code>. Mintalah peserta memasukkan angka pas 75. Diskusikan mengapa angka 75 sekarang dianggap belum tuntas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 12 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Banyak Kondisi</div>
+            <h2>Pemeriksaan Banyak Kondisi: <code>elif</code> (Else-If)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Dalam dunia nyata, keputusan sering kali tidak hanya "Ya" atau "Tidak". Jika terdapat banyak kemungkinan, kita menggunakan fungsi <code>elif</code>.</p>
+                    <div class="kotak-info peringatan">
+                        <p style="margin:0;"><strong>Penting:</strong> Komputer memeriksa syarat dari atas ke bawah. Saat ia menemukan satu syarat yang bernilai <code>True</code>, ia akan menjalankan blok tersebut lalu <strong>langsung keluar</strong> tanpa mengecek syarat-syarat di bawahnya lagi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 13 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Praktik</div>
+            <h2>Praktik Level Sulit: Kategori Peringkat Nilai</h2>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">peringkat_nilai.py</span>
+                </div>
+<pre><code class="language-python">skor = int(input("Masukkan total nilai Anda (1-100): "))
+
+if skor &gt;= 90:
+    print("Predikat: Amat Baik (A)")
+elif skor &gt;= 80:
+    print("Predikat: Baik (B)")
+elif skor &gt;= 70:
+    print("Predikat: Cukup (C)")
+else:
+    print("Predikat: Kurang (D)")</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 14 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Kondisi Bersarang</div>
+            <h2>Percabangan Bersarang (Nested If)</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom">
+                    <p>Beberapa aplikasi membutuhkan pemeriksaan ganda. Contohnya, sistem mengecek *username* terlebih dahulu, jika benar, barulah sistem mengecek *password*.</p>
+                    <p>Penulisan `if` di dalam `if` disebut Percabangan Bersarang.</p>
+                    <div class="kotak-info pedagogi">
+                        <h3 class="warna-ungu">Fokus Mengajar:</h3>
+                        <p>Beri perhatian khusus pada jarak spasi (indentasi). Kondisi yang berada di dalam harus bergeser lebih jauh ke arah kanan dibandingkan kondisi luarnya.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 15 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Praktik</div>
+            <h2>Praktik: Sistem Keamanan Kata Sandi Berjenjang</h2>
+            <div class="kartu">
+                <div class="kepala-jendela">
+                    <div class="titik titik-merah"></div><div class="titik titik-kuning"></div><div class="titik titik-hijau"></div>
+                    <span class="teks-berkas">login_sistem.py</span>
+                </div>
+<pre><code class="language-python">nama_pengguna = input("Masukkan Username: ")
+
+# Pengecekan Lapis Pertama
+if nama_pengguna == "admin_sekolah":
+    kata_sandi = input("Username benar. Masukkan Password: ")
+    
+    # Pengecekan Lapis Kedua (Maju 1 Tab)
+    if kata_sandi == "rahasia123":
+        print("Akses disetujui. Selamat datang.")
+    else:
+        print("Password salah. Akses ditolak.")
+else:
+    print("Username tidak terdaftar di dalam sistem.")</code></pre>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 16 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Logika Tambahan</div>
+            <h2>Operator Logika Dasar (and, or, not)</h2>
+            <p>Operator ini digunakan untuk menggabungkan dua atau lebih persyaratan di dalam satu baris kode, tanpa harus menyusun *if* secara bersarang.</p>
+            
+            <table>
+                <thead>
+                    <tr><th>Operator</th><th>Aturan Kerja</th><th>Contoh Penulisan</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="teks-tebal warna-biru"><code>and</code> (Dan)</td><td>Syarat terpenuhi jika <strong>semua kondisi</strong> bernilai Benar.</td><td><code>if nilai &gt; 80 and sikap == "Baik":</code></td></tr>
+                    <tr><td class="teks-tebal warna-biru"><code>or</code> (Atau)</td><td>Syarat terpenuhi jika <strong>salah satu saja</strong> bernilai Benar.</td><td><code>if hari == "Sabtu" or hari == "Minggu":</code></td></tr>
+                    <tr><td class="teks-tebal warna-biru"><code>not</code> (Bukan)</td><td>Membalikkan status logika (Dari Benar jadi Salah).</td><td><code>if not umur &lt; 17:</code></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================= SALINDIA 17 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Tantangan Kelas</div>
+            <h2>Tantangan Praktik: Syarat Beasiswa</h2>
+            <div class="tata-letak-ganda">
+                <div class="kolom kartu">
+<pre><code class="language-python">nilai_rata_rata = float(input("Masukkan nilai rata-rata: "))
+aktif_osis = input("Apakah siswa aktif OSIS? (Ya/Tidak): ")
+
+# Memeriksa dua syarat secara bersamaan
+if nilai_rata_rata &gt;= 85.0 and aktif_osis == "Ya":
+    print("Siswa memenuhi kriteria Beasiswa Jalur Prestasi.")
+else:
+    print("Siswa belum memenuhi kriteria.")</code></pre>
+                </div>
+                <div class="kolom">
+                    <h3 class="warna-kuning">Diskusi Guru:</h3>
+                    <p>Cobalah mengisi nilai 90.0, namun status OSIS "Tidak". Jelaskan mengapa beasiswa tidak diberikan padahal nilainya tinggi. Ini akan membantu siswa memahami seberapa tegas fungsi operator <code>and</code>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 18 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Membedah Galat</div>
+            <h2>Menganalisis Kesalahan Spasi (IndentationError)</h2>
+            <div class="kartu" style="border-left: 6px solid var(--aksen-merah); margin-bottom: 20px;">
+                <p style="font-family: &#39;Fira Code&#39;, monospace; color: var(--aksen-merah); margin:0;">
+                    IndentationError: expected an indented block after 'if' statement on line 3
+                </p>
+            </div>
+            <div class="kotak-info pedagogi">
+                <h3 class="warna-ungu">Solusi Penanganan Siswa:</h3>
+                <p>Galat ini muncul ketika baris setelah <code>if</code> lupa diberi jarak spasi ke dalam (Indentasi). Ajarkan siswa untuk menghapus spasi yang berantakan, kembali ke tanda titik dua (<code>:</code>), lalu tekan <strong>Enter</strong> agar aplikasi otomatis mengatur jaraknya dengan rapi.</p>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 19 ================= -->
+        <div class="salindia">
+            <div class="label-sesi">Sesi 3: Rangkuman</div>
+            <h2>Rangkuman Capaian Pembelajaran Sesi 3</h2>
+            <div class="kartu">
+                <ul>
+                    <li>Tipe Data Boolean (True/False) adalah landasan utama dalam pengambilan keputusan di komputer.</li>
+                    <li>Syarat diperiksa menggunakan operator perbandingan matematika (<code>==</code>, <code>&gt;</code>, <code>&lt;</code>).</li>
+                    <li>Python menyediakan instruksi <code>if</code>, <code>elif</code>, dan <code>else</code> untuk menangani kemungkinan-kemungkinan hasil dari sebuah syarat.</li>
+                    <li>Jarak tulisan (Indentasi) bukanlah hiasan, melainkan aturan ketat yang menyatukan blok kode pada Python.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= SALINDIA 20 ================= -->
+        <div class="salindia rata-tengah aktif">
+            <div class="label-sesi">Transisi Sesi</div>
+            <h1 class="warna-kuning" style="margin-top: 80px;">Akhir Sesi 3</h1>
+            <p>Program yang kita buat sekarang sudah cukup pintar untuk mengambil keputusan dasar.</p>
+            <div class="kotak-info rata-tengah" style="width: 50%; margin: 30px auto; text-align: left;">
+                <p><strong>Persiapan Sesi Selanjutnya (Sesi 4):</strong> Kita akan masuk ke materi perulangan (*looping*). Sebuah teknik agar kode tidak perlu diketik berulang-ulang ketika kita ingin melakukan tugas yang sama berkali-kali.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script Pengaturan Salindia -->
+    <script>
+        let salindiaAktif = 0;
+        const daftarSalindia = document.querySelectorAll('.salindia');
+        const bilahKemajuan = document.getElementById('bilah-kemajuan');
+        const penghitung = document.getElementById('penghitung-salindia');
+
+        function perbaruiSalindia() {
+            daftarSalindia.forEach(slide => slide.classList.remove('aktif'));
+            daftarSalindia[salindiaAktif].classList.add('aktif');
+            
+            const kemajuan = ((salindiaAktif + 1) / daftarSalindia.length) * 100;
+            bilahKemajuan.style.width = `${kemajuan}%`;
+            penghitung.innerText = `${salindiaAktif + 1} / 20 (Sesi 3)`;
+        }
+
+        function salindiaSelanjutnya() {
+            if (salindiaAktif < daftarSalindia.length - 1) {
+                salindiaAktif++; perbaruiSalindia();
+            }
+        }
+
+        function salindiaSebelumnya() {
+            if (salindiaAktif > 0) {
+                salindiaAktif--; perbaruiSalindia();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                salindiaSelanjutnya();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                salindiaSebelumnya();
+            }
+        });
+
+        perbaruiSalindia();
+    </script>
+
+</body></html>
